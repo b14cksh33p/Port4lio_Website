@@ -45,6 +45,11 @@
     font-size: 1rem;
     font-weight: bold;
 }
+.btn{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 .body{
     display: flex;
 }
@@ -61,37 +66,24 @@
 }
 .carousel{
    width: 50%;
-   margin: 10rem auto;
+   margin-left: 25vw;
 }
 .slide img {
     width: 20rem;
-    margin: 0 auto;
   }
   
   .slide {
-    transform: scale(0.2);
+    transform: scale(0.8);
     transition: transform 300ms;
     opacity: 0.5;
   }
   
   .activeSlide {
-    transform: scale(1.1);
+    transform: scale(1);
     opacity: 1;
   }
   
 
-  
-
-  
-  .next {
-    right: 0%;
-    top: 50%;
-  }
-  
-  .prev {
-    left: 0%;
-    top: 50%;
-  }
 
 #lady-section{
     display: flex;

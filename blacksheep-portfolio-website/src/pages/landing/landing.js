@@ -32,7 +32,7 @@ function Landing() {
     infinite: true,
     lazyLoad: true,
     speed: 300,
-    slidesToShow: 1,
+    slidesToShow: 2,
     centerMode: true,
     centerPadding: 0,
     nextArrow: <NextArrow />,
@@ -46,11 +46,11 @@ function Landing() {
           <img id='nav-bar' src={Nav_Bar} alt='Navigation Bar'/>
         </div>
         <div className='navigation-bar'>
-          <div>Home</div>
-          <div>Student Profile</div>
-          <div>Weekly Reports</div>
-          <div><a on>Log In</a></div>
-          <div>Sign Up</div>
+          <a href="#"><div className='btn'>Home</div></a>
+          <a href="#"><div className='btn'>Student Profile</div></a>
+          <a href="#"><div className='btn'>Weekly Reports</div></a>
+          <a href="../login"><div className='btn'>Log In</div></a>
+          <a href="/signup/primary-information"><div className='btn'>Sign Up</div></a>
         </div>
         <div className='body'>
           <div id='hero-section'>
