@@ -1,4 +1,4 @@
-import './login.css';
+import '../login/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
@@ -26,7 +26,7 @@ function Login() {
                   <input type='submit' className='submit-btn-login' value='Login'></input>
                 </div>
                 <div className='signin-btn'>
-                  <span className='span-login'>Don't have an account? <a href='#'>Sign up here</a></span>
+                  <span className='span-login'>Don't have an account? <a href='/signup'>Sign up here</a></span>
                 </div>
               </div>
 

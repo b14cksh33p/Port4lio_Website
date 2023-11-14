@@ -1,0 +1,14 @@
+.sU-header{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: 100%;
+    background-color: black;
+    color: #8ACAE6;
+    padding-left: 24px;
+    z-index: 10;
+}
+.sU-header h1{
+    font-size: 40px;
+}

@@ -1,4 +1,4 @@
-import './landing.css'
+import '../landing/landing.css';
 
 function Landing() {
     return (
