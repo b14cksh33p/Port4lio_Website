@@ -27,9 +27,9 @@
     min-height: 100vh;
 }
 
-.sU-pI-container{
+.sU-peI-container{
     background-color: rgba(255, 255, 255, 0.75);
-    height: 700px;
+    height: 800px;
     width: 640px;
     display: flex;
     flex-direction: column;
@@ -39,26 +39,26 @@
     margin-top: 40px;
     z-index: 3;
 }
-.pI-head h1{
+.peI-head h1{
     text-align: center;
-    font-size: 72px;
+    font-size: 48px;
     font-weight: 800;
     padding: 18px 0;
     color: var(--PRIMARY);
 }
-.pI-head p{
+.peI-head p{
     width: 711px;
     padding-left: 64px;
     font-weight: 700;
     font-size: 16px;
 }
-.pI-infos{
+.peI-infos{
     display: flex;
     flex-direction: column;
     gap: 18px;
     margin-top: 12px;
 }
-.pI-infos input{
+.peI-infos input{
     height: 48px;
     width: 500px;
     background-color: var(--GRAY);
@@ -67,7 +67,7 @@
     border: var(--FONT_GRAY) solid 1px;
     border-radius: 5px;
 }
-.pI-infos p{
+.peI-infos p{
     color: var(--FONT_GRAY);
     margin-bottom: 0px;
     font-size: 14px;

@@ -7,6 +7,7 @@
     --gradient-background-color: linear-gradient(107deg, rgba(242, 202, 138, 0.92) 2.72%, rgba(245, 245, 245, 0.06) 94.02%, rgba(217, 217, 217, 0.00) 94.02%);   
     --dark-orange-color: #FB8500;
     overflow-y: auto !important;
+    --BUTTON-BEIGE: #F0CB90;
 }
 
 .sU-wrapper{
@@ -27,9 +28,9 @@
     min-height: 100vh;
 }
 
-.sU-pI-container{
+.sU-pIR-container{
     background-color: rgba(255, 255, 255, 0.75);
-    height: 700px;
+    height: 800px;
     width: 640px;
     display: flex;
     flex-direction: column;
@@ -39,40 +40,37 @@
     margin-top: 40px;
     z-index: 3;
 }
-.pI-head h1{
+.pIR-head h1{
     text-align: center;
-    font-size: 72px;
+    font-size: 48px;
     font-weight: 800;
     padding: 18px 0;
     color: var(--PRIMARY);
 }
-.pI-head p{
+.pIR-head p{
     width: 711px;
     padding-left: 64px;
     font-weight: 700;
     font-size: 16px;
 }
-.pI-infos{
+.pIR-infos{
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 28px;
     margin-top: 12px;
 }
-.pI-infos input{
-    height: 48px;
-    width: 500px;
-    background-color: var(--GRAY);
-    padding-left: 20px;
-    font-size: 16px;
-    border: var(--FONT_GRAY) solid 1px;
+.pIR-infos button{
+    background-color: var(--BUTTON-BEIGE);
     border-radius: 5px;
+    height: 48px;
+    width: 300px;
+    font-weight: 600;
+    color: var(--FONT_GRAY)
 }
-.pI-infos p{
-    color: var(--FONT_GRAY);
-    margin-bottom: 0px;
-    font-size: 14px;
+.pIR-infos button:hover{
+    filter: brightness(0.9);
+}
 
-}
 .button-next{
     margin-top: 32px;
 

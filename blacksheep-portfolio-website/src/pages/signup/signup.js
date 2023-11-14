@@ -3,8 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './navigation/navigation.js';
 import Banner from '../../assets/images/background-banner.png';
 import Header from '../signup/header/header.js';
+import { useNavigate } from 'react-router-dom';
+
+
 
 function Signup() {
+  const navigate = useNavigate();
+
     return (
       <div className='sU-wrapper'>
         <Header></Header>
@@ -37,7 +42,7 @@ function Signup() {
             </div>
           </div>
           <div className='button-next'>
-            <button id='next'>Next</button>
+            <button id='next' onClick={()=>navigate('/signup/personal-information')}>Next</button>
           </div>
         </div>
       </div>
