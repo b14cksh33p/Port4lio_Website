@@ -13,7 +13,7 @@
     background: var(--gradient-background-color);
 
 }
-.sU-wrapper img{
+.sU-wrapper #banner{
     position: fixed;
     transform: translate(-1%, 0);
     max-width: auto;

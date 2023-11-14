@@ -4,6 +4,7 @@ import Navigation from './../navigation/navigation.js';
 import Banner from '../../../assets/images/background-banner.png';
 import Header from '../../signup/header/header.js';
 import { useNavigate } from 'react-router-dom';
+import Back from '../../../assets/images/back.png'
 
 function PreInternReq() {
   const navigate = useNavigate();
@@ -11,7 +12,8 @@ function PreInternReq() {
     return (
       <div className='sU-wrapper'>
         <Header></Header>
-        <img src={Banner}></img>
+        <img src={Banner} id='banner'></img>
+        <img src={Back} id='back' onClick={()=>navigate('/signup/personal-information')}></img>
       <div className='container main'>
         <div className='sU-pIR-container'>
           <div className='pIR-head'>

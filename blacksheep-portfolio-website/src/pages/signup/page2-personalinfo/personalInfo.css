@@ -13,7 +13,7 @@
     background: var(--gradient-background-color);
 
 }
-.sU-wrapper img{
+.sU-wrapper #banner{
     position: fixed;
     transform: translate(-1%, 0);
     max-width: auto;
@@ -90,4 +90,11 @@
     #next:hover{
         filter: brightness(0.9);
     }
+}
+#back{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 56px;
+    width: 120px;
+    height: 40px;
 }

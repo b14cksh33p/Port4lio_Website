@@ -49,7 +49,7 @@ function Landing() {
           <div>Home</div>
           <div>Student Profile</div>
           <div>Weekly Reports</div>
-          <div>Log In</div>
+          <div><a on>Log In</a></div>
           <div>Sign Up</div>
         </div>
         <div className='body'>
