@@ -30,7 +30,7 @@ function Login() {
 
               <div className='input-box-login'>
                 <div className='port4lio-text-login'>PORT4LIO</div>
-                <div className='welcome-text-login'>Welcome back, User!</div>
+                <div className='welcome-text-login'>Welcome back, Iskolar!</div>
                 <form onSubmit={handleLogin}>
                 <div className='input-field-login'>
                   <input type='text' className='input-login' id='email-input-login' required autoComplete='off' value={emailLogin} onChange={(e) => setEmail(e.target.value)}></input>
