@@ -10,14 +10,14 @@
 *::after{
     box-sizing: border-box;
 }
-body{
+.loginBody{
     margin: 0;
     padding: 0
 }
 
 
 /*LAYOUT AND STRUCTURE*/
-.wrapper{
+.wrapper-login{
     background: var(--gradient-background-color);
     padding: 0 20px 0 20px;
 }
@@ -50,18 +50,18 @@ body{
   position: relative;
   margin-bottom: 20px;
 }
-.input-box{
+.input-box-login{
   width: 330px;
   box-sizing: border-box;
 }
 
-.input-field{
+.input-field-login{
     display: flex;
     flex-direction: column;
     position: relative;
     padding: 0 10px 0 10px;
 }
-.input{
+.input-login{
     height: 45px;
     width: 100%;
     background: transparent;
@@ -89,35 +89,35 @@ body{
 
 
 /*COMPONENTS*/
-.input-box .welcome-text{
+.input-box-login .welcome-text-login{
     font-weight: 700;
     text-align: center;
     margin-bottom: 25px;
 }
-.input-box .port4lio-text{
+.input-box-login .port4lio-text-login{
     font-size: 5vw;
     font-weight: 700;
     color: var(--dark-orange-color);
 }
-.input-box .input-field label{
+.input-box-login .input-field-login .label-login{
     position: absolute;
     top: 10px;
     left: 10px;
     pointer-events: none;
     transition: .5s;
 }
-.input-field input:focus ~ label
+.input-field-login input:focus ~ .label-login
    {
     top: -10px;
     font-size: 13px;
   }
-  .input-field input:valid ~ label
+  .input-field-login input:valid ~ .label-login
   {
    top: -10px;
    font-size: 13px;
    color: var(--dark-orange-color);
  }
- .input-field .input:focus, .input-field .input:valid{
+ .input-field-login .input:focus, .input-field-login .input:valid{
     border-bottom: 1px solid var(--dark-orange-color);
  }
  .submit-btn-login:hover{
@@ -133,6 +133,7 @@ body{
     text-decoration: underline;
     color: #000;
 }
+
 
 
 /*MEDIA QUERY*/
