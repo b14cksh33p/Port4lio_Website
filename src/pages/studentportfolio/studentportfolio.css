@@ -14,12 +14,14 @@
     height: 100vh;
     width: 100vw;
     background-color: var(--background);
+
 }
 .sP-banner{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 48px;
+    padding-top: 64px;
+
 }
 .sP-heading h1{
     text-align: center;

@@ -1,0 +1,77 @@
+:root{
+    --dark-orange-color:#FB8500;
+    --black:#000000;
+    --sky-blue:#8ACAE6;
+    --orange:#DBAA5A;
+    --gray:#605757;
+    --primary:#f9e0ae; 
+    --gradient-background-color: linear-gradient(107deg, rgba(242, 202, 138, 0.92) 2.72%, rgba(245, 245, 245, 0.06) 94.02%, rgba(217, 217, 217, 0.00) 94.02%);   
+    --gradient-header-color: linear-gradient(to bottom, var(--black), var(--dark-orange-color));
+    --font: #682c0e;
+    --bg_button: #c24914;
+   
+}
+
+.header{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 72px;
+    width: 100vw;
+    color: #8ACAE6;
+    padding-left: 80px;
+    z-index: 10;
+    padding-right: 0 !important;
+}
+.header h1{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--font);
+}
+.title{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.navigation{
+    margin-left: auto;
+    transform: translateX(-180px);
+    display: flex;
+    gap: 24px;
+
+}
+.navigation button{
+    background-color: var(--bg_button);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 0.05em;
+    padding: 4px 16px;
+}
+.navigation button:hover{
+    filter: brightness(0.9);
+}
+.navigation a{
+    font-weight: 700;
+    padding-right: 32px;
+}
+.title img{
+    padding-bottom: 16px;
+    width:24px;
+}
+.button-logout{
+    margin-left: auto;
+    padding-right: 80px;
+}
+.button-logout button{
+    background-color: var(--bg_button);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 0.05em;
+    padding: 4px 20px;
+}

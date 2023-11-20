@@ -46,15 +46,17 @@
 .footer h4{
     font-weight: 700;
 }
-.links, .contacts{
+.links h4, .contacts h4{
     color: #000000 !important;
 }
 .links p{
     width: 160px;
     margin: 0;
+    color: var(--gray);
 }
 .contacts p{
     margin: 0;
+    color: var(--gray);
 }
 .footer-logos{
     margin-left: auto;
