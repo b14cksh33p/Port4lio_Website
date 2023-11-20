@@ -13,8 +13,8 @@ function PostInternReq() {
     return (
       <div className='sU-wrapper'>
         <Header></Header>
-        <img src={Banner} id='banner'></img>
-        <img src={Back} id='back' onClick={()=>navigate('/signup/pre-internship-requirements')}></img>
+        <img src={Banner} id='banner' alt='Banner'></img>
+        <img src={Back} id='back' onClick={()=>navigate('/signup/pre-internship-requirements')} alt='Back Button'></img>
       <div className='container main'>
         <div className='sU-poIR-container'>
           <div className='poIR-head'>
@@ -44,7 +44,7 @@ function PostInternReq() {
             </div>
           </div>
           <div className='button-next'>
-            <button id='next'>Next</button>
+            <button id='next'>Generate Portfolio</button>
           </div>
         </div>
       </div>

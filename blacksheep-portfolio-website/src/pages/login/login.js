@@ -1,11 +1,14 @@
 import './login.css';
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
   
   const [emailLogin, setEmail] = useState('');
   const [passwordLogin, setPassword] = useState('')
+  
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     if (emailLogin && passwordLogin && emailLogin.includes('@')) {
@@ -23,11 +26,9 @@ function Login() {
       <div className='wrapper-login'>
         <div className='container-login main'>
           <div className='row'>
-            <div className='col-md-6 side-image'>
+            <div className='col-md-6 side-image' onClick={()=>navigate('/')}>
             </div>
-            
             <div className='col-md-6 right'>
-
               <div className='input-box-login'>
                 <div className='port4lio-text-login'>PORT4LIO</div>
                 <div className='welcome-text-login'>Welcome back, Iskolar!</div>

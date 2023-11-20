@@ -12,7 +12,7 @@ function Signup() {
 
     return (
       <div className='sU-wrapper'>
-        <Header></Header>
+        <Header/>
         <img src={Banner} id='banner'></img>
       <div className='container main'>
         <div className='sU-pI-container'>

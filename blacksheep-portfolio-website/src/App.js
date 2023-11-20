@@ -8,6 +8,7 @@ import SignupPage from '../src/pages/signup/signup.js';
   import PIreq from '../src/pages/signup/page3-preinternreq/preInternreq.js';
   import PoIreq from '../src/pages/signup/page4-postinternreq/postInterreq.js';
 import LoginPage from '../src/pages/login/login.js';
+import StudentPortfolioPage from './pages/studentportfolio/studentportfolio.js';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup/pre-internship-requirements" element={<PIreq/>} />
           <Route path="/signup/post-internship-requirements" element={<PoIreq/>} />
         <Route path="/login" element={<LoginPage/>} />
+        <Route path="/student-portfolio" element={<StudentPortfolioPage/>} />
         {/* Other routes go here */}
       </Routes>
     </Router>

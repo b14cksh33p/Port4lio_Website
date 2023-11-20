@@ -1,0 +1,65 @@
+:root{
+    --dark-orange-color:#FB8500;
+    --black:#000000;
+    --sky-blue:#8ACAE6;
+    --orange:#DBAA5A;
+    --gray:#605757;
+    --primary:#f9e0ae; 
+    --gradient-background-color: linear-gradient(107deg, rgba(242, 202, 138, 0.92) 2.72%, rgba(245, 245, 245, 0.06) 94.02%, rgba(217, 217, 217, 0.00) 94.02%);   
+    --gradient-header-color: linear-gradient(to bottom, var(--black), var(--dark-orange-color));
+    --font: #682c0e;
+    --bg_button: #c24914;
+}
+
+.footer{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 192px;
+    width: 100%;
+    background-color: var(--primary);
+    color: #8ACAE6;
+    padding-left: 120px;
+    z-index: 10;
+}
+.footer h1{
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--font);
+}
+.title{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-right: 10vw;
+}
+.title img{
+    padding-bottom: 16px;
+    width:32px;
+}
+.text-content{
+    margin: 0 auto;
+    display: flex;
+    gap: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.footer h4{
+    font-weight: 700;
+}
+.links, .contacts{
+    color: #000000 !important;
+}
+.links p{
+    width: 160px;
+    margin: 0;
+}
+.contacts p{
+    margin: 0;
+}
+.footer-logos{
+    margin-left: auto;
+    margin-right: 32px;
+}
+.footer-logos img{
+    width:120px;
+}

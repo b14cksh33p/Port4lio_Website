@@ -45,7 +45,9 @@
     font-size: 48px;
     font-weight: 800;
     padding: 18px 0;
-    color: var(--PRIMARY);
+    background-image: linear-gradient(to top, var(--PRIMARY_DARK), var(--PRIMARY));
+    color: transparent;
+    -webkit-background-clip: text;
 }
 .pIR-head p{
     width: 711px;
