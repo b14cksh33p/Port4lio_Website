@@ -2,7 +2,6 @@ import './login.css';
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from '../header/header.js'
 
 function Login() {
   
@@ -25,7 +24,6 @@ function Login() {
 
     return (
       <div className='wrapper-login'>
-        <Header/>
         <div className='container-login main'>
           <div className='row'>
             <div className='col-md-6 side-image' onClick={()=>navigate('/')}>
