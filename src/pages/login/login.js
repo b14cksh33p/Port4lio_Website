@@ -2,7 +2,7 @@ import './login.css';
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import firebase from '../../firebaseConfig.js';
+import Header from '../header/header.js'
 
 function Login() {
   
