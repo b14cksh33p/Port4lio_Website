@@ -2,6 +2,7 @@ import './login.css';
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import firebase from '../../firebaseConfig.js';
 
 function Login() {
   
@@ -21,6 +22,21 @@ function Login() {
       setPassword('');
     }
   };
+
+  const submit = async (e) =>{
+    e.preventDefault();
+    try{
+      const user =  await firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin)
+      if (user)
+      {
+        alert("Login Successfully")
+        window.location.href = '/';
+      }
+    }
+    catch (error){
+      alert(`Authentication failed: ${error}`);
+    }
+  }
 
     return (
       <div className='wrapper-login'>
@@ -42,7 +58,7 @@ function Login() {
                   <label htmlFor="password-input-login" className='label-login'>Password</label> 
                 </div>
                 <div className='input-field-login'>
-                  <input type='submit' className='submit-btn-login' value='Login'></input>
+                  <button type='submit' className='submit-btn-login' onClick={submit}>Login</button>
                 </div>
                 </form>
                 <div className='signin-btn'>
