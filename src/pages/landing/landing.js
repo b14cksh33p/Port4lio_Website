@@ -7,8 +7,10 @@ import Image3 from '../../assets/images/landing_main3.png'
 import { useNavigate } from 'react-router-dom';
 
 
+
 function Landing() {
 
+  
   const navigate = useNavigate();
 
     return (
@@ -46,7 +48,7 @@ function Landing() {
               </div>
             </div>
           </div>
-          <div className='landing-about'>
+          <div className='landing-about' id='target-section'>
               <h3 style={{paddingBottom:'40px'}}>ABOUT:</h3>
               <h4 style={{paddingBottom:'32px'}}>On-The-Job-Training {'('}OJT{')'}</h4>
               <p style={{paddingBottom:'24px'}}>is a practical approach to acquiring new competencies and skills needed for a job in a real, or close to a real, working environment.</p>

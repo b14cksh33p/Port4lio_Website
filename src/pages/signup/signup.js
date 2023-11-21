@@ -66,11 +66,11 @@ function Signup() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}></input>
             </div>
-            <button onClick={submit}>Sign Up</button>
           </div>
           <div className='button-next'>
-            <button id='next' onClick={()=>navigate('/signup/personal-information')}>Next</button>
+            <button id='next' onClick={submit}>Sign Up</button> {/* Temporary Sign Up Button for Email and Password creation to database*/}
           </div>
+
         </div>
       </div>
     </div>

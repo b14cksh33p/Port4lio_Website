@@ -3,6 +3,11 @@ import Icon from '../../../assets/images/icon.png';
 import { useNavigate } from 'react-router-dom';
 
 function Header(){
+    const handleScrollToTop = () => {
+        window.scrollTo({
+          top: 1300,
+          behavior: 'smooth',
+        })}
 
     const navigate = useNavigate();
 
@@ -14,7 +19,7 @@ function Header(){
             </div>
             <div className='landing-navigation'>
                 <a>Home</a>
-                <a>About</a>
+                <a onClick={handleScrollToTop}>About</a>
                 <button id='login' onClick={()=> navigate('/login')}>Log In</button>
                 <button id='signUp'onClick={()=> navigate('/signup/primary-information')}>Sign Up</button>
             </div>
