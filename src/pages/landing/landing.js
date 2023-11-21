@@ -1,65 +1,70 @@
 import './landing.css'
-import Slider from 'react-slick'
-import { useState } from "react";
-import Nav_Bar from '../../assets/images/Nav_Bar.svg'
-import Logo_Section from '../../assets/images/logo-section.svg'
-import Lady_Section from '../../assets/images/lady_section.svg'
-import hardware from '../../assets/images/hardware.svg'
-import ai from '../../assets/images/AI.svg'
-import system_dev from '../../assets/images/system_dev.svg'
 import Header from '../landing/header/header.js';
 import Footer from '../../pages/footer/footer.js';
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import Image1 from '../../assets/images/landing_main1.png'
+import Image2 from '../../assets/images/landing_main2.png'
+import Image3 from '../../assets/images/landing_main3.png'
+import { useNavigate } from 'react-router-dom';
 
 
-const images = [ai, hardware, system_dev];
 function Landing() {
-  const NextArrow = ({ onClick }) => {
-    return (
-      <div className="arrow next" onClick={onClick}>
-             </div>
-    );
-  };
 
-  const PrevArrow = ({ onClick }) => {
-    return (
-      <div className="arrow prev" onClick={onClick}>
-        
-      </div>
-    );
-  };
+  const navigate = useNavigate();
 
-  const [imageIndex, setImageIndex] = useState(0);
-  const settings = {
-    infinite: true,
-    lazyLoad: true,
-    speed: 300,
-    slidesToShow: 2,
-    centerMode: true,
-    centerPadding: 0,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    beforeChange: (current, next) => setImageIndex(next),
-  };
     return (
       <div className='wrapper-landing'> 
       <Header/>
         <div className='body'>
-          <div id='hero-section'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies tristique nulla aliquet enim tortor at auctor urna. Ut tellus elementum sagittis vitae et leo duis. Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Magna etiam tempor orci eu lobortis elementum nibh. Ultricies mi eget mauris pharetra et ultrices neque ornare aenean. Etiam erat velit scelerisque in dictum non. Purus faucibus ornare suspendisse sed nisi lacus sed viverra. Id aliquet lectus proin nibh nisl condimentum id venenatis. Neque egestas congue quisque egestas diam in. Id ornare arcu odio ut. Nibh ipsum consequat nisl vel pretium lectus quam id leo. Pellentesque habitant morbi tristique senectus et netus et malesuada. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus. Turpis nunc eget lorem dolor. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Interdum velit laoreet id donec ultrices tincidunt arcu. Curabitur vitae nunc sed velit dignissim sodales. Sociis natoque penatibus et magnis dis. Quam lacus suspendisse faucibus interdum. In ornare quam viverra orci sagittis eu volutpat. Nam aliquam sem et tortor consequat id. Est placerat in egestas erat.
-          </div>
-          <img id='logo-section' src={Logo_Section} alt='Logos'/>
-        </div>
-        <div className='carousel'>
-          <Slider {...settings}>
-            {images.map((img, idx) => (
-              <div className={idx === imageIndex ? "slide activeSlide" : "slide"}>
-                <img src={img} alt={img} />
+          <div className='landing-main'>
+            <div className='main-content s1'>
+              <div className='content-text'>
+                <h4>BS in Computer Engineering 3-4</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam  voluptates sed beatae?</p>
               </div>
-            ))}
-        </Slider>
+              <div className='content-image'>
+                <img src={Image2} alt='banner'/>
+              </div>
+            </div>
+            <div className='main-content s2'>
+              <div className='content-image'>
+                <img src={Image1} alt='banner'/>
+              </div>
+              <div className='content-text'>
+              <h4>Welcome to our OJT <span style={{color:'#682c0e'}}>PORT4LIO!</span></h4>
+                <p>• Get to know our OJT experience</p>
+                <p>• Get to know our HTEs</p>
+                <button onClick={()=>navigate('/login')}>Login</button>
+              </div>
+            </div>
+            <div className='main-content s3'>
+              <div className='content-text'>
+              <h4>Start using <span style={{color:'#682c0e'}}>PORT4LIO</span> by creating your free account.</h4>
+                <button onClick={()=>navigate('/signup/primary-information')}>Sign Up</button>
+              </div>
+              <div className='content-image'>
+                <img src={Image3} alt='banner'/>
+              </div>
+            </div>
+          </div>
+          <div className='landing-about'>
+              <h3 style={{paddingBottom:'40px'}}>ABOUT:</h3>
+              <h4 style={{paddingBottom:'32px'}}>On-The-Job-Training {'('}OJT{')'}</h4>
+              <p style={{paddingBottom:'24px'}}>is a practical approach to acquiring new competencies and skills needed for a job in a real, or close to a real, working environment.</p>
+              <p style={{paddingBottom:'40px'}}>It is often used to learn how to use particular tools or equipment in a live-work practice, simulated, or training environment.</p>
+              <h4>On-The-Job-Training Adviser</h4>
+              <div className='about-adviser'>
+                  <div className='adviser-image'>
+
+                  </div>
+                  <div className='adviser-description'>
+                    <p style={{paddingBottom:'40px'}}><b>Ma'am Angela Israel</b></p>
+                    <p>Adviser, BSCpE 3-4</p>
+                    <p>CMPE 30213 On-The-Job-Training</p>
+                    <p>{'('}OJT 1{')'}</p>
+                  </div>
+              </div>
+          </div>
         </div>
-        <img id='lady-section' src={Lady_Section} alt='Lady'/>
         <div className='footer'>
         </div>
         <Footer/>
