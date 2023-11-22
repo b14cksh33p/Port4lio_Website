@@ -5,18 +5,32 @@ import Icon from '../../assets/images/icon.png';
 import { useNavigate } from 'react-router-dom';
 
 
-
 function Header() {
-  const [currentPage, setCurrentPage] = useState(0)
+  //highlighted navigation page
+  const link = window.location.href;
+  var x = 0;
+  if(link.includes('/student-portfolio')){
+    x = 1;
+  }else if(link.includes('weekly-reports')){
+    x = 2;
+  }else if(link.includes('/company-profiles')){
+    x = 3;
+  }else if(link.includes('/assessments')){
+    x = 4;
+  }else{
+    x = 0; 
+  }
+
+  const [currentPage, setCurrentPage] = useState(x)
 
   const navigate = useNavigate();
 
   const pages = [
     { title: 'Home', urlPath: '/home', magicColor: '#c24914'},
     { title: 'Student Portfolio', urlPath: '/student-portfolio', magicColor: '#c24914'},
-    { title: 'Weekly Reports', urlPath: '/student-portfolio', magicColor: '#c24914'},
-    { title: 'Company Profiles', urlPath: '/student-portfolio', magicColor: '#c24914'},
-    { title: 'Assessments', urlPath: '/student-portfolio', magicColor: '#c24914'},
+    { title: 'Weekly Reports', urlPath: '/weekly-reports', magicColor: '#c24914'},
+    { title: 'Company Profiles', urlPath: '/company-profiles', magicColor: '#c24914'},
+    { title: 'Assessments', urlPath: '/home', magicColor: '#c24914'},
   ]
 
   return (

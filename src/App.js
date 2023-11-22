@@ -10,6 +10,8 @@ import SignupPage from '../src/pages/signup/signup.js';
 import LoginPage from '../src/pages/login/login.js';
 import StudentPortfolioPage from './pages/studentportfolio/studentportfolio.js';
 import HomePage from '../src/pages/home/home.js';
+import WeeklyReportsPage from '../src/pages/weeklyreports/weeklyreports.js';
+import CompanyProfilesPage from '../src/pages/companyprofiles/companyprofiles.js';
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/student-portfolio" element={<StudentPortfolioPage/>} />
         <Route path="/home" element={<HomePage/>} />
+        <Route path="/weekly-reports" element={<WeeklyReportsPage/>} />
+        <Route path="/company-profiles" element={<CompanyProfilesPage/>} />
         {/* Other routes go here */}
       </Routes>
     </Router>

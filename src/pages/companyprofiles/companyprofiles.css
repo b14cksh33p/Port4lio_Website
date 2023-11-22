@@ -15,7 +15,7 @@
     overflow-x: hidden;
 }
 
-.wrapper-sP{
+.wrapper-cP{
     display: block;
     justify-content: center;
     width: 100px !important;
@@ -50,19 +50,19 @@
     top: 36%;
     z-index: 1;
 }
-.sP-first-section{
+.cP-first-section{
     height: 100vh;
 }
-.sP-text{
+.cP-text{
     padding-top: 28vh;
     padding-left: 104px;
 }
-.sP-text h1{
+.cP-text h1{
     font-size: 88px;
     font-weight: 700;
     width: 900px;
 }
-.sP-text p{
+.cP-text p{
     margin-top: 32px;
     font-size: 28px;
     font-weight: 400;
@@ -70,30 +70,55 @@
     color: var(--gray)
 }
 
-.sP-second-section{
+.cP-second-section{
     position: relative;
-    height: 102vh;
+    height: auto;
     width: 100vw;
     z-index: 99;
     background-color: white;
-    padding-bottom: 960px;
-    padding-top: 64px;
+    padding-top: 280px;
     padding-left: 104px;
     padding-right: 80px;
 }
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); /* Creates six columns with equal width */
-    gap: 16px; /* Adjust the gap between columns */
-    row-gap: 40px;
-    padding-top: 80px;
-  }
-  
-  /* Style for each grid item (column) */
-  .grid-item {
+.border{
+    position: absolute;
+    transform: translateX(-50vw);
+    height: 160px;
+    width: 200vw;
+    border: none !important;
+    background-color: var(--image_bg);
+}
+
+.company{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 128px;
+    padding-bottom: 128px;
+}
+.company-image{
     padding: 16px;
-    width: 192px;
-    height: 192px;
-    background-color: var(--image_bg2);
+    width: 480px;
+    height: 480px;
+    background-color: var(--image_bg);
     border-radius: 25px;
-  }
+}
+
+.company-description h3{
+    font-size: 48px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.company-description h4{
+    padding-top: 16px;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.company-description p{
+    font-size: 18px;
+    padding-top: 16px;
+    color: var(--gray);
+    font-family: Arial, Helvetica, sans-serif;
+    width:500px;
+}
