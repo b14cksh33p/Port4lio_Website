@@ -20,7 +20,7 @@
     background-color: var(--primary);
     color: #8ACAE6;
     padding-left: 120px;
-    z-index: 10;
+    z-index: 9999;
 }
 .footer h1{
     font-size: 32px;

@@ -28,7 +28,7 @@
     font-weight: 700;
     color: var(--font);
 }
-.title{
+.landing-title{
     display: flex;
     align-items: center;
     gap: 12px;
@@ -61,7 +61,7 @@
     color: var(--bg_button) !important;
     cursor: pointer;
 }
-.title img{
+.landing-title img{
     padding-bottom: 16px;
     width:32px;
 }

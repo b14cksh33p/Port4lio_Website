@@ -9,6 +9,7 @@ import SignupPage from '../src/pages/signup/signup.js';
   import PoIreq from '../src/pages/signup/page4-postinternreq/postInterreq.js';
 import LoginPage from '../src/pages/login/login.js';
 import StudentPortfolioPage from './pages/studentportfolio/studentportfolio.js';
+import HomePage from '../src/pages/home/home.js';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/signup/post-internship-requirements" element={<PoIreq/>} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/student-portfolio" element={<StudentPortfolioPage/>} />
+        <Route path="/home" element={<HomePage/>} />
         {/* Other routes go here */}
       </Routes>
     </Router>

@@ -2,13 +2,17 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './header.css';
 import Icon from '../../assets/images/icon.png';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Header() {
   const [currentPage, setCurrentPage] = useState(0)
 
+  const navigate = useNavigate();
+
   const pages = [
-    { title: 'Home', urlPath: '/student-portfolio', magicColor: '#c24914'},
+    { title: 'Home', urlPath: '/home', magicColor: '#c24914'},
     { title: 'Student Portfolio', urlPath: '/student-portfolio', magicColor: '#c24914'},
     { title: 'Weekly Reports', urlPath: '/student-portfolio', magicColor: '#c24914'},
     { title: 'Company Profiles', urlPath: '/student-portfolio', magicColor: '#c24914'},
@@ -18,7 +22,7 @@ function Header() {
   return (
         <div className='header'>
             <div className='title'>
-            <img src={Icon} alt='Icon'/>
+            <img src={Icon} alt='Icon' onClick={()=>navigate('/')}/>
                 <h1>PORT4LIO</h1>
             </div>
             <div className='navigation'>

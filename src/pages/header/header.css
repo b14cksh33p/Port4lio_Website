@@ -16,17 +16,18 @@
     position: absolute;
     display: flex;
     align-items: center;
-    height: 72px;
+    height: 96px;
     width: 100vw;
     color: #8ACAE6;
     padding-left: 80px;
-    z-index: 10;
+    z-index: 9999;
     padding-right: 0 !important;
 }
 .header h1{
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--font);
+
 }
 .title{
     display: flex;
@@ -35,7 +36,7 @@
 }
 .navigation{
     margin-left: auto;
-    transform: translateX(-180px);
+    transform: translateX(-170px);
     display: flex;
     gap: 24px;
 
@@ -59,7 +60,7 @@
 }
 .title img{
     padding-bottom: 16px;
-    width:24px;
+    width:32px;
 }
 .button-logout{
     margin-left: auto;
@@ -74,4 +75,7 @@
     border-radius: 5px;
     letter-spacing: 0.05em;
     padding: 4px 20px;
+}
+button:hover{
+    filter: brightness(0.9);
 }
