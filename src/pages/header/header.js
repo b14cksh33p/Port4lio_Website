@@ -30,7 +30,7 @@ function Header() {
     { title: 'Student Portfolio', urlPath: '/student-portfolio', magicColor: '#c24914'},
     { title: 'Weekly Reports', urlPath: '/weekly-reports', magicColor: '#c24914'},
     { title: 'Company Profiles', urlPath: '/company-profiles', magicColor: '#c24914'},
-    { title: 'Assessments', urlPath: '/home', magicColor: '#c24914'},
+    { title: 'Assessments', urlPath: '/assessments', magicColor: '#c24914'},
   ]
 
   return (

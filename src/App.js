@@ -12,6 +12,7 @@ import StudentPortfolioPage from './pages/studentportfolio/studentportfolio.js';
 import HomePage from '../src/pages/home/home.js';
 import WeeklyReportsPage from '../src/pages/weeklyreports/weeklyreports.js';
 import CompanyProfilesPage from '../src/pages/companyprofiles/companyprofiles.js';
+import AssessmentsPage from '../src/pages/assessments/assessments.js';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/home" element={<HomePage/>} />
         <Route path="/weekly-reports" element={<WeeklyReportsPage/>} />
         <Route path="/company-profiles" element={<CompanyProfilesPage/>} />
+        <Route path="/assessments" element={<AssessmentsPage/>} />
         {/* Other routes go here */}
       </Routes>
     </Router>
