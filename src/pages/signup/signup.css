@@ -1,95 +1,168 @@
 /*Colors*/
 :root{
-    --GRAY: #D9D9D9;
-    --FONT_GRAY: #6C6C6C;
-    --PRIMARY: #FB8500;
-    --PRIMARY_DARK: #bc6400;
+    --dark-orange-color:#FB8500;
+    --black:#000000;
+    --sky-blue:#8ACAE6;
+    --orange:#DBAA5A;
+    --gray:#605757;
+    --light_gray: #d9d9d9;
+    --primary:#f9e0ae; 
     --gradient-background-color: linear-gradient(107deg, rgba(242, 202, 138, 0.92) 2.72%, rgba(245, 245, 245, 0.06) 94.02%, rgba(217, 217, 217, 0.00) 94.02%);   
-    --dark-orange-color: #FB8500;
-    overflow-y: auto !important;
+    --gradient-header-color: linear-gradient(to bottom, var(--black), var(--dark-orange-color));
+    --font: #682c0e;
+    --bg_button: #c24914;
+    --image_bg: #dac0a3;
+    --image_bg2: #eadbc8; 
+
+    overflow-x: hidden;
 }
+
 
 .sU-wrapper{
-    background: var(--gradient-background-color);
-
-}
-.sU-wrapper #banner{
-    position: fixed;
-    transform: translate(-1%, 0);
-    max-width: auto;
-    height: 100vh;
-    z-index: 2;
-}
-.main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background-color: var(--primary);
 }
 
 .sU-pI-container{
-    background-color: rgba(255, 255, 255, 0.75);
-    height: 700px;
-    width: 640px;
+    background-color: white;
+    height: 100vh;
+    width: 60vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Arial;
-    border-radius: 25px;
-    margin-top: 40px;
+    border-radius: 40px;
+    transform: translateX(22vw);
     z-index: 3;
 }
-.pI-head h1{
+.pI-head h3{
     text-align: center;
-    font-size: 72px;
-    font-weight: 800;
-    padding: 18px 0;
-    background-image: linear-gradient(to top, var(--PRIMARY_DARK), var(--PRIMARY));
-    color: transparent;
-    -webkit-background-clip: text;
-}
-.pI-head p{
-    width: 711px;
-    padding-left: 64px;
+    font-size: 28px;
     font-weight: 700;
-    font-size: 16px;
+    padding: 32px 0;
+    margin-top: 32px;
+
 }
+
 .pI-infos{
     display: flex;
     flex-direction: column;
     gap: 18px;
     margin-top: 12px;
+
 }
 .pI-infos input{
-    height: 48px;
-    width: 500px;
-    background-color: var(--GRAY);
+    height: 40px;
+    width: 440px;
     padding-left: 20px;
     font-size: 16px;
-    border: var(--FONT_GRAY) solid 1px;
-    border-radius: 5px;
+    border: 1.5px solid var(--light_gray);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
+
 .pI-infos p{
     color: var(--FONT_GRAY);
     margin-bottom: 0px;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
 
 }
 .button-next{
-    margin-top: 32px;
+    margin-top: 8px;
 
     #next{
-        height: 36px;
-        width: 186px;
+        height: 44px;
+        width: 440px;
         color: white;
-        background-color: var(--PRIMARY);
+        background-color: var(--bg_button);
         font-weight: 700;
         font-size: 18px;
         border: none;
         letter-spacing: .02em;
-        border-radius: 5px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        box-shadow: 0px  4px 6px rgba(0, 0, 0, 0.3);
     }
     #next:hover{
         filter: brightness(0.9);
     }
+}
+.sU-login{
+    color: var(--gray);
+}
+.sU-login a{
+    color: var(--bg_button);
+    text-decoration: none;
+}
+.sU-header{
+    position: absolute;
+    margin-left: 24px;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.sU-header img{
+    width: 32px;
+}
+.sU-header h2{
+    color: var(--font);
+    font-weight: 700;
+    padding-top: 14px;
+}
+.sU-banner{
+    position: absolute;
+    padding-top: 120px;
+    display:flex;
+
+    #p1{
+        z-index:10;
+    }
+    #p2{
+        z-index:8;
+        transform: translateX(-140px);
+    }
+    #p3{
+        z-index:10;
+        transform: translateX(-320px);
+    }
+    #p4{
+        z-index:8;
+        transform: translateX(-520px);
+    }
+}
+.sU-banner img{
+    height: 760px;
+}
+.account-created{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 440px;
+    border: 2px solid var(--gray);
+    border-radius: 25px;
+    margin: 48px 0;
+}
+.account-created h3{
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--bg_button);
+}
+.sU-terms{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: translateY(-20px);
+}
+.sU-terms input{
+    width: 16px;
+}
+.sU-terms p{
+    font-size: 13px;
+    padding-bottom: 8px;
+}
+.sU-terms a{
+    color: #000;
 }

@@ -1,102 +1,19 @@
-/*Colors*/
-:root{
-    --GRAY: #D9D9D9;
-    --FONT_GRAY: #6C6C6C;
-    --PRIMARY: #FB8500;
-    --PRIMARY_DARK: #bc6400;
-    --gradient-background-color: linear-gradient(107deg, rgba(242, 202, 138, 0.92) 2.72%, rgba(245, 245, 245, 0.06) 94.02%, rgba(217, 217, 217, 0.00) 94.02%);   
-    --dark-orange-color: #FB8500;
-    overflow-y: auto !important;
-}
 
-.sU-wrapper{
-    background: var(--gradient-background-color);
-
-}
-.sU-wrapper #banner{
-    position: fixed;
-    transform: translate(-1%, 0);
-    max-width: auto;
-    height: 100vh;
-    z-index: 2;
-}
-.main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.sU-peI-container{
-    background-color: rgba(255, 255, 255, 0.75);
-    height: 800px;
-    width: 640px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Arial;
-    border-radius: 25px;
-    margin-top: 40px;
-    z-index: 3;
-}
-.peI-head h1{
-    text-align: center;
-    font-size: 48px;
-    font-weight: 800;
-    padding: 18px 0;
-    background-image: linear-gradient(to top, var(--PRIMARY_DARK), var(--PRIMARY));
-    color: transparent;
-    -webkit-background-clip: text;
-}
-.peI-head p{
-    width: 711px;
-    padding-left: 64px;
-    font-weight: 700;
-    font-size: 16px;
-}
-.peI-infos{
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    margin-top: 12px;
-}
-.peI-infos input{
-    height: 48px;
-    width: 500px;
-    background-color: var(--GRAY);
-    padding-left: 20px;
-    font-size: 16px;
-    border: var(--FONT_GRAY) solid 1px;
-    border-radius: 5px;
-}
-.peI-infos p{
-    color: var(--FONT_GRAY);
-    margin-bottom: 0px;
-    font-size: 14px;
-
-}
-.button-next{
-    margin-top: 32px;
-
-    #next{
-        height: 36px;
-        width: 186px;
-        color: white;
-        background-color: var(--PRIMARY);
-        font-weight: 700;
-        font-size: 18px;
-        border: none;
-        letter-spacing: .02em;
-        border-radius: 5px;
-    }
-    #next:hover{
-        filter: brightness(0.9);
-    }
-}
-#back{
+.sU-back{
     position: absolute;
-    margin-top: 100px;
-    margin-left: 56px;
-    width: 120px;
-    height: 40px;
+    margin-right: 760px;
+    transform: translateY(16px);
+}
+.sU-back p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 700;
+    width: 80px;
+    margin-top: 12px;
+    transform:translateX(-20px);
+}
+.sU-back p:hover{
+    cursor: pointer;
+    color: #605757;
 }

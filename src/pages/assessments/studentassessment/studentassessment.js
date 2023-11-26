@@ -14,7 +14,7 @@ function Header() {
     return(
         <div className='sAs-header'>
             <div className='sAs-back'>
-                <p onClick={()=>navigate('/assessments')}>{'< Back'}</p>
+                <p onClick={()=>navigate(-1)}>{'< Back'}</p>
             </div>
             <div className='sAs-title'>
             <img src={Icon} alt='Icon'/>

@@ -1,58 +1,74 @@
 import './personalInfo.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './../navigation/navigation.js';
-import Banner from '../../../assets/images/background-banner.png';
-import Header from '../../signup/header/header.js';
 import { useNavigate } from 'react-router-dom';
-import Back from '../../../assets/images/back.png'
+
+import Icon from '../../../assets/images/icon.png';
+import Person1 from '../../../assets/images/person (1).png';
+import Person2 from '../../../assets/images/person (2).png';
+import Person3 from '../../../assets/images/person (3).png';
+import Person4 from '../../../assets/images/person (4).png';
+
+
 
 function PersonalInfo() {
-  const navigate = useNavigate();
-
+  const navigate = useNavigate()
     return (
       <div className='sU-wrapper'>
-        <Header></Header>
-        <img src={Banner} id='banner'></img>
-        <img src={Back} id='back' onClick={()=>navigate('/signup/primary-information')}></img>
-      <div className='container main'>
-        <div className='sU-peI-container'>
-          <div className='peI-head'>
-            <h1>Personal Information</h1>
+        <div className='sU-header'>
+          <img src={Icon} alt='Icon'/>
+          <h2>PORT4LIO</h2>
+        </div>
+        <div className='sU-banner'>
+              <img id='p1' alt='banner' src={Person1}/>
+              <img id='p2' alt='banner' src={Person4}/>
+              <img id='p3' alt='banner' src={Person3}/>
+              <img id='p4' alt='banner' src={Person2}/>
           </div>
-          <div className='peI-navigation'>
-            <Navigation/>
-          </div>
-          <div className='peI-infos'>
-            <div className='peI-info'>
-              <p>Name:</p>
-                <input id='signup-name' placeholder='SURNAME, First Name Middle Name'></input>
+        <div className='container main'>
+          <div className='sU-pI-container'>
+            <div className='sU-back'>
+                <p onClick={()=>navigate(-1)}>{'< Back'}</p>
             </div>
-            <div className='peI-info'>
-              <p>Program-Section:</p>
-                <input id='signup-email' placeholder='BSCoE - 3-4'></input>
+            <div className='pI-head'>
+              <h3>Create an Account</h3>
             </div>
-            <div className='peI-info'>
-              <p>Company Name:</p>
-                <input id='signup-password'  placeholder='Ex. LexMeet Inc.'></input>
+            <div className='pI-navigation'>
+              <Navigation/>
             </div>
-            <div className='peI-info'>
-              <p>Company Address:</p>
-                <input id='signup-c-password'placeholder=' Ex. Bagumbagayan St. Brgy. Sta, Maria, Lucena City'></input>
+            <div className='pI-infos'>
+              <div className='pI-info'>
+                <p>Course, Year & Section:</p>
+                  <input id='signup-name'
+                  placeholder='BSCPE 3-4'></input>
+              </div>
+              <div className='pI-info'>
+                <p>Company Name (HTE):</p>
+                  <input id='signup-email'
+                  placeholder='Ex. LexMeet Inc.'></input>
+              </div>
+              <div className='pI-info'>
+                <p>Company Address:</p>
+                  <input id='signup-student-number'
+                  placeholder='Address'></input>
+              </div>
+              <div className='pI-info'>
+                <p>OJT Hours:</p>
+                  <input id='signup-password'
+                  placeholder='Ex. 300 hours' 
+                  ></input>
+              </div>
+              <div className='pI-info'>
+                <p>OJT Adviser:</p>
+                  <input id='signup-c-password'
+                  placeholder='Last Name, First Name and Middle Name'></input>
+              </div>
             </div>
-            <div className='peI-info'>
-              <p>Work Set-Up:</p>
-                <input id='signup-c-password' placeholder='Face-to-Face'></input>
+            <div className='button-next'>
+              <button id='next' onClick={()=>navigate('/signup/done')} style={{marginTop:'40px'}}>Finish</button> {/* Temporary Sign Up Button for Email and Password creation to database*/}
             </div>
-            <div className='peI-info'>
-              <p>Name of Adviser:</p>
-                <input id='signup-c-password' placeholder='SURNAME, First Name Middle Initial'></input>
-            </div>
-          </div>
-          <div className='button-next'>
-            <button id='next' onClick={()=> navigate('/signup/pre-internship-requirements')}>Next</button>
           </div>
         </div>
-      </div>
     </div>
     );
   }

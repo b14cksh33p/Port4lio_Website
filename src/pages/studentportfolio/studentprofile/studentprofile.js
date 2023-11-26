@@ -14,7 +14,7 @@ function Header() {
     return(
         <div className='sPr-header'>
             <div className='sPr-back'>
-                <p onClick={()=>navigate('/student-portfolio')}>{'< Back'}</p>
+                <p onClick={()=>navigate(-1)}>{'< Back'}</p>
             </div>
             <div className='sPr-title'>
             <img src={Icon} alt='Icon'/>
