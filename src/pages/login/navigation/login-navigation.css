@@ -1,0 +1,62 @@
+
+:root{
+    --background: #F9E0AE;
+    --black-text: #000;
+    --primary-dark: #682C0E;
+    --primary-light: #C24914;
+    --container: #FFFFFF;
+}
+
+.LN-navigation-holder{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.LN-navbar{
+    padding: 10px 80px 10px 15px;
+}
+.LN-ul-li{
+    list-style: none;
+    display: inline-block;
+}
+.LN-ul-li a{
+    color: var(--black-text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-right: 40px;
+    text-decoration: none;
+}
+.LN-button-login,
+.LN-button-signup {
+  cursor: pointer; 
+  display: inline-block;
+  background-color: var(--background);
+  border-radius: 10px;
+  padding: 5px;
+  width: 90px;
+  text-align: center;
+}
+
+.LN-button-signup {
+  margin-left: 40px;
+  background-color: var(--primary-light);
+}
+
+.LN-button-login a, .LN-button-signup a{
+    color: var(--container); 
+    font-weight: 700; 
+    font-size: 15px;
+    text-decoration: none;
+}
+
+
+.LN-button-login:hover, .LN-button-signup:hover{
+    background-color: var(--primary-dark);
+}
+
+
+/*HOVER*/
+.LN-ul-li a:hover{
+    text-decoration: underline;
+}
