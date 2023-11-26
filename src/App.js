@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from '../src/pages/landing/landing.js';
 import SignupPage from '../src/pages/signup/signup.js';
   import SUPersonal from'../src/pages/signup/page2-personalinfo/personalInfo.js';
-
+  import DonePage from'../src/pages/signup/done/done.js';
 import LoginPage from '../src/pages/login/login-new.js';
 import StudentPortfolioPage from './pages/studentportfolio/studentportfolio.js';
   import StudentProfilePage from './pages/studentportfolio/studentprofile/studentprofile.js';
@@ -24,6 +24,7 @@ function App() {
         <Route path="/" element={<LandingPage/>} />
         <Route path="/signup/primary-information" element={<SignupPage/>} />
           <Route path="/signup/personal-information" element={<SUPersonal/>} />
+          <Route path="/signup/done" element={<DonePage/>} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/student-portfolio" element={<StudentPortfolioPage/>} />
           <Route path="/student-portfolio/profile" element={<StudentProfilePage/>} />
