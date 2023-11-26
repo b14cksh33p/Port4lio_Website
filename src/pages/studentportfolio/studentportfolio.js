@@ -5,15 +5,16 @@ import Footer from '../../pages/footer/footer.js';
 import { useNavigate } from 'react-router-dom';
 
 function GridContent({content}){
+  const navigate = useNavigate()
 
   return(
-    <div className='grid-item'>
+    <div className='grid-item' onClick={()=>navigate('/student-portfolio/profile')}>
         {content}
     </div>
 
   );
 }
-function StudentProfile() {
+function StudentPortfolio() {
 
     return (
       <div className='wrapper-sP'>
@@ -64,5 +65,5 @@ function StudentProfile() {
     );
   }
   
-  export default StudentProfile;
+  export default StudentPortfolio;
   

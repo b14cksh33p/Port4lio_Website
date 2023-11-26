@@ -79,3 +79,7 @@
 button:hover{
     filter: brightness(0.9);
 }
+
+.header img:hover{
+    cursor: pointer;
+}

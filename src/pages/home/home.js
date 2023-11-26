@@ -1,14 +1,10 @@
 import './home.css'
 import Header from '../header/header.js';
 import Footer from '../../pages/footer/footer.js';
-import { useNavigate } from 'react-router-dom';
-
 
 
 function Home() {
 
-  
-  const navigate = useNavigate();
 
     return (
      <div className='wrapper-home'>
