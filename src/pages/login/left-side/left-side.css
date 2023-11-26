@@ -1,0 +1,89 @@
+:root{
+    --background: #F9E0AE;
+    --black-text: #000;
+    --primary-dark: #682C0E;
+    --primary-light: #C24914;
+    --white: #FFFFFF;
+}
+
+.LS-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 825px;
+}
+
+.LS-signin-banner span{
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    color: var(--black-text);
+}
+
+.LS-logo{
+    display: flex;
+
+}
+
+.LS-logo h1{
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-left: 10px;
+}
+
+.LS-signup-acc{
+    margin-top: 25px;
+}
+
+.LS-p{
+    color: var(--black-text);
+    font-weight: 600;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.LS-p a{
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.LS-icons {
+    position: relative;
+    width: 380px; 
+    height: 400px; 
+}
+
+.icon {
+    position: absolute;
+  }
+  
+.person1 {
+    top: 30px;
+    left: 18px;
+}
+  
+.person2 {
+    top: 170px;
+    right: 15px;
+}
+  
+.arrow {
+    bottom: 5px;
+    left: 20px;
+}
+  
+.star {
+    top: 10px;
+    right: 10px;
+}
+
+
+/*HOVER*/
+.LS-p a:hover{
+    text-decoration: underline;
+}

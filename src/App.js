@@ -7,7 +7,6 @@ import SignupPage from '../src/pages/signup/signup.js';
   import SUPersonal from'../src/pages/signup/page2-personalinfo/personalInfo.js';
   import PIreq from '../src/pages/signup/page3-preinternreq/preInternreq.js';
   import PoIreq from '../src/pages/signup/page4-postinternreq/postInterreq.js';
-import LoginPage from '../src/pages/login/login.js';
 import LoginPageNew from '../src/pages/login/login-new.js'
 import StudentPortfolioPage from './pages/studentportfolio/studentportfolio.js';
   import StudentProfilePage from './pages/studentportfolio/studentprofile/studentprofile.js';
@@ -28,8 +27,7 @@ function App() {
           <Route path="/signup/personal-information" element={<SUPersonal/>} />
           <Route path="/signup/pre-internship-requirements" element={<PIreq/>} />
           <Route path="/signup/post-internship-requirements" element={<PoIreq/>} />
-        <Route path="/login" element={<LoginPage/>} />
-        <Route path="/loginnew" element={<LoginPageNew/>}></Route>
+        <Route path="/login" element={<LoginPageNew/>}></Route>
         <Route path="/student-portfolio" element={<StudentPortfolioPage/>} />
           <Route path="/student-portfolio/profile" element={<StudentProfilePage/>} />
         <Route path="/home" element={<HomePage/>} />
