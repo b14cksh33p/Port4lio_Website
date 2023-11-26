@@ -9,10 +9,12 @@ import SignupPage from '../src/pages/signup/signup.js';
   import PoIreq from '../src/pages/signup/page4-postinternreq/postInterreq.js';
 import LoginPage from '../src/pages/login/login.js';
 import StudentPortfolioPage from './pages/studentportfolio/studentportfolio.js';
+  import StudentProfilePage from './pages/studentportfolio/studentprofile/studentprofile.js';
 import HomePage from '../src/pages/home/home.js';
 import WeeklyReportsPage from '../src/pages/weeklyreports/weeklyreports.js';
 import CompanyProfilesPage from '../src/pages/companyprofiles/companyprofiles.js';
 import AssessmentsPage from '../src/pages/assessments/assessments.js';
+  import StudentAssessmentPage from '../src/pages/assessments/studentassessment/studentassessment.js';
 
 
 function App() {
@@ -27,10 +29,12 @@ function App() {
           <Route path="/signup/post-internship-requirements" element={<PoIreq/>} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/student-portfolio" element={<StudentPortfolioPage/>} />
+          <Route path="/student-portfolio/profile" element={<StudentProfilePage/>} />
         <Route path="/home" element={<HomePage/>} />
         <Route path="/weekly-reports" element={<WeeklyReportsPage/>} />
         <Route path="/company-profiles" element={<CompanyProfilesPage/>} />
         <Route path="/assessments" element={<AssessmentsPage/>} />
+          <Route path="/assessments/student-assessment" element={<StudentAssessmentPage/>} />
         {/* Other routes go here */}
       </Routes>
     </Router>

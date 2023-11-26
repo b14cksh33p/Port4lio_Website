@@ -97,3 +97,7 @@
     background-color: var(--image_bg2);
     border-radius: 25px;
   }
+  .grid-item:hover{
+    filter: brightness(0.9);
+    cursor: pointer;
+  }

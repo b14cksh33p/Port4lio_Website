@@ -5,13 +5,13 @@ import Footer from '../../pages/footer/footer.js';
 import { useNavigate } from 'react-router-dom';
 
 function RowContent({sName, sNumber}){
-
+  const navigate = useNavigate()
     return(
         <>
         <tr>
         <td>{sName}</td>
         <td style={{paddingLeft:'28px'}}>{sNumber}</td>
-        <td style={{width:'256px'}}><button id='view-details'>View Details</button></td>
+        <td style={{width:'256px'}}><button id='view-details' onClick={()=>navigate('/assessments/student-assessment')}>View Details</button></td>
         </tr>
         </>
 
