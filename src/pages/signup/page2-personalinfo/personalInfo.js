@@ -2,6 +2,7 @@ import './personalInfo.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './../navigation/navigation.js';
 import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import Icon from '../../../assets/images/icon.png';
 import Person1 from '../../../assets/images/person (1).png';
@@ -13,6 +14,25 @@ import Person4 from '../../../assets/images/person (4).png';
 
 function PersonalInfo() {
   const navigate = useNavigate()
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
+
+
+
+  const handleSubmit = () => {
+    // Submit logic (to be implemented)
+    // For now, let's just close the modal
+    toggleModal();
+  };
+
+  const handleCancel = () => {
+    toggleModal();
+  };
+
+
     return (
       <div className='sU-wrapper'>
         <div className='sU-header'>
@@ -65,9 +85,20 @@ function PersonalInfo() {
               </div>
             </div>
             <div className='button-next'>
-              <button id='next' onClick={()=>navigate('/signup/done')} style={{marginTop:'40px'}}>Finish</button> {/* Temporary Sign Up Button for Email and Password creation to database*/}
+              <button id='next' onClick={toggleModal} style={{marginTop:'40px'}}>Finish</button> {/* Temporary Sign Up Button for Email and Password creation to database*/}
             </div>
           </div>
+          {modalOpen && (
+                <div className='modal'>
+                  <div className='modal-content'>
+                    <p>Are you sure you want to submit this information?</p>
+                    <div className='modal-buttons'>
+                      <button onClick={handleSubmit} className='pI-modal-submit'>Submit</button>
+                      <button onClick={handleCancel} className='pI-modal-cancel'>Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              )}
         </div>
     </div>
     );
