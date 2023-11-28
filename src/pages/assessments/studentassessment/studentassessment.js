@@ -4,6 +4,7 @@ import Icon from '../../../assets/images/icon.png';
 import Footer from '../../footer/footer.js';
 import Student from '../../../assets/images/student(2).png';
 import { useNavigate } from 'react-router-dom';
+import FileContainer from '../../studentportfolio/file-container/file-container.js';
 
 function Header() {
     const navigate = useNavigate()
@@ -67,7 +68,7 @@ function StudentAssessment() {
       </div>
       <div className='sAs-second-section'>
         <div className='sAs-documents'>
-
+            <FileContainer text-highlighted='Assessment PDF'/>
         </div>
       </div>
       <Footer/>

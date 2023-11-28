@@ -106,10 +106,13 @@
     justify-content: center;
 }
 .sPr-documents{
-    background-color: var(--light_gray);
-    width: 1200px;
-    height: 600px;
     margin-top:80px;
+}
+
+.sPr-row{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 /*Header*/

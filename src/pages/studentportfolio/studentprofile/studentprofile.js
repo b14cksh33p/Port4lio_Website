@@ -4,6 +4,7 @@ import Icon from '../../../assets/images/icon.png';
 import Footer from '../../footer/footer.js';
 import Student from '../../../assets/images/student.png';
 import { useNavigate } from 'react-router-dom';
+import FileContainer from '../file-container/file-container.js'
 
 function Header() {
     const navigate = useNavigate()
@@ -67,7 +68,27 @@ function StudentProfile() {
       </div>
       <div className='sPr-second-section'>
         <div className='sPr-documents'>
-
+            <div className='sPr-row'>
+                <FileContainer highlightedText='MOA' />
+                <FileContainer highlightedText='Waiver'/>
+                <FileContainer highlightedText='HTE Eval.' />
+                <FileContainer highlightedText='Perf Eval.'/>
+            </div>
+            <div className='sPr-row'>
+                <FileContainer highlightedText='Company Display Picture' />
+                <FileContainer highlightedText='LOE'/>
+                <FileContainer highlightedText='LOI' />
+                <FileContainer highlightedText='DTR'/>
+            </div>
+            <div className='sPr-row'>
+                <FileContainer highlightedText='2X2 Picture' />
+                <FileContainer highlightedText='Consent Form'/>
+                <FileContainer highlightedText='Medical Cert' />
+                <FileContainer highlightedText='Adviser Eval.'/>
+            </div>
+            <div className='sPr-row'>
+                <FileContainer highlightedText='Completion Cert' />
+            </div>
         </div>
       </div>
       <Footer/>
