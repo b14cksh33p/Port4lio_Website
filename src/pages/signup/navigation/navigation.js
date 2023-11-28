@@ -12,7 +12,7 @@ const Navigation = () => {
       <NavLink to="/signup/personal-information" activeClassName="active">
       <p>2</p>
       </NavLink>
-      <NavLink to="/signup/done" activeClassName="active" isDisabled>
+      <NavLink to="/signup/done" activeClassName="active">
       <p>✓</p>
       </NavLink>
       <div className='midline'>
@@ -22,6 +22,9 @@ const Navigation = () => {
       <span>Primary Info</span>
       <span>Personal Info</span>
       <span>Done</span>
+    </div>
+    <div className='blocker'>
+
     </div>
     </>
 

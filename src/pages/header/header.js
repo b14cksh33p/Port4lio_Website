@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import './header.css';
 import Icon from '../../assets/images/icon.png';
 import { useNavigate } from 'react-router-dom';
+import firebase from '../../firebaseConfig.js';
+
 
 
 function Header() {
@@ -25,13 +27,27 @@ function Header() {
 
   const navigate = useNavigate();
 
+  const userName = localStorage.getItem('username');
+
   const pages = [
-    { title: 'Home', urlPath: '/home', magicColor: '#c24914'},
-    { title: 'Student Portfolio', urlPath: '/student-portfolio', magicColor: '#c24914'},
-    { title: 'Weekly Reports', urlPath: '/weekly-reports', magicColor: '#c24914'},
-    { title: 'Company Profiles', urlPath: '/company-profiles', magicColor: '#c24914'},
-    { title: 'Assessments', urlPath: '/assessments', magicColor: '#c24914'},
+    { title: 'Home', urlPath: '/home/'+userName, magicColor: '#c24914'},
+    { title: 'Student Portfolio', urlPath: '/student-portfolio/'+userName, magicColor: '#c24914'},
+    { title: 'Weekly Reports', urlPath: '/weekly-reports/'+userName, magicColor: '#c24914'},
+    { title: 'Company Profiles', urlPath: '/company-profiles/'+userName, magicColor: '#c24914'},
+    { title: 'Assessments', urlPath: '/assessments/'+userName, magicColor: '#c24914'},
   ]
+
+  const handleLogout = () => {
+    firebase.auth().signOut()
+      .then(() => {
+        alert('User signed out successfully.');
+        localStorage.setItem('username', '');
+        navigate('/login')
+      })
+      .catch((error) => {
+        alert('Error signing out:', error);
+      });
+  };
 
   return (
         <div className='header'>
@@ -66,9 +82,17 @@ function Header() {
               </NavLink>
             )))}
             </div>
-            <div className='button-logout'>
-                <button>Log Out</button>
+            <div>
+              {userName == ''?
+              <div className='button-log' id='login'>
+                <button onClick={()=>navigate('/login')}>Log In</button>
+             </div> :
+              <div className='button-log' id='logout'>
+                <button onClick={handleLogout}>Log Out</button>
             </div>
+              }
+            </div>
+
          </div>
   )
 }

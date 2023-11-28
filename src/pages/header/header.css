@@ -62,11 +62,11 @@
     padding-bottom: 16px;
     width:32px;
 }
-.button-logout{
+.button-log{
     margin-left: auto;
     padding-right: 80px;
 }
-.button-logout button{
+.button-log button{
     background-color: var(--bg_button);
     color: white;
     font-size: 14px;

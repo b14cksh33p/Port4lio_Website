@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Landing() {
 
-  
+  const userName = localStorage.getItem('username');
   const navigate = useNavigate();
 
     return (
@@ -35,13 +35,13 @@ function Landing() {
               <h4>Welcome to our OJT <span style={{color:'#682c0e'}}>PORT4LIO!</span></h4>
                 <p>• Get to know our OJT experience</p>
                 <p>• Get to know our HTEs</p>
-                <button onClick={()=>navigate('/login')}>Login</button>
+                <button onClick={()=>{userName=='' ? navigate('/login') : navigate()}}>Login</button>
               </div>
             </div>
             <div className='main-content s3'>
               <div className='content-text'>
               <h4>Start using <span style={{color:'#682c0e'}}>PORT4LIO</span> by creating your free account.</h4>
-                <button onClick={()=>navigate('/signup/primary-information')}>Sign Up</button>
+                <button onClick={()=>{userName=='' ? navigate('/signup/primary-information') : navigate()}}>Sign Up</button>
               </div>
               <div className='content-image'>
                 <img src={Image3} alt='banner'/>

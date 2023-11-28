@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './../navigation/navigation.js';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
+import firebase from '../../../firebaseConfig.js';
+import 'firebase/database'
 
 import Icon from '../../../assets/images/icon.png';
 import Person1 from '../../../assets/images/person (1).png';
@@ -14,25 +16,41 @@ import Person4 from '../../../assets/images/person (4).png';
 
 function PersonalInfo() {
   const navigate = useNavigate()
+  const userName = localStorage.getItem('username');
+  const dataRef = firebase.database().ref(userName);
 
   const [modalOpen, setModalOpen] = useState(false);
-  const toggleModal = () => {
-    setModalOpen(!modalOpen);
-  };
+  
 
+  const [cys, setCys] = useState('')
+  const [hte, setHte] = useState('')
+  const [cAddress, setCAddress] = useState('')
+  const [ojtHours, setOjtHours] = useState('')
+  const [ojtAdviser, setOjtAdviser] = useState('')
 
-
-  const handleSubmit = () => {
-    // Submit logic (to be implemented)
-    // For now, let's just close the modal
-    toggleModal();
-  };
-
-  const handleCancel = () => {
-    toggleModal();
-  };
-
-
+    const toggleModal = () => {
+      setModalOpen(!modalOpen);
+    };
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      
+      dataRef.update({
+          CYS: cys,
+          HTE: hte,
+          HTEAddress: cAddress,
+          OJTHours: ojtHours,
+          OJTAdviser: ojtAdviser
+        });
+      toggleModal();
+      localStorage.setItem('username','');
+      navigate('/signup/done')
+    };
+  
+    const handleCancel = () => {
+      toggleModal();
+    };
+  
     return (
       <div className='sU-wrapper'>
         <div className='sU-header'>
@@ -60,32 +78,51 @@ function PersonalInfo() {
               <div className='pI-info'>
                 <p>Course, Year & Section:</p>
                   <input id='signup-name'
-                  placeholder='BSCPE 3-4'></input>
+                  type='text'
+                  placeholder='BSCPE 3-4' 
+                  value={cys}
+                  onChange={(e) => setCys(e.target.value)}
+                  required></input>
               </div>
               <div className='pI-info'>
                 <p>Company Name (HTE):</p>
                   <input id='signup-email'
-                  placeholder='Ex. LexMeet Inc.'></input>
+                  type='text'
+                  placeholder='Ex. LexMeet Inc.' 
+                  value={hte}
+                  onChange={(e) => setHte(e.target.value)}
+                  required></input>
               </div>
               <div className='pI-info'>
                 <p>Company Address:</p>
                   <input id='signup-student-number'
-                  placeholder='Address'></input>
+                  type='text'
+                  placeholder='Address' 
+                  value={cAddress}
+                  onChange={(e) => setCAddress(e.target.value)}
+                  required></input>
               </div>
               <div className='pI-info'>
                 <p>OJT Hours:</p>
                   <input id='signup-password'
-                  placeholder='Ex. 300 hours' 
-                  ></input>
+                  type='text'
+                  placeholder='Ex. 300 hours'
+                  value={ojtHours}
+                  onChange={(e) => setOjtHours(e.target.value)} 
+                  required></input>
               </div>
               <div className='pI-info'>
                 <p>OJT Adviser:</p>
                   <input id='signup-c-password'
-                  placeholder='Last Name, First Name and Middle Name'></input>
+                  type='text'
+                  placeholder='Last Name, First Name, Middle Name'
+                  value={ojtAdviser}
+                  onChange={(e) => setOjtAdviser(e.target.value)}
+                  required></input>
               </div>
             </div>
             <div className='button-next'>
-              <button id='next' onClick={toggleModal} style={{marginTop:'40px'}}>Finish</button> {/* Temporary Sign Up Button for Email and Password creation to database*/}
+              <button onClick={toggleModal} id='next' style={{marginTop:'40px'}}>Finish</button> {/* Temporary Sign Up Button for Email and Password creation to database*/}
             </div>
           </div>
           {modalOpen && (

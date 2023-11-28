@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 //Import Pages Here
@@ -17,21 +17,30 @@ import AssessmentsPage from '../src/pages/assessments/assessments.js';
 
 
 function App() {
+  const userName = localStorage.getItem('username');
+
+  const signUpPI = '/signup/personal-information/'+userName;
+  const home = '/home/'+userName;
+  const sPortfolio = '/student-portfolio/'+userName;
+  const wReports = '/weekly-reports/'+userName;
+  const cProfiles = '/company-profiles/'+userName;
+  const assessments = '/assessments/'+userName;
+
   return (
     <div className="App">
    <Router>
       <Routes>
         <Route path="/" element={<LandingPage/>} />
         <Route path="/signup/primary-information" element={<SignupPage/>} />
-          <Route path="/signup/personal-information" element={<SUPersonal/>} />
+          <Route path={signUpPI} element={<SUPersonal/>} />
           <Route path="/signup/done" element={<DonePage/>} />
         <Route path="/login" element={<LoginPage/>} />
-        <Route path="/student-portfolio" element={<StudentPortfolioPage/>} />
+        <Route path={sPortfolio}element={<StudentPortfolioPage/>} />
           <Route path="/student-portfolio/profile" element={<StudentProfilePage/>} />
-        <Route path="/home" element={<HomePage/>} />
-        <Route path="/weekly-reports" element={<WeeklyReportsPage/>} />
-        <Route path="/company-profiles" element={<CompanyProfilesPage/>} />
-        <Route path="/assessments" element={<AssessmentsPage/>} />
+        <Route path={home} element={<HomePage/>} />
+        <Route path={wReports} element={<WeeklyReportsPage/>} />
+        <Route path={cProfiles} element={<CompanyProfilesPage/>} />
+        <Route path={assessments} element={<AssessmentsPage/>} />
           <Route path="/assessments/student-assessment" element={<StudentAssessmentPage/>} />
         {/* Other routes go here */}
       </Routes>
