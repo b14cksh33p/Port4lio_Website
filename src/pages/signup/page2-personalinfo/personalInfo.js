@@ -22,11 +22,11 @@ function PersonalInfo() {
   const [modalOpen, setModalOpen] = useState(false);
   
 
-  const [cys, setCys] = useState('')
+  const [studentNo, setStudentNo] = useState('')
   const [hte, setHte] = useState('')
   const [cAddress, setCAddress] = useState('')
   const [ojtHours, setOjtHours] = useState('')
-  const [ojtAdviser, setOjtAdviser] = useState('')
+
 
     const toggleModal = () => {
       setModalOpen(!modalOpen);
@@ -36,19 +36,22 @@ function PersonalInfo() {
       e.preventDefault();
       
       dataRef.update({
-          CYS: cys,
+          StudentNo: studentNo,
           HTE: hte,
           HTEAddress: cAddress,
           OJTHours: ojtHours,
-          OJTAdviser: ojtAdviser
         });
-      toggleModal();
       localStorage.setItem('username','');
+      toggleModal();
       navigate('/signup/done')
     };
   
     const handleCancel = () => {
       toggleModal();
+    };
+
+    const dummyFunction = () =>{
+
     };
   
     return (
@@ -64,24 +67,24 @@ function PersonalInfo() {
               <img id='p4' alt='banner' src={Person2}/>
           </div>
         <div className='container main'>
-          <div className='sU-pI-container'>
+          <form className='sU-pI-container' onSubmit={(e)=>e.preventDefault()}>
             <div className='sU-back'>
                 <p onClick={()=>navigate(-1)}>{'< Back'}</p>
             </div>
             <div className='pI-head'>
-              <h3>Create an Account</h3>
+              <h3>Input Personal Information</h3>
             </div>
             <div className='pI-navigation'>
               <Navigation/>
             </div>
             <div className='pI-infos'>
-              <div className='pI-info'>
-                <p>Course, Year & Section:</p>
-                  <input id='signup-name'
+            <div className='pI-info'>
+                <p>Student Number:</p>
+                  <input id='signup-student-number'
                   type='text'
-                  placeholder='BSCPE 3-4' 
-                  value={cys}
-                  onChange={(e) => setCys(e.target.value)}
+                  placeholder='2021-00000-MN-0' 
+                  value={studentNo}
+                  onChange={(e) => setStudentNo(e.target.value)}
                   required></input>
               </div>
               <div className='pI-info'>
@@ -111,20 +114,11 @@ function PersonalInfo() {
                   onChange={(e) => setOjtHours(e.target.value)} 
                   required></input>
               </div>
-              <div className='pI-info'>
-                <p>OJT Adviser:</p>
-                  <input id='signup-c-password'
-                  type='text'
-                  placeholder='Last Name, First Name, Middle Name'
-                  value={ojtAdviser}
-                  onChange={(e) => setOjtAdviser(e.target.value)}
-                  required></input>
-              </div>
             </div>
             <div className='button-next'>
-              <button onClick={toggleModal} id='next' style={{marginTop:'40px'}}>Finish</button> {/* Temporary Sign Up Button for Email and Password creation to database*/}
+              <button onClick={(hte&&cAddress&&ojtHours) != '' ? toggleModal : dummyFunction} id='next' style={{marginTop:'40px'}}>Finish</button> {/* Temporary Sign Up Button for Email and Password creation to database*/}
             </div>
-          </div>
+          </form>
           {modalOpen && (
                 <div className='modal'>
                   <div className='modal-content'>

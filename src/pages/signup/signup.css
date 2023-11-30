@@ -36,17 +36,18 @@
 }
 .pI-head h3{
     text-align: center;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
     padding: 32px 0;
-    margin-top: 32px;
+    margin-top: 40px;
+    margin-bottom: 24px;
 
 }
 
 .pI-infos{
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 20px;
     margin-top: 12px;
 
 }
@@ -66,7 +67,6 @@
     margin-bottom: 0px;
     font-size: 16px;
     font-weight: 700;
-
 }
 .button-next{
     margin-top: 8px;

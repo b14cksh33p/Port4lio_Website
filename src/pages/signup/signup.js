@@ -1,7 +1,6 @@
 import '../signup/signup.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './navigation/navigation.js';
-import { useNavigate } from 'react-router-dom';
 import firebase from '../../firebaseConfig.js';
 import 'firebase/database'
 import Icon from '../../assets/images/icon.png';
@@ -16,32 +15,34 @@ function Signup() {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [studentNo, setStudentNo] = useState('')
     const [password, setPassword] = useState('')
+    const [cPassword, setCPassword] = useState('')
     const userName = email.replace('@gmail.com', '');
-    const navigate = useNavigate()
 
     const submit = async (e) =>{
       e.preventDefault();
-      try{
-        const dataRef = firebase.database().ref(userName);
-        const user =  await firebase.auth().createUserWithEmailAndPassword(email, password)
-        if (user)
-        {
-          alert("Account Created Successfully");
-          localStorage.setItem('username', userName)
-          window.location.href = '/signup/personal-information/'+userName;
-          console.log(name, email, studentNo, password);
-          dataRef.set({
-            StudentNo: studentNo,
-            Name: name
-          });
-          
+      if(cPassword === password) {
+        try{
+          const dataRef = firebase.database().ref(userName);
+          const user =  await firebase.auth().createUserWithEmailAndPassword(email, password)
+          if (user)
+          {
+            alert("Account Created Successfully");
+            localStorage.setItem('username', userName)
+            window.location.href = '/signup/personal-information/'+userName;
+            dataRef.set({
+              Name: name
+            });
+            
+          }
         }
+        catch (error){
+          alert(error)
+        }
+      }else{
+        alert('password does not match')
       }
-      catch (error){
-        alert(error)
-      }
+
     }
 
 
@@ -85,19 +86,12 @@ function Signup() {
                   required></input>
               </div>
               <div className='pI-info'>
-                <p>Student Number:</p>
-                  <input id='signup-student-number'
-                  type='text'
-                  placeholder='2021-00000-MN-0' 
-                  value={studentNo}
-                  onChange={(e) => setStudentNo(e.target.value)}
-                  required></input>
-              </div>
-              <div className='pI-info'>
                 <p>Password:</p>
                   <input id='signup-password'
                   type='password'
                   placeholder='Password' 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   ></input>
               </div>
               <div className='pI-info'>
@@ -105,8 +99,8 @@ function Signup() {
                   <input id='signup-c-password'
                   type='password'
                   placeholder='Confirm Password' 
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={cPassword}
+                  onChange={(e) => setCPassword(e.target.value)}
                   required></input>
               </div>
               <div className='sU-terms'>
