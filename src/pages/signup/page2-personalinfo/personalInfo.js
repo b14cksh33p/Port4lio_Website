@@ -17,7 +17,9 @@ import Person4 from '../../../assets/images/person (4).png';
 function PersonalInfo() {
   const navigate = useNavigate()
   const userName = localStorage.getItem('username');
-  const dataRef = firebase.database().ref(userName);
+  const uName = localStorage.getItem('uname');
+  const username = firebase.database().ref('Users/'+userName);
+  const uname = firebase.database().ref('UserNames/'+uName);
 
   const [modalOpen, setModalOpen] = useState(false);
   
@@ -35,7 +37,13 @@ function PersonalInfo() {
     const handleSubmit = (e) => {
       e.preventDefault();
       
-      dataRef.update({
+      username.update({
+          StudentNo: studentNo,
+          HTE: hte,
+          HTEAddress: cAddress,
+          OJTHours: ojtHours,
+        });
+      uname.update({
           StudentNo: studentNo,
           HTE: hte,
           HTEAddress: cAddress,

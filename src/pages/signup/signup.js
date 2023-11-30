@@ -23,16 +23,21 @@ function Signup() {
       e.preventDefault();
       if(cPassword === password) {
         try{
-          const dataRef = firebase.database().ref(userName);
+          const username = firebase.database().ref('Users/'+userName);
+          const uname = firebase.database().ref('UserNames/'+name.replaceAll(',', ''));
           const user =  await firebase.auth().createUserWithEmailAndPassword(email, password)
           if (user)
           {
             alert("Account Created Successfully");
             localStorage.setItem('username', userName)
+            localStorage.setItem('uname', name.replaceAll(',', ''))
             window.location.href = '/signup/personal-information/'+userName;
-            dataRef.set({
-              Name: name
-            });
+            username.set({
+              name: name
+            })
+            uname.set({
+              name: name
+            })
             
           }
         }
