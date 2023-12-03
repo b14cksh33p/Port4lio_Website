@@ -3,17 +3,53 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../header/header.js';
 import Footer from '../../pages/footer/footer.js';
 import { useNavigate } from 'react-router-dom';
+import firebase from '../../firebaseConfig.js';
+import { useState, useEffect } from 'react';
 
-function GridContent({content}){
+
+
+function GridContent({content, name}){
   const navigate = useNavigate()
 
+  const [childrenArray, setChildrenArray] = useState([]);
+
+  useEffect(() => {
+    // Get all children from Firebase when the component mounts
+    const fetchData = async () => {
+      try {
+        const dataRef = firebase.database().ref('UserNames'); // Replace 'yourParentNode' with your actual parent node name
+        const snapshot = await dataRef.once('value/name');
+        const data = snapshot.val();
+
+        if (data) {
+          // Convert data object to an array for easier mapping
+          const dataArray = Object.keys(data).map(key => ({ id: key, ...data[key] }));
+          setChildrenArray(dataArray);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(childrenArray)
+
   return(
-    <div className='grid-item' onClick={()=>navigate('/student-portfolio/profile')}>
-        {content}
+    <div className='grid-item'>
+      <div className='grid-image' onClick={()=>navigate('/student-portfolio/profile')}>
+          {content}
+      </div>
+      <p className='grid-text'>{name}</p>
     </div>
+
 
   );
 }
+
+
+
 function StudentPortfolio() {
 
     return (

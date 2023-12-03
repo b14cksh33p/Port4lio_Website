@@ -20,10 +20,7 @@ function PersonalInfo() {
   const uName = localStorage.getItem('uname');
   const username = firebase.database().ref('Users/'+userName);
   const uname = firebase.database().ref('UserNames/'+uName);
-
   const [modalOpen, setModalOpen] = useState(false);
-  
-
   const [studentNo, setStudentNo] = useState('')
   const [hte, setHte] = useState('')
   const [cAddress, setCAddress] = useState('')
@@ -50,6 +47,7 @@ function PersonalInfo() {
           OJTHours: ojtHours,
         });
       localStorage.setItem('username','');
+      localStorage.setItem('uname','');
       toggleModal();
       navigate('/signup/done')
     };
