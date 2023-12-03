@@ -20,6 +20,7 @@ function App() {
   const userName = localStorage.getItem('username');
   const profile = localStorage.getItem('profile');
 
+
   const signUpPI = '/signup/personal-information/'+userName;
   const home = '/home/'+userName;
   const sPortfolio = '/student-portfolio/'+userName;
@@ -27,6 +28,7 @@ function App() {
   const cProfiles = '/company-profiles/'+userName;
   const assessments = '/assessments/'+userName;
   const sProfile = '/student-portfolio/profile/'+profile;
+  const sAssessment = '/assessments/'+profile;
   return (
     <div className="App">
    <Router>
@@ -42,7 +44,7 @@ function App() {
         <Route path={wReports} element={<WeeklyReportsPage/>} />
         <Route path={cProfiles} element={<CompanyProfilesPage/>} />
         <Route path={assessments} element={<AssessmentsPage/>} />
-          <Route path="/assessments/student-assessment" element={<StudentAssessmentPage/>} />
+          <Route path={sAssessment} element={<StudentAssessmentPage/>} />
 
         {/* Other routes go here */}
       </Routes>

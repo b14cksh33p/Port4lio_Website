@@ -8,14 +8,16 @@ import { useState, useEffect } from 'react';
 
 
 function StudentPortfolio() {
-  var link = '';
-  const navigate = useNavigate()
+  
   localStorage.setItem('profile','')
+
+  const navigate = useNavigate()
+
   const saveProfile = (name) =>{
     localStorage.setItem('profile', name.replaceAll(' ', '_'))
       studentProfile(name);
-      link = '/student-portfolio/profile/' + name.replaceAll(' ', '_');
   }
+  
   const studentProfile = (name) => {
       navigate('/student-portfolio/profile/' + name.replaceAll(' ', '_'));
   }
@@ -65,9 +67,9 @@ function StudentPortfolio() {
       <div className="grid-container">
       {childrenArray.map((name, index) => (
         <div key={index} className="grid-item" onClick={()=>saveProfile(name)}>
-          <a href={link}><div className='grid-image' >  
+          <a href=''><div className='grid-image' >  
             </div></a>
-            <p className='grid-text'>{name}</p>
+            <p className='grid-text'>{name.replaceAll(' ', ', ')}</p>
         </div>
       ))}
     </div>

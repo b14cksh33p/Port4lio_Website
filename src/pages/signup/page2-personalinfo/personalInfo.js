@@ -20,6 +20,7 @@ function PersonalInfo() {
   const uName = localStorage.getItem('uname');
   const username = firebase.database().ref('Users/'+userName);
   const udata = firebase.database().ref('UserData/'+uName);
+  const uname = firebase.database().ref('UserNames/'+uName);
   const [modalOpen, setModalOpen] = useState(false);
   const [studentNo, setStudentNo] = useState('')
   const [hte, setHte] = useState('')
@@ -33,7 +34,9 @@ function PersonalInfo() {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      
+      uname.set(
+        studentNo
+      )
       username.update({
           StudentNo: studentNo,
           HTE: hte,
