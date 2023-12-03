@@ -25,6 +25,7 @@ function Signup() {
         try{
           const username = firebase.database().ref('Users/'+userName);
           const uname = firebase.database().ref('UserNames/'+name.replaceAll(',', ''));
+          const udata = firebase.database().ref('UserData/'+name.replaceAll(',', ''));
           const user =  await firebase.auth().createUserWithEmailAndPassword(email, password)
           if (user)
           {
@@ -35,7 +36,10 @@ function Signup() {
             username.set({
               name: name
             })
-            uname.set({
+            uname.set(
+              'name'
+            )
+            udata.set({
               name: name
             })
             

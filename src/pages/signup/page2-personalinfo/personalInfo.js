@@ -19,7 +19,7 @@ function PersonalInfo() {
   const userName = localStorage.getItem('username');
   const uName = localStorage.getItem('uname');
   const username = firebase.database().ref('Users/'+userName);
-  const uname = firebase.database().ref('UserNames/'+uName);
+  const udata = firebase.database().ref('UserData/'+uName);
   const [modalOpen, setModalOpen] = useState(false);
   const [studentNo, setStudentNo] = useState('')
   const [hte, setHte] = useState('')
@@ -40,7 +40,7 @@ function PersonalInfo() {
           HTEAddress: cAddress,
           OJTHours: ojtHours,
         });
-      uname.update({
+      udata.update({
           StudentNo: studentNo,
           HTE: hte,
           HTEAddress: cAddress,

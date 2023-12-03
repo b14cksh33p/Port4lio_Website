@@ -18,6 +18,7 @@ import AssessmentsPage from '../src/pages/assessments/assessments.js';
 
 function App() {
   const userName = localStorage.getItem('username');
+  const profile = localStorage.getItem('profile');
 
   const signUpPI = '/signup/personal-information/'+userName;
   const home = '/home/'+userName;
@@ -25,7 +26,7 @@ function App() {
   const wReports = '/weekly-reports/'+userName;
   const cProfiles = '/company-profiles/'+userName;
   const assessments = '/assessments/'+userName;
-
+  const sProfile = '/student-portfolio/profile/'+profile;
   return (
     <div className="App">
    <Router>
@@ -36,12 +37,13 @@ function App() {
           <Route path="/signup/done" element={<DonePage/>} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path={sPortfolio}element={<StudentPortfolioPage/>} />
-          <Route path="/student-portfolio/profile" element={<StudentProfilePage/>} />
+          <Route path={sProfile} element={<StudentProfilePage/>} />
         <Route path={home} element={<HomePage/>} />
         <Route path={wReports} element={<WeeklyReportsPage/>} />
         <Route path={cProfiles} element={<CompanyProfilesPage/>} />
         <Route path={assessments} element={<AssessmentsPage/>} />
           <Route path="/assessments/student-assessment" element={<StudentAssessmentPage/>} />
+
         {/* Other routes go here */}
       </Routes>
     </Router>

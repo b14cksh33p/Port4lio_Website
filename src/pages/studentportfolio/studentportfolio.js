@@ -7,50 +7,38 @@ import firebase from '../../firebaseConfig.js';
 import { useState, useEffect } from 'react';
 
 
-
-function GridContent({content, name}){
+function StudentPortfolio() {
+  var link = '';
   const navigate = useNavigate()
+  localStorage.setItem('profile','')
+  const saveProfile = (name) =>{
+    localStorage.setItem('profile', name.replaceAll(' ', '_'))
+      studentProfile(name);
+      link = '/student-portfolio/profile/' + name.replaceAll(' ', '_');
+  }
+  const studentProfile = (name) => {
+      navigate('/student-portfolio/profile/' + name.replaceAll(' ', '_'));
+  }
 
   const [childrenArray, setChildrenArray] = useState([]);
-
   useEffect(() => {
     // Get all children from Firebase when the component mounts
     const fetchData = async () => {
       try {
-        const dataRef = firebase.database().ref('UserNames'); // Replace 'yourParentNode' with your actual parent node name
-        const snapshot = await dataRef.once('value/name');
+        const dataRef = firebase.database().ref('UserNames');
+        const snapshot = await dataRef.once('value');
         const data = snapshot.val();
-
         if (data) {
-          // Convert data object to an array for easier mapping
-          const dataArray = Object.keys(data).map(key => ({ id: key, ...data[key] }));
+          const dataArray = Object.keys(data).map(key => (key));
           setChildrenArray(dataArray);
         }
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-
-    fetchData();
+    fetchData();;
   }, []);
-
-  console.log(childrenArray)
-
-  return(
-    <div className='grid-item'>
-      <div className='grid-image' onClick={()=>navigate('/student-portfolio/profile')}>
-          {content}
-      </div>
-      <p className='grid-text'>{name}</p>
-    </div>
-
-
-  );
-}
-
-
-
-function StudentPortfolio() {
+  
 
     return (
       <div className='wrapper-sP'>
@@ -75,26 +63,14 @@ function StudentPortfolio() {
       </div>
       <div className='sP-second-section'>
       <div className="grid-container">
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
+      {childrenArray.map((name, index) => (
+        <div key={index} className="grid-item" onClick={()=>saveProfile(name)}>
+          <a href={link}><div className='grid-image' >  
+            </div></a>
+            <p className='grid-text'>{name}</p>
+        </div>
+      ))}
     </div>
-        
       </div>
       <Footer/>
     </div>
