@@ -118,18 +118,19 @@
 
     #p1{
         z-index:10;
+        transform: translateX(-20px);
     }
     #p2{
         z-index:8;
-        transform: translateX(-140px);
+        transform: translateX(-170px);
     }
     #p3{
         z-index:10;
-        transform: translateX(-320px);
+        transform: translateX(-350px);
     }
     #p4{
         z-index:8;
-        transform: translateX(-520px);
+        transform: translateX(-550px);
     }
 }
 .sU-banner img{

@@ -36,10 +36,8 @@
 }
 .navigation{
     margin-left: auto;
-    transform: translateX(-170px);
     display: flex;
-    gap: 24px;
-
+    gap: 10px;
 }
 .navigation button{
     background-color: var(--bg_button);
@@ -63,7 +61,7 @@
     width:32px;
 }
 .button-log{
-    margin-left: auto;
+    margin-left: 25px;
     padding-right: 80px;
 }
 .button-log button{
