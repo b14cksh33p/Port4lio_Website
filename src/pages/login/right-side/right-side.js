@@ -10,12 +10,10 @@ function RightSide() {
         const [user, setUser] = useState(null);
       
         useEffect(() => {
-          // Observer to check authentication state changes
           const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
             setUser(authUser);
           });
       
-          // Cleanup the observer when the component unmounts
           return () => {
             unsubscribe();
           };
