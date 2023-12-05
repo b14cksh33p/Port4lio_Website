@@ -3,18 +3,44 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../header/header.js';
 import Footer from '../../pages/footer/footer.js';
 import { useNavigate } from 'react-router-dom';
+import firebase from '../../firebaseConfig.js';
+import { useState, useEffect } from 'react';
 
-function GridContent({content}){
+
+function StudentPortfolio() {
+  
+  localStorage.setItem('profile','')
+
   const navigate = useNavigate()
 
-  return(
-    <div className='grid-item' onClick={()=>navigate('/student-portfolio/profile')}>
-        {content}
-    </div>
+  const saveProfile = (name) =>{
+    localStorage.setItem('profile', name.replaceAll(' ', '_'))
+      studentProfile(name);
+  }
+  
+  const studentProfile = (name) => {
+      navigate('/student-portfolio/profile/' + name.replaceAll(' ', '_'));
+  }
 
-  );
-}
-function StudentPortfolio() {
+  const [childrenArray, setChildrenArray] = useState([]);
+  useEffect(() => {
+    // Get all children from Firebase when the component mounts
+    const fetchData = async () => {
+      try {
+        const dataRef = firebase.database().ref('UserNames');
+        const snapshot = await dataRef.once('value');
+        const data = snapshot.val();
+        if (data) {
+          const dataArray = Object.keys(data).map(key => (key));
+          setChildrenArray(dataArray);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();;
+  }, []);
+  
 
     return (
       <div className='wrapper-sP'>
@@ -39,26 +65,14 @@ function StudentPortfolio() {
       </div>
       <div className='sP-second-section'>
       <div className="grid-container">
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
-      <GridContent/>
+      {childrenArray.map((name, index) => (
+        <div key={index} className="grid-item" onClick={()=>saveProfile(name)}>
+          <a href=''><div className='grid-image' >  
+            </div></a>
+            <p className='grid-text'>{name.replaceAll(' ', ', ')}</p>
+        </div>
+      ))}
     </div>
-        
       </div>
       <Footer/>
     </div>

@@ -3,22 +3,45 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../header/header.js';
 import Footer from '../../pages/footer/footer.js';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import firebase from '../../firebaseConfig.js';
 
-function RowContent({sName, sNumber}){
-  const navigate = useNavigate()
-    return(
-        <>
-        <tr>
-        <td>{sName}</td>
-        <td style={{paddingLeft:'28px'}}>{sNumber}</td>
-        <td style={{width:'256px'}}><button id='view-details' onClick={()=>navigate('/assessments/student-assessment')}>View Details</button></td>
-        </tr>
-        </>
-
-    );
-}
 
 function Assessments() {
+
+  localStorage.setItem('profile','')
+
+  const navigate = useNavigate()
+  
+  const saveProfile = (name) =>{
+    localStorage.setItem('profile', name.replaceAll(' ', '_'))
+      studentProfile(name);
+  }
+
+  const studentProfile = (name) => {
+      navigate('/assessments/' + name.replaceAll(' ', '_'));
+  }
+
+  const [childrenArray, setChildrenArray] = useState([]);
+  useEffect(() => {
+    // Get all children from Firebase when the component mounts
+    const fetchData = async () => {
+      try {
+        const dataRef = firebase.database().ref('UserNames');
+        const snapshot = await dataRef.once('value');
+        const data = snapshot.val();
+
+        if (data) {
+          setChildrenArray(Object.entries(data));   
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    };
+    fetchData();;
+
+  }, []);
+
 
     return (
       <div className='wrapper-aS'>
@@ -54,27 +77,13 @@ function Assessments() {
         </tr>
       </thead>
       <tbody>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-            <RowContent sName={'LN, FN, MI'} sNumber={'2021-00000-MN-0'}/>
-        {/* Add more rows as needed */}
+      {childrenArray.map(([key, value], index) => (
+        <tr key={index} >
+          <td>{key}</td>
+        <td style={{paddingLeft:'28px'}}>{value}</td>
+        <td style={{width:'256px'}}><a href=''><button id='view-details' onClick={()=>saveProfile(key)}>View Details</button></a></td>
+        </tr>
+      ))}
       </tbody>
     </table>
         </div>     

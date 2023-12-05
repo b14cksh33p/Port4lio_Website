@@ -5,6 +5,8 @@ import Footer from '../../footer/footer.js';
 import Student from '../../../assets/images/student(2).png';
 import { useNavigate } from 'react-router-dom';
 import FileContainer from '../../studentportfolio/file-container/file-container.js';
+import { useState, useEffect } from 'react';
+import firebase from '../../../firebaseConfig.js';
 
 function Header() {
     const navigate = useNavigate()
@@ -27,6 +29,8 @@ function Header() {
 
 function Profile({pic, name, sNumber, company, ojtHours}){
 
+    
+
     return(
     <div className='sAs-content'>
     <div className='sAs-content-image'>
@@ -34,10 +38,10 @@ function Profile({pic, name, sNumber, company, ojtHours}){
     </div>
     <div className='sAs-content-text'>
         <h3>{name}</h3>
-        <p>Student No.: ({sNumber})</p>
+        <p>Student No.: {sNumber}</p>
         <p>CYS: BSCpE 3-4</p>
-        <p>HTE: ({company})</p>
-        <p>OJT Hours: ({ojtHours})</p>
+        <p>HTE: {company}</p>
+        <p>OJT Hours: {ojtHours}</p>
     </div>
     </div>
 );
@@ -45,16 +49,46 @@ function Profile({pic, name, sNumber, company, ojtHours}){
 
 function StudentAssessment() {
 
+    const [fullName, setFullName] = useState('LN, FN MN');
+    const [studentNo, setStudentNo] = useState('2021-00000-MN-0');
+    const [company, setCompany] = useState('Company Name');
+    const [ojtHours, setOjtHours] = useState('000 Hours');
+    
+    const name = localStorage.getItem('profile');
+    useEffect(() => {
+    const uname = firebase.database().ref('UserData/'+name.replaceAll('_', ' '));
+
+    const fname = uname.child('name')
+    fname.on('value', (snapshot) => {
+        setFullName(snapshot.val());
+      });
+      
+    const sNo = uname.child('StudentNo')
+    sNo.on('value', (snapshot) => {
+        setStudentNo(snapshot.val());
+      });
+
+    const comp = uname.child('HTE')
+    comp.on('value', (snapshot) => {
+        setCompany(snapshot.val());
+      });
+    
+    const ojt = uname.child('OJTHours')
+    ojt.on('value', (snapshot) => {
+        setOjtHours(snapshot.val());
+    });
+    });
+
     return (
       <div className='wrapper-sAs'>
       <Header/>
       <div className='sAs-first-section'>
         <div>
          <Profile pic={<img src={Student} id='profile-pic'/>}
-          name={'LN, FN MI'}
-          sNumber={'2021-00000-MN-0'}
-          company={'Company Name'}
-          ojtHours={'300 Hours'}
+          name={fullName}
+          sNumber={studentNo}
+          company={company}
+          ojtHours={ojtHours}
           />
         </div>
           <div className=' sAs-background'>
