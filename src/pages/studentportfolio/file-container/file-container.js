@@ -4,7 +4,9 @@ import UploadIcon from '../../../assets/images/upload-icon.png';
 import { fileDb } from '../../../firebaseConfig';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-const FileContainer = () => {
+import firebase from '../../../firebaseConfig.js';
+
+const FileContainer = ({ highlightedText }) => {
     const fileInputRef = useRef(null);
     const [fileUpload, setFileUpload] = useState();
 
@@ -16,14 +18,23 @@ const FileContainer = () => {
     const uploadFile = () => {
         if(!fileUpload) return;
 
-        const fileRef = ref(fileDb, `files/${fileUpload.name}`);
+        try{
+          const currentUser = firebase.auth().currentUser;
+          if (currentUser) {
+            const userID = currentUser.uid;
+            const fileRef = ref(fileDb, `students_files/${userID}/${fileUpload.name}`);
+  
+          uploadBytes(fileRef, fileUpload).then((snapshot) => {
+              getDownloadURL(snapshot.ref).then((url) => {
+                  console.log(url);
+                  alert("File successfully uploaded.")
+                });
+              });
+            } 
+        } catch (error){
+          alert(`Authentication failed: ${error}`);
 
-        uploadBytes(fileRef, fileUpload).then((snapshot) => {
-            getDownloadURL(snapshot.ref).then((url) => {
-                console.log(url);
-                alert("File successfully uploaded.")
-            });
-        });
+        }
     }
     
     const openFileFunction = ()=> {
@@ -34,7 +45,7 @@ const FileContainer = () => {
     <div className='FC-container'>
       <img src={UploadIcon} width='80px' height='80px' alt='Upload icon' />
       <p>
-        Drag and Drop <span className='text-highlighted'>Assessment PDF</span> here
+        Drag and Drop <span className='text-highlighted'>{ highlightedText }</span> here
       </p>
       <input type='file' className='FC-input-file'onChange={handleFileSelect}
       ref={fileInputRef}
