@@ -20,6 +20,10 @@
     text-align: center;
     margin-right: 50px;
 }
+.FC-container.dragging {
+    border-color: var(--primary-dark);
+    background-color: var(--background);
+  }
 
 .text-highlighted{
     color: var(--primary-light);
