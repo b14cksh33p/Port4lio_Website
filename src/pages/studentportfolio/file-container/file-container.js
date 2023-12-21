@@ -4,8 +4,8 @@ import UploadIcon from '../../../assets/images/upload-icon.png';
 import UploadDoneIcon from '../../../assets/images/upload-done.png';
 import { fileDb } from '../../../firebaseConfig';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-
 import firebase from '../../../firebaseConfig.js';
+
 
 const FileContainer = ({ highlightedText }) => {
     const fileInputRef = useRef(null);
@@ -14,56 +14,22 @@ const FileContainer = ({ highlightedText }) => {
     const [fileUpload, setFileUpload] = useState();
     const [isDragging, setIsDragging] = useState(false);
 
+    //Open File function
+    const openFileFunction = ()=> {
+      fileInputRef.current.click();
+    }
+
+    //File Selection function
     const handleFileSelect = (event) => {
       const selectedFile = event.target.files[0];
-        setFileUpload(selectedFile);
-
-        if (selectedFile) {
-            const reader = new FileReader();
-
-            reader.onload = (e) => {
-                const result = e.target.result;
-
-                if (selectedFile.type.startsWith('image/') || selectedFile.type.startsWith('text/')) {
-                    const previewElement = document.createElement(
-                        selectedFile.type.startsWith('image/') ? 'img' : 'div'
-                    );
-                    previewElement.src = result;
-                    previewElement.style.maxWidth = '100%';
-                    containerRef.current.innerHTML = '';
-                    containerRef.current.appendChild(previewElement);
-                    if(selectedFile.type.startsWith('image/')) {
-                      imgRef.current.style.display = 'none';
-                    }
-                } else if (selectedFile.type === 'application/pdf') {
-                    // Display a download link for PDF files
-                    imgRef.current.src = UploadDoneIcon;
-                    containerRef.current.innerHTML = `
-                        <a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>
-                    `;
-                } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-                    // Display a download link for Word documents
-                    imgRef.current.src = UploadDoneIcon;
-                    containerRef.current.innerHTML = `
-                        <a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>
-                    `;
-                } else if (selectedFile.type ===
-                  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') 
-                  {
-                  // Display a download link for Excel files
-                  imgRef.current.src = UploadDoneIcon;
-                  containerRef.current.innerHTML = `
-                      <a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>
-                  `;
-                } else {
-                    containerRef.current.innerHTML = `<p>Preview not available for this file type.</p>`;
-                }
-            };
-
-            reader.readAsDataURL(selectedFile);
-        }
+      setFileUpload(selectedFile);
+  
+      if (selectedFile) {
+        handleFilePreview(selectedFile);
+      }
     };
 
+    //File Upload function
     const uploadFile = () => {
         if(!fileUpload) return;
 
@@ -85,56 +51,85 @@ const FileContainer = ({ highlightedText }) => {
         }
     }
     
-    const openFileFunction = ()=> {
-      fileInputRef.current.click();
-    }
+    //File preview function
+    const handleFilePreview = (selectedFile) => {
+      const reader = new FileReader();
+      
+      reader.onload = (e) => {
+        const result = e.target.result;
+        
+        if (selectedFile.type.startsWith('image/') || selectedFile.type.startsWith('text/')) {
+          const previewElement = document.createElement(
+            selectedFile.type.startsWith('image/') ? 'img' : 'div'
+            );
+            previewElement.src = result;
+            previewElement.style.maxWidth = '100%';
+            containerRef.current.innerHTML = '';
+            containerRef.current.appendChild(previewElement);
+            if (selectedFile.type.startsWith('image/')) {
+              imgRef.current.style.display = 'none';
+            }
+        } else if (selectedFile.type === 'application/pdf') {
+          imgRef.current.src = UploadDoneIcon;
+          containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
+        } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+          imgRef.current.src = UploadDoneIcon;
+          containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
+        } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+          imgRef.current.src = UploadDoneIcon;
+          containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
+        } else {
+          containerRef.current.innerHTML = `<p>Preview not available for this file type.</p>`;
+        }
+      };
+      reader.readAsDataURL(selectedFile);
+    };
 
     //Drag and Drop function
     useEffect(() => {
       const imgElement = imgRef.current;
-
+      
       const handleDragEnter = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          setIsDragging(true);
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDragging(true);
       };
 
       const handleDragLeave = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          setIsDragging(false);
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDragging(false);
       };
 
       const handleDragOver = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
       };
 
       const handleDrop = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          setIsDragging(true);
-
-          const files = e.dataTransfer.files;
-          if (files.length > 0) {
-              setFileUpload(files[0]);
-              alert('File selected: ' + files[0].name + '. Click the Upload button to continue.');
-          }
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDragging(true);
+        
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+          setFileUpload(files[0]);
+          handleFilePreview(files[0]);
+        }
       };
-
-        imgElement.addEventListener('dragenter', handleDragEnter);
-        imgElement.addEventListener('dragover', handleDragOver);
-        imgElement.addEventListener('dragleave', handleDragLeave);
-        imgElement.addEventListener('drop', handleDrop);
-
-        return () => {
-            imgElement.removeEventListener('dragenter', handleDragEnter);
-            imgElement.removeEventListener('dragover', handleDragOver);
-            imgElement.removeEventListener('dragleave', handleDragLeave);
-            imgElement.removeEventListener('drop', handleDrop);
-        };
+      
+      imgElement.addEventListener('dragenter', handleDragEnter);
+      imgElement.addEventListener('dragover', handleDragOver);
+      imgElement.addEventListener('dragleave', handleDragLeave);
+      imgElement.addEventListener('drop', handleDrop);
+      
+      return () => {
+        imgElement.removeEventListener('dragenter', handleDragEnter);
+        imgElement.removeEventListener('dragover', handleDragOver);
+        imgElement.removeEventListener('dragleave', handleDragLeave);
+        imgElement.removeEventListener('drop', handleDrop);
+      };
     }, []);
-    
 
 
   return (
