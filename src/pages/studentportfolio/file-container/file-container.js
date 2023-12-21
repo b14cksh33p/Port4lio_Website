@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './file-container.css';
 import UploadIcon from '../../../assets/images/upload-icon.png';
+import UploadDoneIcon from '../../../assets/images/upload-done.png';
 import { fileDb } from '../../../firebaseConfig';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
@@ -9,12 +10,58 @@ import firebase from '../../../firebaseConfig.js';
 const FileContainer = ({ highlightedText }) => {
     const fileInputRef = useRef(null);
     const imgRef = useRef(null);
+    const containerRef = useRef(null);
     const [fileUpload, setFileUpload] = useState();
     const [isDragging, setIsDragging] = useState(false);
 
     const handleFileSelect = (event) => {
-      setFileUpload(event.target.files[0]);
-      alert('File selected: ' + event.target.files[0].name + '. Click the Upload button to continue.');
+      const selectedFile = event.target.files[0];
+        setFileUpload(selectedFile);
+
+        if (selectedFile) {
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                const result = e.target.result;
+
+                if (selectedFile.type.startsWith('image/') || selectedFile.type.startsWith('text/')) {
+                    const previewElement = document.createElement(
+                        selectedFile.type.startsWith('image/') ? 'img' : 'div'
+                    );
+                    previewElement.src = result;
+                    previewElement.style.maxWidth = '100%';
+                    containerRef.current.innerHTML = '';
+                    containerRef.current.appendChild(previewElement);
+                    if(selectedFile.type.startsWith('image/')) {
+                      imgRef.current.style.display = 'none';
+                    }
+                } else if (selectedFile.type === 'application/pdf') {
+                    // Display a download link for PDF files
+                    imgRef.current.src = UploadDoneIcon;
+                    containerRef.current.innerHTML = `
+                        <a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>
+                    `;
+                } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+                    // Display a download link for Word documents
+                    imgRef.current.src = UploadDoneIcon;
+                    containerRef.current.innerHTML = `
+                        <a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>
+                    `;
+                } else if (selectedFile.type ===
+                  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') 
+                  {
+                  // Display a download link for Excel files
+                  imgRef.current.src = UploadDoneIcon;
+                  containerRef.current.innerHTML = `
+                      <a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>
+                  `;
+                } else {
+                    containerRef.current.innerHTML = `<p>Preview not available for this file type.</p>`;
+                }
+            };
+
+            reader.readAsDataURL(selectedFile);
+        }
     };
 
     const uploadFile = () => {
@@ -95,13 +142,16 @@ const FileContainer = ({ highlightedText }) => {
       <img
       ref={imgRef}
       src={UploadIcon}
+      className='FC-img'
       width='80px'
       height='80px'
       alt='Upload icon'
       />
-      <p>
-        Drag and Drop <span className='text-highlighted'>{ highlightedText }</span> here
-      </p>
+      <div ref={containerRef}>
+        <p>
+          Drag and Drop <span className='text-highlighted'>{ highlightedText }</span> here or
+        </p>
+      </div>
       <input type='file' className='FC-input-file'onChange={handleFileSelect}
       ref={fileInputRef}
       style={{ display: 'none' }}
