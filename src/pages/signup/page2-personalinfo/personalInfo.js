@@ -19,7 +19,7 @@ function PersonalInfo() {
   const userName = localStorage.getItem('username');
   const uName = localStorage.getItem('uname');
   const username = firebase.database().ref('Users/'+userName);
-  const udata = firebase.database().ref('UserData/'+uName);
+  const udata = firebase.database().ref('UserData/'+uName.replaceAll(',',''));
   const uname = firebase.database().ref('UserNames/'+uName);
   const [modalOpen, setModalOpen] = useState(false);
   const [studentNo, setStudentNo] = useState('')

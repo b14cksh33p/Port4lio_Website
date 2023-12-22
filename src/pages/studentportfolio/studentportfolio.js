@@ -66,10 +66,10 @@ function StudentPortfolio() {
       <div className='sP-second-section'>
       <div className="grid-container">
       {childrenArray.map((name, index) => (
-        <div key={index} className="grid-item" onClick={()=>saveProfile(name)}>
+        <div key={index} className="grid-item" onClick={()=>saveProfile(name.replaceAll(',', ''))}>
           <a href=''><div className='grid-image' >  
             </div></a>
-            <p className='grid-text'>{name.replaceAll(' ', ', ')}</p>
+            <p className='grid-text'>{name}</p>
         </div>
       ))}
     </div>
