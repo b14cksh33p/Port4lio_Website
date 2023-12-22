@@ -57,8 +57,8 @@ function StudentProfile() {
     const name = localStorage.getItem('profile');
     const user = localStorage.getItem('User');
     var username = '';
-    if(user != null){
-        username = user.replaceAll(', ', '_')
+    if(user){
+        username = user.replaceAll(', ','_');
     }
     useEffect(() => {
     const uname = firebase.database().ref('UserData/'+name.replaceAll('_', ' '));
@@ -130,7 +130,6 @@ function StudentProfile() {
                 <FileContainer highlightedText='Completion Cert' />
             </div>
         </div> }
-
       </div>
       <Footer/>
     </div>

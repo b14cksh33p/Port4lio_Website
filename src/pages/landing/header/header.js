@@ -18,6 +18,7 @@ function Header(){
         firebase.auth().signOut()
           .then(() => {
             alert('User signed out successfully.');
+            localStorage.clear();
             localStorage.setItem('username', '');
             navigate('/login')
           })

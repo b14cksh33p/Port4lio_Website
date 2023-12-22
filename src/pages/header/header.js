@@ -42,6 +42,7 @@ function Header() {
       .then(() => {
         alert('User signed out successfully.');
         localStorage.clear();
+        localStorage.setItem('username', '');
         navigate('/login')
       })
       .catch((error) => {
