@@ -134,6 +134,7 @@ const FileContainer = ({ highlightedText }) => {
 
   return (
     <div className={`FC-container ${isDragging ? 'dragging' : ''}`}>
+      <div className='FC-hover'>
       <img
       ref={imgRef}
       src={UploadIcon}
@@ -154,6 +155,21 @@ const FileContainer = ({ highlightedText }) => {
       <div className='FC-buttons'>
         <button className='FC-openbtn' onClick={openFileFunction}>Select</button>
         <button className='FC-uploadbtn' onClick={uploadFile}>Upload</button>
+      </div>
+      </div>
+
+      
+
+      <div className='FC-front'>
+        <img
+          ref={imgRef}
+          src={UploadIcon}
+          className='FC-img'
+          width='80px'
+          height='80px'
+          alt='Upload icon'
+        />
+        <p className='text-highlighted'>{highlightedText}</p>
       </div>
     </div>
   );

@@ -19,26 +19,45 @@
     justify-content: center;
     text-align: center;
     margin-right: 50px;
+    padding: 5px;
 }
 .FC-container.dragging {
     border-color: var(--primary-dark);
     background-color: var(--background);
   }
 
+.FC-hover, .FC-front{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.FC-hover{
+    display: none;
+}
+
 .text-highlighted{
     color: var(--primary-light);
 }
 
-.FC-container p{
+.FC-hover p{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 700;
-    padding: 0 5px 0 5px;
+}
+
+.FC-front p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .FC-buttons{
     display: flex;
-    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .FC-uploadbtn, .FC-openbtn{
@@ -53,5 +72,12 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 15px;
+}
 
+/**/
+.FC-container:hover .FC-front{
+    display: none;
+}
+.FC-container:hover .FC-hover{
+    display: block;
 }
