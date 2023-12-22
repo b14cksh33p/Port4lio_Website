@@ -11,7 +11,6 @@
     --bg_button: #c24914;
    
 }
-
 .landing-header{
     position: absolute;
     display: flex;
@@ -20,34 +19,43 @@
     width: 100%;
     background-color: var(--primary);
     color: #8ACAE6;
-    padding-left: 80px;
+    padding-left: 6rem;
     z-index: 10;
 }
+.landing-title img{
+    margin-bottom: 1.6vh;
+    width: 1.60rem;
+}
 .landing-header h1{
-    font-size: 32px;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--font);
 }
 .landing-title{
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.4rem;
 }
 .landing-navigation{
     margin-left: auto;
-    margin-right: 80px;
+    margin-right: 6rem;
     display: flex;
-    gap: 24px;
+    font-size: 0.88rem;
+    gap: 0.4rem;
 }
 .landing-navigation button{
     background-color: var(--bg_button);
     color: white;
-    font-size: 14px;
+    font-size: 0.8rem;
     font-weight: 700;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     letter-spacing: 0.05em;
-    padding: 4px 16px;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: 0.8rem;
 }
 .landing-navigation button:hover{
     filter: brightness(0.9);
@@ -61,11 +69,42 @@
     color: var(--bg_button) !important;
     cursor: pointer;
 }
-.landing-title img{
-    padding-bottom: 16px;
-    width:32px;
-}
 .signed-out{
     display: flex;
     gap: 12px;
+}
+
+@media (max-width: 600px) {
+    .landing-header{
+        padding-left: 1rem;
+        height: 48px;
+        width: 100%;
+    }
+    .landing-title img{
+        margin-bottom: 0.4rem;
+        width: 0.8rem;
+    }
+    .landing-header h1{
+        margin-top: 0.4rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--font);
+    }
+    .landing-title{
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+    }
+    .landing-navigation{
+        margin-left: auto;
+        margin-right: 1rem;
+        display: flex;
+        font-size: 0.6rem;
+        gap: 0;
+    }
+    .landing-navigation button{
+        font-size: 0.496rem;
+        border-radius: 6px;
+        margin-left: 0;
+    }
 }

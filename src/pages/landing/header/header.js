@@ -2,7 +2,7 @@ import './header.css'
 import Icon from '../../../assets/images/icon.png';
 import { useNavigate } from 'react-router-dom';
 import firebase from '../../../firebaseConfig.js';
-
+import { Helmet } from 'react-helmet';
 function Header(){
     const handleScrollToAbout = () => {
         window.scrollTo({
@@ -29,6 +29,9 @@ function Header(){
 
     return(
         <div className="landing-header">
+            <Helmet>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Helmet>
             <div className='landing-title'>
                 <img src={Icon} alt='Icon'/>
                 <h1>PORT4LIO</h1>

@@ -5,7 +5,7 @@ import Image1 from '../../assets/images/landing_main1.png'
 import Image2 from '../../assets/images/landing_main2.png'
 import Image3 from '../../assets/images/landing_main3.png'
 import { useNavigate } from 'react-router-dom';
-
+import { Helmet } from 'react-helmet';
 
 
 function Landing() {
@@ -16,6 +16,9 @@ function Landing() {
     return (
       <div className='wrapper-landing'> 
       <Header/>
+        <Helmet>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Helmet>
         <div className='body'>
           <div className='landing-main'>
             <div className='main-content s1'>
