@@ -55,6 +55,7 @@ function StudentProfile() {
     const [ojtHours, setOjtHours] = useState('000 Hours');
     
     const name = localStorage.getItem('profile');
+    const user = localStorage.getItem('User').replaceAll(', ', '_');
     useEffect(() => {
     const uname = firebase.database().ref('UserData/'+name.replaceAll('_', ' '));
 
@@ -101,6 +102,7 @@ function StudentProfile() {
           </div>
       </div>
       <div className='sPr-second-section'>
+        {user != name ? '' :         
         <div className='sPr-documents'>
             <div className='sPr-row'>
                 <FileContainer highlightedText='MOA' />
@@ -123,7 +125,8 @@ function StudentProfile() {
             <div className='sPr-row'>
                 <FileContainer highlightedText='Completion Cert' />
             </div>
-        </div>
+        </div> }
+
       </div>
       <Footer/>
     </div>

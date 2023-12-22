@@ -41,8 +41,13 @@ function RightSide() {
             if (user)
             {
                 const userName = emailLogin.replace('@gmail.com', '');
-                alert("Login Successfully");
                 localStorage.setItem('username', userName);
+                const userRef = firebase.database().ref('Users/' + userName);
+                const currentUser = userRef.child('name')
+                currentUser.on('value', (snapshot) => {
+                    localStorage.setItem('User', snapshot.val());     
+                  });
+                alert("Login Successfully");
                 window.location.href = '/home/'+ userName;
             }
         }

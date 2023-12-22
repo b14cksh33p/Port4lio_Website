@@ -36,8 +36,8 @@ const FileContainer = ({ highlightedText }) => {
         try{
           const currentUser = firebase.auth().currentUser;
           if (currentUser) {
-            const userID = currentUser.uid;
-            const fileRef = ref(fileDb, `students_files/${userID}/${fileUpload.name}`);
+            const userID = localStorage.getItem('User').replaceAll(',','');
+            const fileRef = ref(fileDb, `students_files/${userID}/${userID} - ${highlightedText.replaceAll('.','')}`);
   
           uploadBytes(fileRef, fileUpload).then((snapshot) => {
               getDownloadURL(snapshot.ref).then((url) => {

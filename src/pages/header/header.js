@@ -41,7 +41,7 @@ function Header() {
     firebase.auth().signOut()
       .then(() => {
         alert('User signed out successfully.');
-        localStorage.setItem('username', '');
+        localStorage.clear();
         navigate('/login')
       })
       .catch((error) => {
@@ -76,7 +76,6 @@ function Header() {
                 key={index}
                 useS
                 onClick={() => setCurrentPage(index)}
-                
               >
                 {page.title}
               </NavLink>
