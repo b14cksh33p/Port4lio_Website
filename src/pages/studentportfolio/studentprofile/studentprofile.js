@@ -58,8 +58,10 @@ function StudentProfile() {
     const user = localStorage.getItem('User');
     var username = '';
     if(user){
-        username = user.replaceAll(', ','_');
+        username = user.replaceAll(',','');
+        username = username.replaceAll(' ', '_');
     }
+    console.log(username)
     useEffect(() => {
     const uname = firebase.database().ref('UserData/'+name.replaceAll('_', ' '));
 
