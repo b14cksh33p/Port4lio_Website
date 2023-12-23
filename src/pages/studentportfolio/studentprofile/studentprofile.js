@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import {  useState, useEffect } from 'react';
 import FileContainer from '../file-container/file-container.js'
 import firebase from '../../../firebaseConfig.js';
+import { fileDb } from '../../../firebaseConfig';
+import { ref, getDownloadURL } from 'firebase/storage';
 import 'firebase/database'
 
 
@@ -53,7 +55,8 @@ function StudentProfile() {
     const [studentNo, setStudentNo] = useState('2021-00000-MN-0');
     const [company, setCompany] = useState('Company Name');
     const [ojtHours, setOjtHours] = useState('000 Hours');
-    
+    const [pPicUrl, setPPicUrl] = useState(Student);
+
     const name = localStorage.getItem('profile');
     const user = localStorage.getItem('User');
     var username = '';
@@ -61,7 +64,18 @@ function StudentProfile() {
         username = user.replaceAll(',','');
         username = username.replaceAll(' ', '_');
     }
-    console.log(username)
+
+    const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - 2X2 Picture`);
+    getDownloadURL(fileRef)
+    .then((url) => {
+        setPPicUrl(url);
+    })
+    .catch((error) => {
+        console.error('Error retrieving download URL:', error);
+    });
+
+    
+
     useEffect(() => {
     const uname = firebase.database().ref('UserData/'+name.replaceAll('_', ' '));
 
@@ -91,7 +105,7 @@ function StudentProfile() {
       <Header/>
       <div className='sPr-first-section'>
         <div>
-         <Profile pic={<img src={Student} id='profile-pic'/>}
+         <Profile pic={<img src={pPicUrl} id='profile-pic'/>}
           name={fullName}
           sNumber={studentNo}
           company={company}

@@ -7,6 +7,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import firebase from '../../../firebaseConfig.js';
 
 
+
 const FileContainer = ({ highlightedText }) => {
     const fileInputRef = useRef(null);
     const imgRef = useRef(null);

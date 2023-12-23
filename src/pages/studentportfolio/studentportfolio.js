@@ -4,13 +4,32 @@ import Header from '../header/header.js';
 import Footer from '../../pages/footer/footer.js';
 import { useNavigate } from 'react-router-dom';
 import firebase from '../../firebaseConfig.js';
+import { fileDb } from '../../firebaseConfig';
+import { ref, getDownloadURL } from 'firebase/storage';
 import { useState, useEffect } from 'react';
 
+function ProfilePicture({uname}){
+  const [pPicUrl, setPPicUrl] = useState();
+
+  const fileRef = ref(fileDb, `students_files/${uname.replaceAll(',', '')}/${uname.replaceAll(',', '')} - 2X2 Picture`);
+    getDownloadURL(fileRef)
+    .then((url) => {
+        setPPicUrl(url);
+    })
+    .catch((error) => {
+        console.error('Error retrieving download URL:', error);
+    });
+  return(
+    <div>
+      <img src={pPicUrl} style={{height:'18vh'}}/>
+    </div>
+  );
+}
 
 function StudentPortfolio() {
-  
-  localStorage.setItem('profile','')
 
+
+  localStorage.setItem('profile','')
   const navigate = useNavigate()
 
   const saveProfile = (name) =>{
@@ -21,6 +40,7 @@ function StudentPortfolio() {
   const studentProfile = (name) => {
       navigate('/student-portfolio/profile/' + name.replaceAll(' ', '_'));
   }
+
 
   const [childrenArray, setChildrenArray] = useState([]);
   useEffect(() => {
@@ -67,8 +87,11 @@ function StudentPortfolio() {
       <div className="grid-container">
       {childrenArray.map((name, index) => (
         <div key={index} className="grid-item" onClick={()=>saveProfile(name.replaceAll(',', ''))}>
-          <a href=''><div className='grid-image' >  
-            </div></a>
+          <a href=''>
+            <div className='grid-image' >
+              <ProfilePicture uname={name} />
+            </div>
+          </a>
             <p className='grid-text'>{name}</p>
         </div>
       ))}
