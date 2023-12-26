@@ -39,6 +39,14 @@ function Header() {
 }
 
 function Profile({pic, name, sNumber, company, ojtHours}){
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const openModal = () => {
+        setIsModalOpen(true);
+      };
+    
+      const closeModal = () => {
+        setIsModalOpen(false);
+      };
 
     return(
     <div className='sPr-content'>
@@ -54,10 +62,37 @@ function Profile({pic, name, sNumber, company, ojtHours}){
         <div>{username != (name.replaceAll(',','')).replaceAll(' ','_') ? 
         ''
         : 
-        <button>Edit Profile</button>
+        <button onClick={openModal}>Edit Profile</button>
         }
         </div>
     </div>
+    {!isModalOpen ? '' :
+        <div className='eP-wrapper'>
+            <div className='eP-container'>
+                <h2>Edit Profile</h2>
+                <div className='eP-info'>
+                    <p>Name:</p>
+                    <input type='text'></input>
+                </div>
+                <div className='eP-info'>
+                    <p>Student No.:</p>
+                    <input type='text'></input>
+                </div>
+                <div className='eP-info'>
+                    <p>Company Name:</p>
+                    <input type='text'></input>
+                </div>
+                <div className='eP-info'>
+                    <p>OJT Hours:</p>
+                    <input type='text'></input>
+                </div>
+                <div>
+                    <button onClick={closeModal}>Close</button>
+                    <button onClick={closeModal}>Update</button>
+                </div>
+            </div>
+        </div>
+        }
     </div>
 );
 }
@@ -91,6 +126,7 @@ function UploadedDocs({fileName}){
         </>
     );
 }
+
 function StudentProfile() {
 
     const [fullName, setFullName] = useState('LN, FN MN');
@@ -174,9 +210,6 @@ function StudentProfile() {
         </div> 
         :         
         <div className='sPr-documents'>
-            <div className='sPr-edit-docs'>
-                <button onClick={()=>setEditDocs(!editDocs)}>Edit/Upload Documents</button>
-            </div>
             {editDocs==false ?
             <div>
                 <UploadedDocs fileName={'Memorandum of Agreement'}/>
@@ -216,7 +249,11 @@ function StudentProfile() {
             </div>
             </div>
             }
-            
+            <div>              
+            </div>
+            <div className='sPr-edit-docs'>
+                <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Edit/Upload Documents' : 'Done'}</button>
+            </div>
         </div> }
       </div>
       <Footer/>

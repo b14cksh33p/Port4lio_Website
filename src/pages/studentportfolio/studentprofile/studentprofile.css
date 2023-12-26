@@ -114,7 +114,15 @@
     align-items: center;
 }
 .sPr-edit-docs{
-    margin-bottom: 48px;
+    margin-top: 48px;
+}
+.wrapper-sPr button{
+    padding: 4px 20px;
+    border: none;
+    background-color: var(--bg_button);
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
 }
 
 .sPr-row{
@@ -166,8 +174,28 @@
     cursor: pointer;
     color: #605757;
 }
-.Ud-container{
-    height: 128px;
-    width: 128px;
-    background-color: var(--primary);
+.Ud-container {
+    padding: 16px;
+    width: 192px;
+    height: 192px;
+    background-color: var(--image_bg2);
+    border-radius: 25px;
+    text-align: center;
+  }
+  .Ud-container:hover{
+    filter: brightness(0.9);
+    cursor: pointer;
+  }
+
+.eP-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000000;
 }

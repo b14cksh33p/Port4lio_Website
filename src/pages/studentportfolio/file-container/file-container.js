@@ -158,8 +158,6 @@ const FileContainer = ({ highlightedText }) => {
       </div>
       </div>
 
-      
-
       <div className='FC-front'>
         <img
           ref={imgRef}
