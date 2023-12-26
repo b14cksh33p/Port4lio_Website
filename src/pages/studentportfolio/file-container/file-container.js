@@ -33,7 +33,6 @@ const FileContainer = ({ highlightedText }) => {
     //File Upload function
     const uploadFile = () => {
         if(!fileUpload) return;
-
         try{
           const currentUser = firebase.auth().currentUser;
           if (currentUser) {

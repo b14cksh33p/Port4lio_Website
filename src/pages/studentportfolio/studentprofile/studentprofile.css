@@ -103,10 +103,18 @@
     padding-left: 104px;
     padding-right: 80px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 .sPr-documents{
     margin-top:80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sPr-edit-docs{
+    margin-bottom: 48px;
 }
 
 .sPr-row{
@@ -157,4 +165,9 @@
 .sPr-back p:hover{
     cursor: pointer;
     color: #605757;
+}
+.Ud-container{
+    height: 128px;
+    width: 128px;
+    background-color: var(--primary);
 }

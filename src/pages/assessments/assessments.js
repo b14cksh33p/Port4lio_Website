@@ -81,7 +81,7 @@ function Assessments() {
         <tr key={index} >
           <td>{key}</td>
         <td style={{paddingLeft:'28px'}}>{value}</td>
-        <td style={{width:'256px'}}><a href=''><button id='view-details' onClick={()=>saveProfile(key)}>View Details</button></a></td>
+        <td style={{width:'256px'}}><a href=''><button id='view-details' onClick={()=>saveProfile(key.replaceAll(',',''))}>View Details</button></a></td>
         </tr>
       ))}
       </tbody>

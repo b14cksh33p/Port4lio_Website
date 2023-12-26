@@ -11,6 +11,13 @@ import { fileDb } from '../../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
 import 'firebase/database'
 
+const name = localStorage.getItem('profile');
+const user = localStorage.getItem('User');
+var username = '';
+if(user){
+    username = user.replaceAll(',','');
+    username = username.replaceAll(' ', '_');
+}
 
 function Header() {
     const navigate = useNavigate()
@@ -44,11 +51,46 @@ function Profile({pic, name, sNumber, company, ojtHours}){
         <p>CYS: BSCpE 3-4</p>
         <p>HTE: {company}</p>
         <p>OJT Hours: {ojtHours}</p>
+        <div>{username != (name.replaceAll(',','')).replaceAll(' ','_') ? 
+        ''
+        : 
+        <button>Edit Profile</button>
+        }
+        </div>
     </div>
     </div>
 );
 }
 
+function UploadedDocs({fileName}){
+    const [docUrl, setDocUrl] = useState(null);
+    
+    const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${fileName}`);
+    getDownloadURL(fileRef)
+    .then((url) => {
+        setDocUrl(url);
+    })
+    .catch((error) => {
+        console.error('Error retrieving download URL:', error);
+    });
+
+    console.log(docUrl)
+
+    return(
+        <>
+        {docUrl == null ?
+         '' 
+         :
+         <a href={docUrl} target='_blank'>
+         <div className='Ud-container'>
+             <p>{fileName}</p>
+             
+         </div>
+         </a>
+         }
+        </>
+    );
+}
 function StudentProfile() {
 
     const [fullName, setFullName] = useState('LN, FN MN');
@@ -56,14 +98,8 @@ function StudentProfile() {
     const [company, setCompany] = useState('Company Name');
     const [ojtHours, setOjtHours] = useState('000 Hours');
     const [pPicUrl, setPPicUrl] = useState(Student);
+    const [editDocs, setEditDocs] = useState(false);
 
-    const name = localStorage.getItem('profile');
-    const user = localStorage.getItem('User');
-    var username = '';
-    if(user){
-        username = user.replaceAll(',','');
-        username = username.replaceAll(' ', '_');
-    }
 
     const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - 2X2 Picture`);
     getDownloadURL(fileRef)
@@ -75,7 +111,6 @@ function StudentProfile() {
     });
 
     
-
     useEffect(() => {
     const uname = firebase.database().ref('UserData/'+name.replaceAll('_', ' '));
 
@@ -122,29 +157,66 @@ function StudentProfile() {
           </div>
       </div>
       <div className='sPr-second-section'>
-        {username != name ? '' :         
+
+        {username != name ?
+        <div>
+            <UploadedDocs fileName={'Memorandum of Agreement'}/>
+            <UploadedDocs fileName={'Waiver'}/>
+            <UploadedDocs fileName={'HTE Evaluation'}/>
+            <UploadedDocs fileName={'Performance Evaluation'}/>
+            <UploadedDocs fileName={'Letter of Endorsement'}/>
+            <UploadedDocs fileName={'Letter of Intent'}/>
+            <UploadedDocs fileName={'Daily Time Report'}/>
+            <UploadedDocs fileName={'Consent Form'}/>
+            <UploadedDocs fileName={'Medical Certificate'}/>
+            <UploadedDocs fileName={'Adviser Evaluation'}/>
+            <UploadedDocs fileName={'Completion Certificate'}/>
+        </div> 
+        :         
         <div className='sPr-documents'>
+            <div className='sPr-edit-docs'>
+                <button onClick={()=>setEditDocs(!editDocs)}>Edit/Upload Documents</button>
+            </div>
+            {editDocs==false ?
+            <div>
+                <UploadedDocs fileName={'Memorandum of Agreement'}/>
+                <UploadedDocs fileName={'Waiver'}/>
+                <UploadedDocs fileName={'HTE Evaluation'}/>
+                <UploadedDocs fileName={'Performance Evaluation'}/>
+                <UploadedDocs fileName={'Letter of Endorsement'}/>
+                <UploadedDocs fileName={'Letter of Intent'}/>
+                <UploadedDocs fileName={'Daily Time Report'}/>
+                <UploadedDocs fileName={'Consent Form'}/>
+                <UploadedDocs fileName={'Medical Certificate'}/>
+                <UploadedDocs fileName={'Adviser Evaluation'}/>
+                <UploadedDocs fileName={'Completion Certificate'}/>
+            </div> 
+            :
+            <div>
             <div className='sPr-row'>
-                <FileContainer highlightedText='MOA' />
+                <FileContainer highlightedText='Memorandum of Agreement' />
                 <FileContainer highlightedText='Waiver'/>
-                <FileContainer highlightedText='HTE Eval.' />
-                <FileContainer highlightedText='Perf Eval.'/>
+                <FileContainer highlightedText='HTE Evaluation' />
+                <FileContainer highlightedText='Performance Evaluation'/>
             </div>
             <div className='sPr-row'>
                 <FileContainer highlightedText='Company Display Picture' />
-                <FileContainer highlightedText='LOE'/>
-                <FileContainer highlightedText='LOI' />
-                <FileContainer highlightedText='DTR'/>
+                <FileContainer highlightedText='Letter of Endorsement'/>
+                <FileContainer highlightedText='Letter of Intent' />
+                <FileContainer highlightedText='Daily Time Report'/>
             </div>
             <div className='sPr-row'>
                 <FileContainer highlightedText='2X2 Picture' />
                 <FileContainer highlightedText='Consent Form'/>
-                <FileContainer highlightedText='Medical Cert' />
-                <FileContainer highlightedText='Adviser Eval.'/>
+                <FileContainer highlightedText='Medical Certificate' />
+                <FileContainer highlightedText='Adviser Evaluation'/>
             </div>
             <div className='sPr-row'>
-                <FileContainer highlightedText='Completion Cert' />
+                <FileContainer highlightedText='Completion Certificate' />
             </div>
+            </div>
+            }
+            
         </div> }
       </div>
       <Footer/>
