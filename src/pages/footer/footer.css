@@ -15,91 +15,89 @@
     position: absolute;
     display: flex;
     align-items: center;
+    justify-content: space-around; 
     height: 224px;
     width: 100%;
     background-color: var(--primary);
     color: #8ACAE6;
-    padding-left: 104px;
     z-index: 9999;
+}
+.company-logo{
+    display: flex;
 }
 .logo img{
     width: 2rem;
     margin-right: 0.4rem;
-    margin-bottom: 0.56rem;
 }
 .title{
     color: var(--font);
     font-size: 1.8rem;
     font-weight: 700;
-    margin-right: 12rem;
 }
 .text-content{
     display: flex;
-    font-family: Arial, Helvetica, sans-serif;
     gap: 6rem;
-}
-.footer h4{
-    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .links h4, .contacts h4{
     color: #000000 !important;
+    font-weight: 700;
 }
-.links p{
-    width: 160px;
-    margin: 0;
-    color: var(--gray);
-    font-size: 0.92rem;
-}
-.contacts p{
-    margin: 0;
+.links p, .contacts p{
     color: var(--gray);
     font-size: 0.92rem;
 }
 .footer-logos{
     display: flex;
-    margin-left: auto;
     gap: 2.8rem;
-    margin-right: 4.2rem;
-}
+} 
 .footer-logos img{
     width: 8.8rem;
 }
-
-@media screen and (max-width: 600px) {
-    .footer {
-        position: absolute;
-        display: flex;
-        padding-left: 8px;
+@media screen and (max-width: 600px){
+    .footer{
         height: 148px;
     }
     .logo img{
-        width: 0.88rem;
+        width: 1.04rem;
         margin-right: 0.2rem;
-        margin-bottom: 0.48rem;
+        margin-bottom: 0.32rem;
     }
     .title{
         color: var(--font);
-        font-size: 0.8rem;
+        font-size: 1.08rem;
         font-weight: 700;
-        margin-right: 0.6rem;
+
     }
     .text-content{
         gap: 0.2rem;
+
     }
     .links h4, .contacts h4{
         font-size: 0.72rem;   
-    }
-    .links p{
-        width: 4.8rem;
-    }
-    .footer-logos{
-        gap: 0.4rem;
-        margin-right: 0.4em;
-    }
-    .footer-logos img{
-        width: 40px;
+        margin-bottom: 0.2rem;
     }
     .links p, .contacts p{
         font-size: 0.6rem;
+        margin-bottom: 0;
+        width: 5rem;
     }
+    .footer-logos img{
+        width: 50px;
+    }
+    .footer-logos{
+        gap:0.2rem;
+    }
+
+}
+@media screen and (min-width: 601px) and (max-width: 768px){
+    
+}
+@media screen and (min-width: 769px) and (max-width: 992px){
+
+}
+  
+
+@media screen and (min-width: 993px){
+
 }

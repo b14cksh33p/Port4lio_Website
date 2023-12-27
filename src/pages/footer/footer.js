@@ -9,10 +9,12 @@ function Footer(){
             <Helmet>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Helmet>
-            <div className='logo'>
-                <img src={Icon} alt='Icon'/>
+            <div className='company-logo'>
+                <div className='logo'>
+                    <img src={Icon} alt='Icon'/>
+                </div>
+                <div className='title'>PORT4LIO</div>
             </div>
-            <div class='title'>PORT4LIO</div>
             <div className='text-content'>
                 <div className='links'>
                     <h4>Useful Links</h4>
