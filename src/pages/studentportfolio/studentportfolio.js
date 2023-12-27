@@ -33,8 +33,10 @@ function StudentPortfolio() {
   const navigate = useNavigate()
 
   const saveProfile = (name) =>{
-    localStorage.setItem('profile', name.replaceAll(' ', '_'))
-      studentProfile(name);
+    var Name = name.replaceAll(',', '');
+    localStorage.setItem('user', name)
+    localStorage.setItem('profile', Name.replaceAll(' ', '_'))
+      studentProfile(Name);
   }
   
   const studentProfile = (name) => {
@@ -86,7 +88,7 @@ function StudentPortfolio() {
       <div className='sP-second-section'>
       <div className="grid-container">
       {childrenArray.map((name, index) => (
-        <div key={index} className="grid-item" onClick={()=>saveProfile(name.replaceAll(',', ''))}>
+        <div key={index} className="grid-item" onClick={()=>saveProfile(name)}>
           <a href=''>
             <div className='grid-image' >
               <ProfilePicture uname={name} />

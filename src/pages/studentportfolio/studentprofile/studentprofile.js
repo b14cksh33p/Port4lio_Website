@@ -11,12 +11,13 @@ import { fileDb } from '../../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
 import 'firebase/database'
 
+
 const name = localStorage.getItem('profile');
 const user = localStorage.getItem('User');
-var username = '';
+var UserName = '';
 if(user){
-    username = user.replaceAll(',','');
-    username = username.replaceAll(' ', '_');
+    UserName = user.replaceAll(',','');
+    UserName = UserName.replaceAll(' ', '_');
 }
 
 function Header() {
@@ -39,6 +40,16 @@ function Header() {
 }
 
 function Profile({pic, name, sNumber, company, ojtHours}){
+    const [SNumber, setSNumber] = useState(sNumber);
+    const [Company, setCompany] = useState(company);
+    const [OjtHours, setOjtHours] = useState(ojtHours);
+
+    const userName = localStorage.getItem('username');
+    const uName = localStorage.getItem('user');
+    const username = firebase.database().ref('Users/'+userName);
+    const udata = firebase.database().ref('UserData/'+uName.replaceAll(',',''));
+    const uname = firebase.database().ref('UserNames/'+uName);
+    
     const [isModalOpen, setIsModalOpen] = useState(false);
     const openModal = () => {
         setIsModalOpen(true);
@@ -46,6 +57,26 @@ function Profile({pic, name, sNumber, company, ojtHours}){
     
       const closeModal = () => {
         setIsModalOpen(false);
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        uname.set(
+            SNumber
+          )
+          username.update({
+              StudentNo: SNumber,
+              HTE: Company,
+              OJTHours: OjtHours,
+            });
+          udata.update({
+            StudentNo: SNumber,
+            HTE: Company,
+            OJTHours: OjtHours,
+            });
+
+        closeModal();
+
       };
 
     return(
@@ -59,10 +90,10 @@ function Profile({pic, name, sNumber, company, ojtHours}){
         <p>CYS: BSCpE 3-4</p>
         <p>HTE: {company}</p>
         <p>OJT Hours: {ojtHours}</p>
-        <div>{username != (name.replaceAll(',','')).replaceAll(' ','_') ? 
+        <div>{UserName != (name.replaceAll(',','')).replaceAll(' ','_') ? 
         ''
         : 
-        <button onClick={openModal}>Edit Profile</button>
+        <button onClick={openModal}>Edit Info</button>
         }
         </div>
     </div>
@@ -71,29 +102,35 @@ function Profile({pic, name, sNumber, company, ojtHours}){
             <div className='eP-container'>
 
                 <div className='eP-header'>
-                    Edit Profile
+                    Edit Information
                 </div>
                 
-                <div className='eP-content'>
+                <form className='eP-content'>
                     <div className='eP-info'>
-                        <input type='text' placeholder='Name'></input>
+                        {"Student Number: "}
+                        <input type='text' placeholder='Student No.' defaultValue={sNumber}
+                  onChange={(e) => setSNumber(e.target.value)}
+                  required></input>
                     </div>
                     <div className='eP-info'>
-                        <input type='text' placeholder='Student No.'></input>
+                    {"Company Name: "}
+                        <input type='text' placeholder='Company Name' defaultValue={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  required></input>
                     </div>
                     <div className='eP-info'>
-                        <input type='text' placeholder='Company Name'></input>
-                    </div>
-                    <div className='eP-info'>
-                        <input type='text' placeholder='OJT hours'></input>
+                    {"Rendered Hours: "}
+                        <input type='text' placeholder='OJT hours' defaultValue={ojtHours}
+                  onChange={(e) => setOjtHours(e.target.value)}
+                  required></input>
                     </div>
                     <div>
                     <div className='eP-buttons'>
                         <button onClick={closeModal}>Close</button>
-                        <button onClick={closeModal}>Update</button>
+                        <button onClick={handleSubmit}>Update</button>
                     </div>
                 </div>
-                </div>
+                </form>
                 
             </div>
         </div>
@@ -199,7 +236,7 @@ function StudentProfile() {
       </div>
       <div className='sPr-second-section'>
 
-        {username != name ?
+        {UserName != name ?
         <div>
             <UploadedDocs fileName={'Memorandum of Agreement'}/>
             <UploadedDocs fileName={'Waiver'}/>
