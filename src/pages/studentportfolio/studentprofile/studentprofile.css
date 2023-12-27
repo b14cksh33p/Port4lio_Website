@@ -11,7 +11,8 @@
     --font: #682c0e;
     --bg_button: #c24914;
     --image_bg: #dac0a3;
-    --image_bg2: #eadbc8; 
+    --image_bg2: #eadbc8;
+    --white: #fff; 
 
     overflow-x: hidden;
 }
@@ -198,4 +199,32 @@
     justify-content: center;
     align-items: center;
     z-index: 1000000;
+}
+
+.eP-container{
+    background-color: var(--white);
+    width: 500px;
+    height: 300px;
+}
+
+.eP-header{
+    background-color: var(--primary);
+    height: 65px;
+    font: 600 25px 'Arial';
+    padding: 20px;
+    color: var(--bg_button);
+}
+
+.eP-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.eP-buttons{
+    margin-bottom: 20px;
+    display: flex;
+    gap: 30px;
 }

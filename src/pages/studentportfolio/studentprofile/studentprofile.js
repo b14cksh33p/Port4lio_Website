@@ -69,27 +69,32 @@ function Profile({pic, name, sNumber, company, ojtHours}){
     {!isModalOpen ? '' :
         <div className='eP-wrapper'>
             <div className='eP-container'>
-                <h2>Edit Profile</h2>
-                <div className='eP-info'>
-                    <p>Name:</p>
-                    <input type='text'></input>
+
+                <div className='eP-header'>
+                    Edit Profile
                 </div>
-                <div className='eP-info'>
-                    <p>Student No.:</p>
-                    <input type='text'></input>
+                
+                <div className='eP-content'>
+                    <div className='eP-info'>
+                        <input type='text' placeholder='Name'></input>
+                    </div>
+                    <div className='eP-info'>
+                        <input type='text' placeholder='Student No.'></input>
+                    </div>
+                    <div className='eP-info'>
+                        <input type='text' placeholder='Company Name'></input>
+                    </div>
+                    <div className='eP-info'>
+                        <input type='text' placeholder='OJT hours'></input>
+                    </div>
+                    <div>
+                    <div className='eP-buttons'>
+                        <button onClick={closeModal}>Close</button>
+                        <button onClick={closeModal}>Update</button>
+                    </div>
                 </div>
-                <div className='eP-info'>
-                    <p>Company Name:</p>
-                    <input type='text'></input>
                 </div>
-                <div className='eP-info'>
-                    <p>OJT Hours:</p>
-                    <input type='text'></input>
-                </div>
-                <div>
-                    <button onClick={closeModal}>Close</button>
-                    <button onClick={closeModal}>Update</button>
-                </div>
+                
             </div>
         </div>
         }
