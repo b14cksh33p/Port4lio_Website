@@ -1,5 +1,5 @@
 import './header.css'
-import Icon from '../../../assets/images/icon.png';
+import Icon from '../../../assets/images/icon.svg';
 import { useNavigate } from 'react-router-dom';
 import firebase from '../../../firebaseConfig.js';
 import { Helmet } from 'react-helmet';

@@ -22,7 +22,7 @@ function Landing() {
         <div className='body'>
           <div className='landing-main'>
             <div className='main-content s1'>
-              <div className='content-text'>
+              <div className='content-text right' id='content1-title'>
                 <h4>BS in Computer Engineering 3-4</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam  voluptates sed beatae?</p>
               </div>
@@ -42,7 +42,7 @@ function Landing() {
               </div>
             </div>
             <div className='main-content s3'>
-              <div className='content-text'>
+              <div className='content-text right'>
               <h4>Start using <span style={{color:'#682c0e'}}>PORT4LIO</span> by creating your free account.</h4>
                 <button onClick={()=>{userName=='' ? navigate('/signup/primary-information') : navigate()}}>Sign Up</button>
               </div>
