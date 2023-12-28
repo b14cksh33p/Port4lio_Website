@@ -10,6 +10,8 @@ import firebase from '../../../firebaseConfig.js';
 import { fileDb } from '../../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
 import 'firebase/database'
+import PDFViewer from './pdfViewer/PDFViewer.js';
+
 
 
 const name = localStorage.getItem('profile');
@@ -51,8 +53,13 @@ function Profile({pic, name, sNumber, company, ojtHours}){
     const uname = firebase.database().ref('UserNames/'+uName);
     
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    
     const openModal = () => {
         setIsModalOpen(true);
+        setSNumber(sNumber);
+        setCompany(company);
+        setOjtHours(ojtHours);
       };
     
       const closeModal = () => {
@@ -108,19 +115,19 @@ function Profile({pic, name, sNumber, company, ojtHours}){
                 <form className='eP-content'>
                     <div className='eP-info'>
                         {"Student Number: "}
-                        <input type='text' placeholder='Student No.' defaultValue={sNumber}
+                        <input type='text'  defaultValue={sNumber}
                   onChange={(e) => setSNumber(e.target.value)}
                   required></input>
                     </div>
                     <div className='eP-info'>
                     {"Company Name: "}
-                        <input type='text' placeholder='Company Name' defaultValue={company}
+                        <input type='text'  defaultValue={company}
                   onChange={(e) => setCompany(e.target.value)}
                   required></input>
                     </div>
                     <div className='eP-info'>
                     {"Rendered Hours: "}
-                        <input type='text' placeholder='OJT hours' defaultValue={ojtHours}
+                        <input type='text'  defaultValue={ojtHours}
                   onChange={(e) => setOjtHours(e.target.value)}
                   required></input>
                     </div>
@@ -143,7 +150,7 @@ function UploadedDocs({fileName}){
     const [docUrl, setDocUrl] = useState(null);
     
     const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${fileName}`);
-    getDownloadURL(fileRef)
+    getDownloadURL(fileRef, { mode: 'no-cors' })
     .then((url) => {
         setDocUrl(url);
     })
@@ -151,17 +158,15 @@ function UploadedDocs({fileName}){
         console.error('Error retrieving download URL:', error);
     });
 
-    console.log(docUrl)
 
     return(
         <>
         {docUrl == null ?
          '' 
          :
-         <a href={docUrl} target='_blank'>
+         <a style={{textDecoration:'none', color:'Black'}} href={docUrl} target='_blank'>
          <div className='Ud-container'>
              <p>{fileName}</p>
-             
          </div>
          </a>
          }
@@ -212,6 +217,7 @@ function StudentProfile() {
         setOjtHours(snapshot.val());
     });
     });
+
     
     return (
       <div className='wrapper-sPr'>
@@ -288,6 +294,7 @@ function StudentProfile() {
             </div>
             <div className='sPr-row'>
                 <FileContainer highlightedText='Completion Certificate' />
+                
             </div>
             </div>
             }
