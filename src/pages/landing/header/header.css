@@ -15,7 +15,6 @@ body, html{
     margin: 0;
 }
 .landing-header{
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-between;

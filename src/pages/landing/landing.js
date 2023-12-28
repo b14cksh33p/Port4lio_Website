@@ -1,9 +1,9 @@
 import './landing.css'
 import Header from '../landing/header/header.js';
 import Footer from '../../pages/footer/footer.js';
-import Image1 from '../../assets/images/landing_main1.png'
-import Image2 from '../../assets/images/landing_main2.png'
-import Image3 from '../../assets/images/landing_main3.png'
+import Image1 from '../../assets/images/landing_main1.svg'
+import Image2 from '../../assets/images/landing_main2.svg'
+import Image3 from '../../assets/images/landing_main3.svg'
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
@@ -15,10 +15,10 @@ function Landing() {
 
     return (
       <div className='wrapper-landing'> 
-      <Header/>
-        <Helmet>
+      <Helmet>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </Helmet>
+      </Helmet>
+      <Header/>
         <div className='body'>
           <div className='landing-main'>
             <div className='main-content s1'>
@@ -38,7 +38,9 @@ function Landing() {
               <h4>Welcome to our OJT <span style={{color:'#682c0e'}}>PORT4LIO!</span></h4>
                 <p>• Get to know our OJT experience</p>
                 <p>• Get to know our HTEs</p>
-                <button onClick={()=>{userName=='' ? navigate('/login') : navigate()}}>Login</button>
+                <div className='button-container'>
+                  <button onClick={()=>{userName=='' ? navigate('/login') : navigate()}}>Login</button>
+                </div>
               </div>
             </div>
             <div className='main-content s3'>
