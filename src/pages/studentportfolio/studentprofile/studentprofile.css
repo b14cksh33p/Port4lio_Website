@@ -126,6 +126,12 @@
     font-size: 16px;
 }
 
+.wrapper-sPr .eP-Cancel{
+    background-color: var(--white);
+    border: 1.5px solid var(--bg_button);
+    color: var(--bg_button);
+}
+
 .sPr-row{
     display: flex;
     justify-content: center;
@@ -217,17 +223,36 @@
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
 }
+.eP-info {
+    font: 700 15px 'Arial';
+    margin-bottom: 8px;
+}
+
+.eP-info input[type='text']{
+    height: 30px;
+    width: 250px;
+    padding: 5px;
+    border: 1.5px solid var(--black);
+    font-size: 14px;
+    border-radius: 8px;
+    color: var(--light_gray);
+    margin-left: 12px;
+}
+
+.eP-info input[type='text']:focus{
+    color: var(--black);
+}
 
 .eP-content{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .eP-buttons{
-    margin-bottom: 20px;
+    margin-top: 8px;
     display: flex;
     gap: 30px;
 }

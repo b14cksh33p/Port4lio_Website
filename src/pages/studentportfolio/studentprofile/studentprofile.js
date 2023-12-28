@@ -126,7 +126,7 @@ function Profile({pic, name, sNumber, company, ojtHours}){
                     </div>
                     <div>
                     <div className='eP-buttons'>
-                        <button onClick={closeModal}>Close</button>
+                        <button className='eP-Cancel' onClick={closeModal}>Close</button>
                         <button onClick={handleSubmit}>Update</button>
                     </div>
                 </div>
