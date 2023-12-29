@@ -8,6 +8,7 @@ import firebase from '../../../firebaseConfig.js';
 
 
 
+
 const FileContainer = ({ highlightedText }) => {
     const fileInputRef = useRef(null);
     const imgRef = useRef(null);
@@ -15,6 +16,27 @@ const FileContainer = ({ highlightedText }) => {
     const containerRef = useRef(null);
     const [fileUpload, setFileUpload] = useState();
     const [isDragging, setIsDragging] = useState(false);
+    const [isDisable, setIsDisable] = useState(true);
+    const [isUploaded, setIsUploaded] = useState(false);
+    const [docUrl, setDocUrl] = useState(null);
+    const name = localStorage.getItem('profile');
+
+    const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${highlightedText}`);
+    getDownloadURL(fileRef, { mode: 'no-cors' })
+    .then((url) => {
+        setDocUrl(url);
+    })
+    .catch((error) => {
+        console.error('Error retrieving download URL:', error);
+    });
+    
+    
+    useEffect(() => {
+      if(docUrl != null) {
+        setIsUploaded(true);
+      };
+      });
+
 
     //Open File function
     const openFileFunction = ()=> {
@@ -28,15 +50,15 @@ const FileContainer = ({ highlightedText }) => {
   
       if (selectedFile) {
         handleFilePreview(selectedFile);
+        setIsDisable(false);
       }
     };
 
     //File Upload function
     const uploadFile = () => {
         if(!fileUpload) return;
+        setIsDisable(true);
         try{
-          const currentUser = firebase.auth().currentUser;
-          if (currentUser) {
             const userID = localStorage.getItem('User').replaceAll(',','');
             const fileRef = ref(fileDb, `students_files/${userID}/${userID} - ${highlightedText.replaceAll('.','')}`);
   
@@ -46,7 +68,6 @@ const FileContainer = ({ highlightedText }) => {
                   alert("File successfully uploaded.")
                 });
               });
-            } 
         } catch (error){
           alert(`Authentication failed: ${error}`);
         }
@@ -156,15 +177,15 @@ const FileContainer = ({ highlightedText }) => {
       style={{ display: 'none' }}
       />
       <div className='FC-buttons'>
-        <button className='FC-openbtn' onClick={openFileFunction}>Select</button>
-        <button className='FC-uploadbtn' onClick={uploadFile}>Upload</button>
+        <button className='FC-openbtn' onClick={openFileFunction} >Select</button>
+        <button className='FC-uploadbtn' onClick={uploadFile} disabled={isDisable}>Upload</button>
       </div>
       </div>
 
       <div className='FC-front'>
         <img
           ref={imgRef}
-          src={UploadIcon}
+          src={isUploaded? UploadDoneIcon : UploadIcon}
           className='FC-img'
           width='80px'
           height='80px'

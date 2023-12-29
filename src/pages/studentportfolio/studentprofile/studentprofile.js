@@ -85,6 +85,7 @@ function Profile({pic, name, sNumber, company, ojtHours}){
             });
 
         closeModal();
+        window.location.reload();
 
       };
 
@@ -135,7 +136,7 @@ function Profile({pic, name, sNumber, company, ojtHours}){
                     </div>
                     <div className='eP-profile'>
                         <p>Profile Picture:</p>
-                        <FileContainer highlightedText='2x2 Picture'></FileContainer>
+                        <FileContainer highlightedText='2X2 Picture'/>
                     </div>
                     <div className='eP-buttons'>
                         <button className='eP-Cancel' onClick={closeModal}>Close</button>
@@ -295,14 +296,10 @@ function StudentProfile() {
                 <FileContainer highlightedText='Daily Time Report'/>
             </div>
             <div className='sPr-row'>
-                <FileContainer highlightedText='2X2 Picture' />
                 <FileContainer highlightedText='Consent Form'/>
                 <FileContainer highlightedText='Medical Certificate' />
                 <FileContainer highlightedText='Adviser Evaluation'/>
-            </div>
-            <div className='sPr-row'>
                 <FileContainer highlightedText='Completion Certificate' />
-                
             </div>
             </div>
             }
