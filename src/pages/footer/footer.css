@@ -21,6 +21,7 @@
     background-color: var(--primary);
     color: #8ACAE6;
     gap: 2em;
+    z-index: 9999;
 }
 .company-logo{
     display: flex;

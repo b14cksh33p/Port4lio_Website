@@ -230,90 +230,91 @@ function StudentProfile() {
     
     return (
       <div className='wrapper-sPr'>
-      <Header/>
-      <div className='sPr-first-section'>
-        <div>
-         <Profile pic={<img src={pPicUrl} id='profile-pic'/>}
-          name={fullName}
-          sNumber={studentNo}
-          company={company}
-          ojtHours={ojtHours}
-          />
-        </div>
-        <div className='container'>
-          <div className=' sPr-background'>
-              <div className='rectangle first'>
-              </div>
-              <div className='rectangle second'>
-              </div>
-              <div className='last third'>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div className='sPr-second-section'>
+            <Header/>
+            <div className='sPr-first-section'>
+                <div>
+                <Profile pic={<img src={pPicUrl} id='profile-pic'/>}
+                name={fullName}
+                sNumber={studentNo}
+                company={company}
+                ojtHours={ojtHours}
+                />
+                </div>
+                <div className='container'>
+                <div className=' sPr-background'>
+                    <div className='rectangle first'>
+                    </div>
+                    <div className='rectangle second'>
+                    </div>
+                    <div className='last third'>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div className='sPr-second-section'>
 
-        {UserName != name ?
-        <div>
-            <UploadedDocs fileName={'Memorandum of Agreement'}/>
-            <UploadedDocs fileName={'Waiver'}/>
-            <UploadedDocs fileName={'HTE Evaluation'}/>
-            <UploadedDocs fileName={'Performance Evaluation'}/>
-            <UploadedDocs fileName={'Letter of Endorsement'}/>
-            <UploadedDocs fileName={'Letter of Intent'}/>
-            <UploadedDocs fileName={'Daily Time Report'}/>
-            <UploadedDocs fileName={'Consent Form'}/>
-            <UploadedDocs fileName={'Medical Certificate'}/>
-            <UploadedDocs fileName={'Adviser Evaluation'}/>
-            <UploadedDocs fileName={'Completion Certificate'}/>
-        </div> 
-        :         
-        <div className='sPr-documents'>
-            {editDocs==false ?
-            <div>
-                <UploadedDocs fileName={'Memorandum of Agreement'}/>
-                <UploadedDocs fileName={'Waiver'}/>
-                <UploadedDocs fileName={'HTE Evaluation'}/>
-                <UploadedDocs fileName={'Performance Evaluation'}/>
-                <UploadedDocs fileName={'Letter of Endorsement'}/>
-                <UploadedDocs fileName={'Letter of Intent'}/>
-                <UploadedDocs fileName={'Daily Time Report'}/>
-                <UploadedDocs fileName={'Consent Form'}/>
-                <UploadedDocs fileName={'Medical Certificate'}/>
-                <UploadedDocs fileName={'Adviser Evaluation'}/>
-                <UploadedDocs fileName={'Completion Certificate'}/>
-            </div> 
-            :
-            <div>
-            <div className='sPr-row'>
-                <FileContainer highlightedText='Memorandum of Agreement' />
-                <FileContainer highlightedText='Waiver'/>
-                <FileContainer highlightedText='HTE Evaluation' />
-                <FileContainer highlightedText='Performance Evaluation'/>
+                {UserName != name ?
+                <div>
+                    <UploadedDocs fileName={'Memorandum of Agreement'}/>
+                    <UploadedDocs fileName={'Waiver'}/>
+                    <UploadedDocs fileName={'HTE Evaluation'}/>
+                    <UploadedDocs fileName={'Performance Evaluation'}/>
+                    <UploadedDocs fileName={'Letter of Endorsement'}/>
+                    <UploadedDocs fileName={'Letter of Intent'}/>
+                    <UploadedDocs fileName={'Daily Time Report'}/>
+                    <UploadedDocs fileName={'Consent Form'}/>
+                    <UploadedDocs fileName={'Medical Certificate'}/>
+                    <UploadedDocs fileName={'Adviser Evaluation'}/>
+                    <UploadedDocs fileName={'Completion Certificate'}/>
+                </div> 
+                :         
+                <div className='sPr-documents'>
+                    {editDocs==false ?
+                    <div>
+                        <UploadedDocs fileName={'Memorandum of Agreement'}/>
+                        <UploadedDocs fileName={'Waiver'}/>
+                        <UploadedDocs fileName={'HTE Evaluation'}/>
+                        <UploadedDocs fileName={'Performance Evaluation'}/>
+                        <UploadedDocs fileName={'Letter of Endorsement'}/>
+                        <UploadedDocs fileName={'Letter of Intent'}/>
+                        <UploadedDocs fileName={'Daily Time Report'}/>
+                        <UploadedDocs fileName={'Consent Form'}/>
+                        <UploadedDocs fileName={'Medical Certificate'}/>
+                        <UploadedDocs fileName={'Adviser Evaluation'}/>
+                        <UploadedDocs fileName={'Completion Certificate'}/>
+                    </div> 
+                    :
+                    <div>
+                    <div className='sPr-row'>
+                        <FileContainer highlightedText='Memorandum of Agreement' />
+                        <FileContainer highlightedText='Waiver'/>
+                        <FileContainer highlightedText='HTE Evaluation' />
+                        <FileContainer highlightedText='Performance Evaluation'/>
+                    </div>
+                    <div className='sPr-row'>
+                        <FileContainer highlightedText='Company Display Picture' />
+                        <FileContainer highlightedText='Letter of Endorsement'/>
+                        <FileContainer highlightedText='Letter of Intent' />
+                        <FileContainer highlightedText='Daily Time Report'/>
+                    </div>
+                    <div className='sPr-row'>
+                        <FileContainer highlightedText='Consent Form'/>
+                        <FileContainer highlightedText='Medical Certificate' />
+                        <FileContainer highlightedText='Adviser Evaluation'/>
+                        <FileContainer highlightedText='Completion Certificate' />
+                    </div>
+                    </div>
+                    }
+                    <div>              
+                    </div>
+                    <div className='sPr-edit-docs'>
+                        <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Edit/Upload Documents' : 'Done'}</button>
+                    </div>
+                </div> }
+            
             </div>
-            <div className='sPr-row'>
-                <FileContainer highlightedText='Company Display Picture' />
-                <FileContainer highlightedText='Letter of Endorsement'/>
-                <FileContainer highlightedText='Letter of Intent' />
-                <FileContainer highlightedText='Daily Time Report'/>
-            </div>
-            <div className='sPr-row'>
-                <FileContainer highlightedText='Consent Form'/>
-                <FileContainer highlightedText='Medical Certificate' />
-                <FileContainer highlightedText='Adviser Evaluation'/>
-                <FileContainer highlightedText='Completion Certificate' />
-            </div>
-            </div>
-            }
-            <div>              
-            </div>
-            <div className='sPr-edit-docs'>
-                <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Edit/Upload Documents' : 'Done'}</button>
-            </div>
-        </div> }
-      </div>
-      <Footer/>
-    </div>
+            <Footer/>
+        </div>
     );
   }
   
