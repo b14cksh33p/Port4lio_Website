@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './header.css';
-import Icon from '../../assets/images/icon.png';
+import Icon from '../../assets/images/icon.svg';
 import { useNavigate } from 'react-router-dom';
 import firebase from '../../firebaseConfig.js';
 
