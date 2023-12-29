@@ -136,6 +136,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
+    gap: 50px;
 }
 
 /*Header*/
@@ -225,7 +226,7 @@
 .eP-container{
     background-color: var(--white);
     width: 500px;
-    height: 300px;
+    height: auto;
     border-radius: 16px;
 }
 
@@ -266,8 +267,18 @@
     margin-top: 25px;
 }
 
+.eP-profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 700 15px 'Arial';
+    margin-bottom: 8px;
+    gap: 30px;
+}
+
 .eP-buttons{
     margin-top: 8px;
+    margin-bottom: 25px;
     display: flex;
     gap: 30px;
 }

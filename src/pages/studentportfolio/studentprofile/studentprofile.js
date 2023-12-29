@@ -114,32 +114,34 @@ function Profile({pic, name, sNumber, company, ojtHours}){
                     Edit Information
                 </div>
                 
-                <form className='eP-content'>
+                <div className='eP-content'>
                     <div className='eP-info'>
                         {"Student Number: "}
                         <input type='text'  defaultValue={sNumber}
-                  onChange={(e) => setSNumber(e.target.value)}
-                  required></input>
+                        onChange={(e) => setSNumber(e.target.value)}
+                        required></input>
                     </div>
                     <div className='eP-info'>
-                    {"Company Name: "}
+                        {"Company Name: "}
                         <input type='text'  defaultValue={company}
-                  onChange={(e) => setCompany(e.target.value)}
-                  required></input>
+                        onChange={(e) => setCompany(e.target.value)}
+                        required></input>
                     </div>
                     <div className='eP-info'>
-                    {"Rendered Hours: "}
+                        {"Rendered Hours: "}
                         <input type='text'  defaultValue={ojtHours}
-                  onChange={(e) => setOjtHours(e.target.value)}
-                  required></input>
+                        onChange={(e) => setOjtHours(e.target.value)}
+                        required></input>
                     </div>
-                    <div>
+                    <div className='eP-profile'>
+                        <p>Profile Picture:</p>
+                        <FileContainer highlightedText='2x2 Picture'></FileContainer>
+                    </div>
                     <div className='eP-buttons'>
                         <button className='eP-Cancel' onClick={closeModal}>Close</button>
                         <button onClick={handleSubmit}>Update</button>
                     </div>
                 </div>
-                </form>
                 
             </div>
         </div>
