@@ -11,6 +11,7 @@ import firebase from '../../../firebaseConfig.js';
 const FileContainer = ({ highlightedText }) => {
     const fileInputRef = useRef(null);
     const imgRef = useRef(null);
+    const imgRefhover = useRef(null);
     const containerRef = useRef(null);
     const [fileUpload, setFileUpload] = useState();
     const [isDragging, setIsDragging] = useState(false);
@@ -64,10 +65,12 @@ const FileContainer = ({ highlightedText }) => {
             );
             previewElement.src = result;
             previewElement.style.maxWidth = '100%';
+            previewElement.style.maxHeight = '180px'
             containerRef.current.innerHTML = '';
             containerRef.current.appendChild(previewElement);
             if (selectedFile.type.startsWith('image/')) {
-              imgRef.current.style.display = 'none';
+              imgRef.current.src = UploadDoneIcon;
+              imgRefhover.current.style.display = 'none';
             }
         } else if (selectedFile.type === 'application/pdf') {
           imgRef.current.src = UploadDoneIcon;
@@ -136,7 +139,7 @@ const FileContainer = ({ highlightedText }) => {
     <div className={`FC-container ${isDragging ? 'dragging' : ''}`}>
       <div className='FC-hover'>
       <img
-      ref={imgRef}
+      ref={imgRefhover}
       src={UploadIcon}
       className='FC-img'
       width='80px'
