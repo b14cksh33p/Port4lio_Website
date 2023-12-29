@@ -56,7 +56,7 @@
 .footer-logos{
     display: flex;
     justify-content: space-between;
-    gap: 2em;
+    gap: 1.5em;
     margin-right: 4em;
     margin-top: 1em;
     margin-bottom: 1em;
