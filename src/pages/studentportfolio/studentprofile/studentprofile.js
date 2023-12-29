@@ -2,7 +2,7 @@ import './studentprofile.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Icon from '../../../assets/images/icon.png';
 import Footer from '../../footer/footer.js';
-import Student from '../../../assets/images/student.png';
+import Student from '../../../assets/images/blank-profile.png';
 import ViewIcon from '../../../assets/images/view.png'
 import DowloadIcon from '../../../assets/images/download.png'
 import { useNavigate } from 'react-router-dom';

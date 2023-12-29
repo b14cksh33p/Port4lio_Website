@@ -7,9 +7,11 @@ import firebase from '../../firebaseConfig.js';
 import { fileDb } from '../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
 import { useState, useEffect } from 'react';
+import Student from '../../assets/images/blank-profile.png';
+
 
 function ProfilePicture({uname}){
-  const [pPicUrl, setPPicUrl] = useState();
+  const [pPicUrl, setPPicUrl] = useState(Student);
 
   const fileRef = ref(fileDb, `students_files/${uname.replaceAll(',', '')}/${uname.replaceAll(',', '')} - 2X2 Picture`);
     getDownloadURL(fileRef)
@@ -21,7 +23,7 @@ function ProfilePicture({uname}){
     });
   return(
     <div>
-      <img src={pPicUrl} style={{height:'18vh'}}/>
+      <img src={pPicUrl} id='sP-profile'/>
     </div>
   );
 }

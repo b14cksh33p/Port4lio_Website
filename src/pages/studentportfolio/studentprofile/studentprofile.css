@@ -71,11 +71,17 @@
     height: 400px;
     background-color: var(--image_bg2);
     border-radius:40px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #profile-pic{
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 23vw !important;
+    height: 41vh !important;
+    border: 0.2vw solid var(--image_bg);
+    border-radius: 10%;
 }
 .sPr-content-text{
     margin-bottom: 40px;
