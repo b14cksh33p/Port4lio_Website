@@ -52,7 +52,7 @@ function Header() {
 
   return (
         <div className='header'>
-            <div className='title'>
+            <div className='title-header'>
             <img src={Icon} alt='Icon' onClick={()=>navigate('/')}/>
                 <h1>PORT4LIO</h1>
             </div>
