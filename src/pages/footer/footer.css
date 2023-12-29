@@ -10,24 +10,28 @@
     --font: #682c0e;
     --bg_button: #c24914;
 }
-
 .footer{
-    position: relative;
+    position: absolute;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around; 
-    height: 224px;
-    width: 100%;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
     background-color: var(--primary);
     color: #8ACAE6;
-    z-index: 9999;
+    gap: 2em;
 }
 .company-logo{
     display: flex;
+    align-items: center;
+    margin-left: 4em;
+    gap: 0.4em;
 }
 .logo img{
-    width: 2rem;
-    margin-right: 0.4rem;
+    max-width: 1000px;
+    width: 40px;
+    margin-bottom: 0.8em;
 }
 .title{
     color: var(--font);
@@ -36,68 +40,28 @@
 }
 .text-content{
     display: flex;
-    gap: 6rem;
+    gap: 3em;
+    justify-content: space-between;
     font-family: Arial, Helvetica, sans-serif;
 }
 .links h4, .contacts h4{
     color: #000000 !important;
     font-weight: 700;
+    font-size: 1.2rem;
 }
 .links p, .contacts p{
     color: var(--gray);
-    font-size: 0.92rem;
+    font-size: 0.72rem;
 }
 .footer-logos{
     display: flex;
-    gap: 2.8rem;
-} 
+    justify-content: space-between;
+    gap: 2em;
+    margin-right: 4em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
 .footer-logos img{
-    width: 8.8rem;
-}
-@media screen and (max-width: 600px){
-    .footer{
-        height: 148px;
-    }
-    .logo img{
-        width: 1.04rem;
-        margin-right: 0.2rem;
-        margin-bottom: 0.32rem;
-    }
-    .title{
-        color: var(--font);
-        font-size: 1.08rem;
-        font-weight: 700;
-
-    }
-    .text-content{
-        gap: 0.2rem;
-
-    }
-    .links h4, .contacts h4{
-        font-size: 0.72rem;   
-        margin-bottom: 0.2rem;
-    }
-    .links p, .contacts p{
-        font-size: 0.6rem;
-        margin-bottom: 0;
-        width: 5rem;
-    }
-    .footer-logos img{
-        width: 50px;
-    }
-    .footer-logos{
-        gap:0.2rem;
-    }
-
-}
-@media screen and (min-width: 601px) and (max-width: 768px){
-    
-}
-@media screen and (min-width: 769px) and (max-width: 992px){
-
-}
-  
-
-@media screen and (min-width: 993px){
-
+    width: 158px;
+    max-width: 1000px;
 }

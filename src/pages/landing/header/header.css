@@ -21,7 +21,7 @@ body, html{
     width: 100%;
     background-color: var(--primary);
     color: #8ACAE6;
-    z-index: 10;
+    gap: 2em;
 }
 .landing-title{
     display: flex;

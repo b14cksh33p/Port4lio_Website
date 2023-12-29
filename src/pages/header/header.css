@@ -16,11 +16,10 @@
     position: absolute;
     display: flex;
     align-items: center;
-    height: 96px;
-    width: 100vw;
+    width: 100%;
     color: #8ACAE6;
     padding-left: 80px;
-    z-index: 9999;
+    z-index: 10;
     padding-right: 0 !important;
 }
 .header h1{
