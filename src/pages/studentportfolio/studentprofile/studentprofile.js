@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Icon from '../../../assets/images/icon.png';
 import Footer from '../../footer/footer.js';
 import Student from '../../../assets/images/student.png';
+import ViewIcon from '../../../assets/images/view.png'
+import DowloadIcon from '../../../assets/images/download.png'
 import { useNavigate } from 'react-router-dom';
 import {  useState, useEffect } from 'react';
 import FileContainer from '../file-container/file-container.js'
@@ -164,9 +166,13 @@ function UploadedDocs({fileName}){
         {docUrl == null ?
          '' 
          :
-         <a style={{textDecoration:'none', color:'Black'}} href={docUrl} target='_blank'>
+         <a className='Ud-text' href={docUrl} target='_blank'>
          <div className='Ud-container'>
-             <p>{fileName}</p>
+            <div className='Ud-text'>{fileName}</div>
+            <div className='Ud-icons'>
+                <img src={ViewIcon} width='18px' height='18px' className='Ud-view'></img>
+                <img src={DowloadIcon} width='18px' height='16px' className='Ud-download'></img>
+            </div>
          </div>
          </a>
          }
