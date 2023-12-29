@@ -20,14 +20,13 @@
 .wrapper-sPr{
     display: block;
     justify-content: center;
-    width: 100px !important;
-    max-width: 100px !important;
+    width: 100%;
+    height: 100vh;
     
 }
 .rectangle{
     width: 800px;
     max-width: 800px;
-    height: 150vh;
     position: absolute;
     border-radius:50px;
 }
@@ -53,8 +52,15 @@
     z-index: 1;
 }
 .sPr-first-section{
-    height: 100vh;
+    height: 80vh;
 
+}
+.last {
+    width: 800px;
+    max-width: 800px;
+    height: 150vh;
+    position: absolute;
+    border-radius:50px;
 }
 .sPr-content{
     position: relative;
@@ -121,7 +127,7 @@
     align-items: center;
 }
 .sPr-edit-docs{
-    margin-top: 48px;
+    margin-bottom: 2em;
 }
 .wrapper-sPr button{
     padding: 4px 20px;
