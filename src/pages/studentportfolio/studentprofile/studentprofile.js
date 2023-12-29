@@ -240,14 +240,16 @@ function StudentProfile() {
           ojtHours={ojtHours}
           />
         </div>
+        <div className='container'>
           <div className=' sPr-background'>
               <div className='rectangle first'>
               </div>
               <div className='rectangle second'>
               </div>
-              <div className='rectangle third'>
+              <div className='last third'>
               </div>
           </div>
+        </div>
       </div>
       <div className='sPr-second-section'>
 

@@ -29,12 +29,14 @@ function Home() {
 
         <div className='second-section'>
           <div className='home-ojt'>
+            <div className='row0'>
             <div className='home-ojt-text'>
               <h4>On-The-Job-Training (OJT)</h4>
                 <p>is a practical approach to acquiring new competencies and skills needed for a job in a real, or close to a real, working environment.</p>
                 <p>It is often used to learn how to use particular tools or equipment in a live-work practice, simulated, or training environment.</p>
             </div>
             <div className='home-image' style={{backgroundColor:'#dac0a3'}}></div>
+            </div>
           </div>
             
           <div className='ojt-adviser'>
