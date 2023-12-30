@@ -11,6 +11,7 @@ import StudentPortfolioPage from './pages/studentportfolio/studentportfolio.js';
   import StudentProfilePage from './pages/studentportfolio/studentprofile/studentprofile.js';
 import HomePage from '../src/pages/home/home.js';
 import WeeklyReportsPage from '../src/pages/weeklyreports/weeklyreports.js';
+  import WeeklyReport from '../src/pages/weeklyreports/weeklyreport/weeklyreport.js';
 import CompanyProfilesPage from '../src/pages/companyprofiles/companyprofiles.js';
 import AssessmentsPage from '../src/pages/assessments/assessments.js';
   import StudentAssessmentPage from '../src/pages/assessments/studentassessment/studentassessment.js';
@@ -25,6 +26,7 @@ function App() {
   const home = '/home/'+userName;
   const sPortfolio = '/student-portfolio/'+userName;
   const wReports = '/weekly-reports/'+userName;
+  const wReport = '/weekly-reports/weekly-report/'+profile;
   const cProfiles = '/company-profiles/'+userName;
   const assessments = '/assessments/'+userName;
   const sProfile = '/student-portfolio/profile/'+profile;
@@ -42,6 +44,7 @@ function App() {
           <Route path={sProfile} element={<StudentProfilePage/>} />
         <Route path={home} element={<HomePage/>} />
         <Route path={wReports} element={<WeeklyReportsPage/>} />
+          <Route path={wReport} element={<WeeklyReport/>} />
         <Route path={cProfiles} element={<CompanyProfilesPage/>} />
         <Route path={assessments} element={<AssessmentsPage/>} />
           <Route path={sAssessment} element={<StudentAssessmentPage/>} />

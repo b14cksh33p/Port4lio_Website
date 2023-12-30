@@ -1,4 +1,4 @@
-import './studentprofile.css';
+import './weeklyreport.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Icon from '../../../assets/images/icon.png';
 import Footer from '../../footer/footer.js';
@@ -7,13 +7,11 @@ import ViewIcon from '../../../assets/images/view.png'
 import DowloadIcon from '../../../assets/images/download.png'
 import { useNavigate } from 'react-router-dom';
 import {  useState, useEffect } from 'react';
-import FileContainer from '../file-container/file-container.js'
+import FileContainer from '../../studentportfolio/file-container/file-container.js';
 import firebase from '../../../firebaseConfig.js';
 import { fileDb } from '../../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
 import 'firebase/database'
-import PDFViewer from './pdfViewer/PDFViewer.js';
-
 
 
 const name = localStorage.getItem('profile');
@@ -56,42 +54,7 @@ function Profile({pic, name, sNumber, company, ojtHours}){
     const udata = firebase.database().ref('UserData/'+uName.replaceAll(',',''));
     const uname = firebase.database().ref('UserNames/'+uName);
     
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    
-    const openModal = () => {
-        setIsModalOpen(true);
-        setSNumber(sNumber);
-        setCompany(company);
-        setOjtHours(ojtHours);
-      };
-    
-      const closeModal = () => {
-        setIsModalOpen(false);
-      };
-
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        uname.set(
-            SNumber
-          )
-          username.update({
-              StudentNo: SNumber,
-              HTE: Company,
-              OJTHours: OjtHours,
-            });
-          udata.update({
-            StudentNo: SNumber,
-            HTE: Company,
-            OJTHours: OjtHours,
-            });
-
-        closeModal();
-        window.location.reload();
-
-      };
-
-      console.log(localStorage.getItem('User'));
       
       
 
@@ -100,59 +63,13 @@ function Profile({pic, name, sNumber, company, ojtHours}){
     <div className='sPr-content-image'>
         {pic}
     </div>
-    <div className='sPr-content-text'>
-        <h3>{name}</h3>
-        <p>Student No.: {sNumber}</p>
-        <p>CYS: BSCpE 3-4</p>
-        <p>HTE: {company}</p>
-        <p>OJT Hours: {ojtHours}</p>
-        <div>{UserName != (name.replaceAll(',','')).replaceAll(' ','_') ? 
-        ''
-        : 
-        <button onClick={openModal}>Edit Info</button>
-        }
+        <div className='sPr-content-text'>
+            <h3>{name}</h3>
+            <p>Student No.: {sNumber}</p>
+            <p>CYS: BSCpE 3-4</p>
+            <p>HTE: {company}</p>
+            <p>OJT Hours: {ojtHours}</p>
         </div>
-    </div>
-    {!isModalOpen ? '' :
-        <div className='eP-wrapper'>
-            <div className='eP-container'>
-
-                <div className='eP-header'>
-                    Edit Information
-                </div>
-                
-                <div className='eP-content'>
-                    <div className='eP-info'>
-                        {"Student Number: "}
-                        <input type='text'  defaultValue={sNumber}
-                        onChange={(e) => setSNumber(e.target.value)}
-                        required></input>
-                    </div>
-                    <div className='eP-info'>
-                        {"Company Name: "}
-                        <input type='text'  defaultValue={company}
-                        onChange={(e) => setCompany(e.target.value)}
-                        required></input>
-                    </div>
-                    <div className='eP-info'>
-                        {"Rendered Hours: "}
-                        <input type='text'  defaultValue={ojtHours}
-                        onChange={(e) => setOjtHours(e.target.value)}
-                        required></input>
-                    </div>
-                    <div className='eP-profile'>
-                        <p>Profile Picture:</p>
-                        <FileContainer highlightedText='2X2 Picture'/>
-                    </div>
-                    <div className='eP-buttons'>
-                        <button className='eP-Cancel' onClick={closeModal}>Close</button>
-                        <button onClick={handleSubmit}>Update</button>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        }
     </div>
 );
 }
@@ -177,7 +94,7 @@ function UploadedDocs({fileName}){
          :
          <a className='Ud-text' href={docUrl} target='_blank'>
          <div className='Ud-container'>
-            <div className='Ud-text'>{fileName}</div>
+            <div className='Ud-text'>Weekly Report - {fileName}</div>
             <div className='Ud-icons'>
                 <img src={ViewIcon} width='18px' height='18px' className='Ud-view'></img>
                 <img src={DowloadIcon} width='18px' height='16px' className='Ud-download'></img>
@@ -261,60 +178,62 @@ function StudentProfile() {
 
                 {UserName != name ?
                 <div>
-                    <UploadedDocs fileName={'Memorandum of Agreement'}/>
-                    <UploadedDocs fileName={'Waiver'}/>
-                    <UploadedDocs fileName={'HTE Evaluation'}/>
-                    <UploadedDocs fileName={'Performance Evaluation'}/>
-                    <UploadedDocs fileName={'Letter of Endorsement'}/>
-                    <UploadedDocs fileName={'Letter of Intent'}/>
-                    <UploadedDocs fileName={'Daily Time Report'}/>
-                    <UploadedDocs fileName={'Consent Form'}/>
-                    <UploadedDocs fileName={'Medical Certificate'}/>
-                    <UploadedDocs fileName={'Adviser Evaluation'}/>
-                    <UploadedDocs fileName={'Completion Certificate'}/>
+                    <UploadedDocs fileName={'Week 1'}/>
+                    <UploadedDocs fileName={'Week 2'}/>
+                    <UploadedDocs fileName={'Week 3'}/>
+                    <UploadedDocs fileName={'Week 4'}/>
+                    <UploadedDocs fileName={'Week 5'}/>
+                    <UploadedDocs fileName={'Week 6'}/>
+                    <UploadedDocs fileName={'Week 7'}/>
+                    <UploadedDocs fileName={'Week 8'}/>
+                    <UploadedDocs fileName={'Week 9'}/>
+                    <UploadedDocs fileName={'Week 10'}/>
+                    <UploadedDocs fileName={'Week 11'}/>
+                    <UploadedDocs fileName={'Week 12'}/>
                 </div> 
                 :         
                 <div className='sPr-documents'>
                     {editDocs==false ?
                     <div>
-                        <UploadedDocs fileName={'Memorandum of Agreement'}/>
-                        <UploadedDocs fileName={'Waiver'}/>
-                        <UploadedDocs fileName={'HTE Evaluation'}/>
-                        <UploadedDocs fileName={'Performance Evaluation'}/>
-                        <UploadedDocs fileName={'Letter of Endorsement'}/>
-                        <UploadedDocs fileName={'Letter of Intent'}/>
-                        <UploadedDocs fileName={'Daily Time Report'}/>
-                        <UploadedDocs fileName={'Consent Form'}/>
-                        <UploadedDocs fileName={'Medical Certificate'}/>
-                        <UploadedDocs fileName={'Adviser Evaluation'}/>
-                        <UploadedDocs fileName={'Completion Certificate'}/>
+                        <UploadedDocs fileName={'Week 1'}/>
+                        <UploadedDocs fileName={'Week 2'}/>
+                        <UploadedDocs fileName={'Week 3'}/>
+                        <UploadedDocs fileName={'Week 4'}/>
+                        <UploadedDocs fileName={'Week 5'}/>
+                        <UploadedDocs fileName={'Week 6'}/>
+                        <UploadedDocs fileName={'Week 7'}/>
+                        <UploadedDocs fileName={'Week 8'}/>
+                        <UploadedDocs fileName={'Week 9'}/>
+                        <UploadedDocs fileName={'Week 10'}/>
+                        <UploadedDocs fileName={'Week 11'}/>
+                        <UploadedDocs fileName={'Week 12'}/>
                     </div> 
                     :
                     <div>
                     <div className='sPr-row'>
-                        <FileContainer highlightedText='Memorandum of Agreement' />
-                        <FileContainer highlightedText='Waiver'/>
-                        <FileContainer highlightedText='HTE Evaluation' />
-                        <FileContainer highlightedText='Performance Evaluation'/>
+                        <FileContainer highlightedText='Week 1' />
+                        <FileContainer highlightedText='Week 2'/>
+                        <FileContainer highlightedText='Week 3' />
+                        <FileContainer highlightedText='Week 4'/>
                     </div>
                     <div className='sPr-row'>
-                        <FileContainer highlightedText='Company Display Picture' />
-                        <FileContainer highlightedText='Letter of Endorsement'/>
-                        <FileContainer highlightedText='Letter of Intent' />
-                        <FileContainer highlightedText='Daily Time Report'/>
+                        <FileContainer highlightedText='Week 5' />
+                        <FileContainer highlightedText='Week 6'/>
+                        <FileContainer highlightedText='Week 7' />
+                        <FileContainer highlightedText='Week 8'/>
                     </div>
                     <div className='sPr-row'>
-                        <FileContainer highlightedText='Consent Form'/>
-                        <FileContainer highlightedText='Medical Certificate' />
-                        <FileContainer highlightedText='Adviser Evaluation'/>
-                        <FileContainer highlightedText='Completion Certificate' />
+                        <FileContainer highlightedText='Week 9'/>
+                        <FileContainer highlightedText='Week 10' />
+                        <FileContainer highlightedText='Week 11'/>
+                        <FileContainer highlightedText='Week 12' />
                     </div>
                     </div>
                     }
                     <div>              
                     </div>
                     <div className='sPr-edit-docs'>
-                        <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Edit/Upload Documents' : 'Done'}</button>
+                        <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Upload Weekly Reports' : 'Done'}</button>
                     </div>
                 </div> }
             

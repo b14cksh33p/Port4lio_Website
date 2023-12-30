@@ -9,6 +9,11 @@ import { useState, useEffect } from 'react';
 import firebase from '../../../firebaseConfig.js';
 import { fileDb } from '../../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
+import ViewIcon from '../../../assets/images/view.png'
+import DowloadIcon from '../../../assets/images/download.png'
+
+const name = localStorage.getItem('profile');
+
 
 function Header() {
     const navigate = useNavigate()
@@ -49,15 +54,55 @@ function Profile({pic, name, sNumber, company, ojtHours}){
 );
 }
 
+function UploadedDocs({fileName}){
+  const [docUrl, setDocUrl] = useState(null);
+  
+  const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${fileName}`);
+  getDownloadURL(fileRef, { mode: 'no-cors' })
+  .then((url) => {
+      setDocUrl(url);
+  })
+  .catch((error) => {
+      console.error('Error retrieving download URL:', error);
+  });
+
+
+  return(
+      <>
+      {docUrl == null ?
+       '' 
+       :
+       <a className='Ud-text' href={docUrl} target='_blank'>
+       <div className='Ud-container'>
+          <div className='Ud-text'>{fileName}</div>
+          <div className='Ud-icons'>
+              <img src={ViewIcon} width='18px' height='18px' className='Ud-view'></img>
+              <img src={DowloadIcon} width='18px' height='16px' className='Ud-download'></img>
+          </div>
+       </div>
+       </a>
+       }
+      </>
+  );
+}
+
 function StudentAssessment() {
+  const user = localStorage.getItem('User');
+  var UserName = '';
+  if(user){
+      UserName = user.replaceAll(',','');
+      UserName = UserName.replaceAll(' ', '_');
+      
+  }
 
     const [fullName, setFullName] = useState('LN, FN MN');
     const [studentNo, setStudentNo] = useState('2021-00000-MN-0');
     const [company, setCompany] = useState('Company Name');
     const [ojtHours, setOjtHours] = useState('000 Hours');
     const [pPicUrl, setPPicUrl] = useState(Student);
+    const [editDocs, setEditDocs] = useState(false);
     
-    const name = localStorage.getItem('profile');
+
 
     const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - 2X2 Picture`);
     getDownloadURL(fileRef)
@@ -114,10 +159,26 @@ function StudentAssessment() {
           </div>
       </div>
       <div className='sAs-second-section'>
-        <div className='sAs-documents'>
-            <FileContainer text-highlighted='Assessment PDF'/>
+      <div className='sAs-button'>
+        {UserName != name ? '' :
+         <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Upload NR' : 'Done'}</button>
+      }
+       
         </div>
+        {!editDocs ?
+        <div>
+
+          <UploadedDocs fileName={'Narrative Report'}/>
+
+        </div> 
+        :
+            <div className='sAs-documents'>
+              <FileContainer highlightedText='Narrative Report'/>
+          </div>
+        }
+
       </div>
+      
       <Footer/>
     </div>
     );
