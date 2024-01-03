@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals'; 
 
 ReactDOM.render(
-  <Router basename={process.env.PUBLIC_URL}>
+  <Router basename="/port4lio-website">
     <App />
   </Router>,
   document.getElementById('root')
