@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/port4lio_website/static/css/main.9d3d79f2.css",
+    "main.js": "/port4lio_website/static/js/main.5b19ea47.js",
+    "static/js/787.798002b3.chunk.js": "/port4lio_website/static/js/787.798002b3.chunk.js",
+    "static/media/person (4).png": "/port4lio_website/static/media/person (4).404a4c9cd6eec19ec5da.png",
+    "static/media/person (1).png": "/port4lio_website/static/media/person (1).dc5a769ffd9e3beb5d0d.png",
+    "static/media/landing_main1.svg": "/port4lio_website/static/media/landing_main1.f4ab374fc606ba02bd2ca00725784c6d.svg",
+    "static/media/person (2).png": "/port4lio_website/static/media/person (2).9cc89bc632f3330ac1c0.png",
+    "static/media/person (3).png": "/port4lio_website/static/media/person (3).b794b0505f938ed2b0ec.png",
+    "static/media/landing_main3.svg": "/port4lio_website/static/media/landing_main3.4f887124cacb1cc64c3d1d14d862ad7f.svg",
+    "static/media/landing_main2.svg": "/port4lio_website/static/media/landing_main2.61127ebe93ef4caeba50e237f5b66363.svg",
+    "static/media/CE-logo.png": "/port4lio_website/static/media/CE-logo.7db5d5f3a40b743c4599.png",
+    "static/media/CPE-logo.png": "/port4lio_website/static/media/CPE-logo.d54df236d7a841cbdff1.png",
+    "static/media/upload-done.png": "/port4lio_website/static/media/upload-done.8b732e63998782ea00f4.png",
+    "static/media/document.png": "/port4lio_website/static/media/document.9abf682ed3d51c74af32.png",
+    "static/media/star.png": "/port4lio_website/static/media/star.294f6b2e180183468f18.png",
+    "static/media/login-person2.png": "/port4lio_website/static/media/login-person2.1eacb4760d58be00a01d.png",
+    "static/media/login-person1.png": "/port4lio_website/static/media/login-person1.3e2ab83ebcd0f7c63695.png",
+    "static/media/arrow.png": "/port4lio_website/static/media/arrow.ec802ac763bf6256557e.png",
+    "static/media/blank-profile.png": "/port4lio_website/static/media/blank-profile.6dc4b82c86e5a5178bfc.png",
+    "static/media/icon.svg": "/port4lio_website/static/media/icon.cc7e18826c46127f010ad5ba5db7e6b0.svg",
+    "index.html": "/port4lio_website/index.html",
+    "main.9d3d79f2.css.map": "/port4lio_website/static/css/main.9d3d79f2.css.map",
+    "main.5b19ea47.js.map": "/port4lio_website/static/js/main.5b19ea47.js.map",
+    "787.798002b3.chunk.js.map": "/port4lio_website/static/js/787.798002b3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d3d79f2.css",
+    "static/js/main.5b19ea47.js"
+  ]
+}
