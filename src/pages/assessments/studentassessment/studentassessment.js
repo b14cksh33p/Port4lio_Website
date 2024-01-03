@@ -11,6 +11,7 @@ import { fileDb } from '../../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
 import ViewIcon from '../../../assets/images/view.png'
 import DowloadIcon from '../../../assets/images/download.png'
+import DocumentIcon from '../../../assets/images/document.png'
 
 const name = localStorage.getItem('profile');
 
@@ -73,12 +74,10 @@ function UploadedDocs({fileName}){
        '' 
        :
        <a className='Ud-text' href={docUrl} target='_blank'>
-       <div className='Ud-container'>
-          <div className='Ud-text'>{fileName}</div>
-          <div className='Ud-icons'>
-              <img src={ViewIcon} width='18px' height='18px' className='Ud-view'></img>
-              <img src={DowloadIcon} width='18px' height='16px' className='Ud-download'></img>
-          </div>
+       <div className='Ud-NR-container'>
+          <div className='Ud-NR-text'>{fileName}</div>
+          <img className='Ud-NR-img' src={DocumentIcon} width='150px' height='150px'></img>
+          <span className='Ud-NR-span'>Tap to view and download the file.</span>
        </div>
        </a>
        }

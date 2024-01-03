@@ -174,4 +174,37 @@
     padding-top: 0.63em;
     padding-right: 0.72em;
     padding-bottom: 0.63em;
+    margin-bottom: 1.5rem;
+}
+
+.Ud-NR-container{
+    height: auto;
+    width: 500px;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #d3c5b4, #faead6);
+    box-shadow:  12px 12px 24px #b7ab9c,
+             -12px -12px 24px #fffff4;  
+}
+.Ud-NR-text{
+    margin-bottom: 1rem;
+    font: 500 18px 'Arial';
+}
+
+.Ud-NR-span{
+    margin-top: 1rem;
+}
+
+.Ud-NR-container:hover .Ud-NR-text, 
+.Ud-NR-container:hover .Ud-NR-span{
+    color: var(--bg_button);
+}
+
+.Ud-NR-container:hover{
+    transform: scale(1.03);
 }
