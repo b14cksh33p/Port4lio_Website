@@ -2,7 +2,7 @@ import './studentassessment.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Icon from '../../../assets/images/icon.png';
 import Footer from '../../footer/footer.js';
-import Student from '../../../assets/images/student(2).png';
+import Student from '../../../assets/images/blank-profile.png';
 import { useNavigate } from 'react-router-dom';
 import FileContainer from '../../studentportfolio/file-container/file-container.js';
 import { useState, useEffect } from 'react';
@@ -55,7 +55,7 @@ function Profile({pic, name, sNumber, company, ojtHours}){
 );
 }
 
-function UploadedDocs({fileName}){
+function UploadedDocs({fileName, Company}){
   const [docUrl, setDocUrl] = useState(null);
   
   const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${fileName}`);
@@ -77,7 +77,7 @@ function UploadedDocs({fileName}){
        <div className='Ud-NR-container'>
           <div className='Ud-NR-text'>{fileName}</div>
           <img className='Ud-NR-img' src={DocumentIcon} width='150px' height='150px'></img>
-          <span className='Ud-NR-span'>Tap to view and download the file.</span>
+          <span className='Ud-NR-span'>This file contains my assessment and overall experience in {Company}.</span>
        </div>
        </a>
        }
@@ -167,7 +167,7 @@ function StudentAssessment() {
         {!editDocs ?
         <div>
 
-          <UploadedDocs fileName={'Narrative Report'}/>
+          <UploadedDocs fileName={'Narrative Report'} Company={company}/>
 
         </div> 
         :

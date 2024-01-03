@@ -48,6 +48,10 @@ function CompanyProfiles() {
           </div>
       </div>
       <div className='cP-second-section'>
+        <div className='cP-add-company'>
+          <p>Your company ain't listed yet?</p>
+          <button>Add Your Company Description</button>
+        </div>
         <Company name={'Company 1'} 
                 description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'}
                 vision={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
