@@ -23,11 +23,28 @@ function Header() {
     x = 0; 
   }
 
+  const [userName, setUserName] = useState('guest');
+  const [profile, setProfile] = useState('guest');
+
+  useEffect(() => {
+    // Add an observer to watch for changes in the authentication state
+    const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setUserName(localStorage.getItem('username'));
+        setProfile(localStorage.getItem('profile'));
+      } else {
+        
+      }
+    });
+
+    // Cleanup the observer when the component unmounts
+    return () => unsubscribe();
+  });
+
+
   const [currentPage, setCurrentPage] = useState(x)
 
   const navigate = useNavigate();
-
-  const userName = localStorage.getItem('username');
 
   const pages = [
     { title: 'Home', urlPath: '/home/'+userName, magicColor: '#c24914'},
@@ -83,7 +100,7 @@ function Header() {
             )))}
             </div>
             <div>
-              {userName == ''?
+              {userName == 'guest'?
               <div className='button-log' id='login'>
                 <button onClick={()=>navigate('/login')}>Log In</button>
              </div> :

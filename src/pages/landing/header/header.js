@@ -1,4 +1,5 @@
 import './header.css'
+import React, { useState, useEffect } from 'react';
 import Icon from '../../../assets/images/icon.svg';
 import { useNavigate } from 'react-router-dom';
 import firebase from '../../../firebaseConfig.js';
@@ -9,8 +10,24 @@ function Header(){
           top: 1600,
           behavior: 'smooth',
         })}
+
+    const [userName, setUserName] = useState('guest');
+
+    useEffect(() => {
+        // Add an observer to watch for changes in the authentication state
+        const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
+        if (authUser) {
+            setUserName(localStorage.getItem('username'));
+        } else {
+            
+        }
+        });
     
-    const userName = localStorage.getItem('username');
+        // Cleanup the observer when the component unmounts
+        return () => unsubscribe();
+    });
+    
+    
     const navigate = useNavigate();
     const home = '/home/'+userName;
 
@@ -40,7 +57,7 @@ function Header(){
                 <a href={home} style={{textDecoration:'none'}}>Home</a>
                 <a onClick={handleScrollToAbout}>About</a>
                 <div>
-                    {userName == '' ?
+                    {userName == 'guest' ?
                     <div className='signed-out'>
                         <button id='login' onClick={()=> navigate('/login')}>Log In</button>
                         <button id='signUp'onClick={()=> navigate('/signup/primary-information')}>Sign Up</button>

@@ -1,6 +1,6 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+import firebase from '../src/firebaseConfig.js';
+import React, { useState, useEffect } from 'react';
 //Import Pages Here
 import LandingPage from '../src/pages/landing/landing.js';
 import SignupPage from '../src/pages/signup/signup.js';
@@ -18,8 +18,23 @@ import AssessmentsPage from '../src/pages/assessments/assessments.js';
 
 
 function App() {
-  const userName = localStorage.getItem('username');
-  const profile = localStorage.getItem('profile');
+  const [userName, setUserName] = useState('guest');
+  const [profile, setProfile] = useState('guest');
+
+  useEffect(() => {
+    // Add an observer to watch for changes in the authentication state
+    const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setUserName(localStorage.getItem('username'));
+        setProfile(localStorage.getItem('profile'));
+      } else {
+
+      }
+    });
+
+    // Cleanup the observer when the component unmounts
+    return () => unsubscribe();
+  });
 
 
   const signUpPI = '/signup/personal-information/'+userName;
