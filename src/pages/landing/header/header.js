@@ -29,7 +29,7 @@ function Header(){
     
     
     const navigate = useNavigate();
-    const home = '/home/'+userName;
+    const home = '/port4lio-website/home/'+userName;
 
     const handleLogout = () => {
         firebase.auth().signOut()
