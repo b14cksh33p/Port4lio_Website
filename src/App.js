@@ -26,15 +26,17 @@ function App() {
     const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
       if (authUser) {
         setUserName(localStorage.getItem('username'));
-        setProfile(localStorage.getItem('profile'));
+        
       } else {
 
       }
     });
+    setProfile(localStorage.getItem('profile'));
 
     // Cleanup the observer when the component unmounts
     return () => unsubscribe();
   });
+  
 
 
   const signUpPI = '/signup/personal-information/'+userName;
