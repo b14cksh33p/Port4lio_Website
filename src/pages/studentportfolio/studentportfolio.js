@@ -29,8 +29,6 @@ function ProfilePicture({uname}){
 }
 
 function StudentPortfolio() {
-
-
   localStorage.setItem('profile','')
   const navigate = useNavigate()
 
@@ -39,6 +37,7 @@ function StudentPortfolio() {
     localStorage.setItem('user', name)
     localStorage.setItem('profile', Name.replaceAll(' ', '_'))
       studentProfile(Name);
+      window.location.reload();
   }
   
   const studentProfile = (name) => {
@@ -90,7 +89,7 @@ function StudentPortfolio() {
       <div className="grid-container">
           {childrenArray.map((name, index) => (
             <div key={index} className="grid-item" onClick={() => saveProfile(name)}>
-              <a>
+              <a href='#'>
               <div className='grid-image'>
                 <ProfilePicture uname={name} />
               </div>
@@ -103,6 +102,7 @@ function StudentPortfolio() {
       <Footer/>
     </div>
     );
+    window.location.reload();
   }
   
   export default StudentPortfolio;
