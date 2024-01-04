@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet';
 function Landing() {
 
   const userName = localStorage.getItem('username');
+  const home = '/home/'+userName;
   const navigate = useNavigate();
 
     return (
@@ -40,14 +41,14 @@ function Landing() {
                   <p>• Get to know our OJT experience</p>
                   <p>• Get to know our HTEs</p>
                   <div className='button-container'>
-                    <button onClick={()=>{userName==='' ? navigate('/login') : navigate()}}>Login</button>
+                    <button onClick={()=>{userName==='guest' ? navigate('/login') : navigate(home)}}>Login</button>
                   </div>
                 </div>
               </div>
               <div className='main-content s3'>
                 <div className='content-text right'>
                 <h4>Start using <span style={{color:'#682c0e'}}>PORT4LIO</span> by creating your free account.</h4>
-                  <button onClick={()=>{userName==='' ? navigate('/signup/primary-information') : navigate()}}>Sign Up</button>
+                  <button onClick={()=>{userName==='guest' ? navigate('/signup/primary-information') : navigate(home)}}>Sign Up</button>
                 </div>
                 <div className='content-image'>
                   <img src={Image3} alt='banner'/>
