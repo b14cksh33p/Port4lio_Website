@@ -89,11 +89,9 @@ function StudentPortfolio() {
       <div className="grid-container">
           {childrenArray.map((name, index) => (
             <div key={index} className="grid-item" onClick={() => saveProfile(name)}>
-              <a href='#'>
               <div className='grid-image'>
                 <ProfilePicture uname={name} />
               </div>
-              </a>
               <p className='grid-text'>{name}</p>
             </div>
           ))}
@@ -102,7 +100,6 @@ function StudentPortfolio() {
       <Footer/>
     </div>
     );
-    window.location.reload();
   }
   
   export default StudentPortfolio;
