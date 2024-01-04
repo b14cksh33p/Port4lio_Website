@@ -48,7 +48,6 @@ function StudentPortfolio() {
 
   const [childrenArray, setChildrenArray] = useState([]);
   useEffect(() => {
-    // Get all children from Firebase when the component mounts
     const fetchData = async () => {
       try {
         const dataRef = firebase.database().ref('UserNames');
@@ -90,14 +89,12 @@ function StudentPortfolio() {
       <div className='sP-second-section'>
       <div className="grid-container">
       {childrenArray.map((name, index) => (
-        <div key={index} className="grid-item" onClick={()=>saveProfile(name)}>
-          <a href=''>
-            <div className='grid-image' >
-              <ProfilePicture uname={name} />
-            </div>
-          </a>
-            <p className='grid-text'>{name}</p>
+        <div key={index} className="grid-item" onClick={() => saveProfile(name)}>
+        <div className='grid-image'>
+          <ProfilePicture uname={name} />
         </div>
+        <p className='grid-text'>{name}</p>
+      </div>
       ))}
     </div>
       </div>
