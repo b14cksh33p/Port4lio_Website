@@ -50,7 +50,7 @@ function Company({name}){
 
     return(
         <div className='company'>
-            <a href={webLink} target='blank'><div className='company-image'>
+            <a href={webLink} target='_blank'><div className='company-image'>
                 <img src={image} id='company-pic'/>
             </div></a>
             <div className='company-description'>
@@ -72,26 +72,29 @@ function CompanyProfiles() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState('guest');
   const [company, setCompany] = useState('Company');
-  const [vision, setVision] = useState('');
-  const [mission, setMission] = useState('');
-  const [webLink, setWebLink] = useState('')
+  const [ivision, setIvision] = useState('');
+  const [imission, setImission] = useState('');
+  const [iwebLink, setIwebLink] = useState('')
+  const [vision, setVision] = useState(ivision);
+  const [mission, setMission] = useState(imission);
+  const [webLink, setWebLink] = useState(iwebLink)
   const [isDisable, setIsDisable] = useState(true);
 
   useEffect(() => {
     const uname = firebase.database().ref('Companies/'+company.replaceAll('.', ''));
     const viss = uname.child('Vision')
     viss.on('value', (snapshot) => {
-      setVision(snapshot.val())
+      setIvision(snapshot.val())
       });
   
     const miss = uname.child('Mission')
     miss.on('value', (snapshot) => {
-        setMission(snapshot.val())
+        setImission(snapshot.val())
       });
   
     const wl = uname.child('WebLink')
     wl.on('value', (snapshot) => {
-        setWebLink(snapshot.val())
+        setIwebLink(snapshot.val())
       });
       
   })
@@ -101,9 +104,7 @@ function CompanyProfiles() {
   useEffect(() => {
     if(userName){
       setIsLoggedIn(userName)
-
       const uname = firebase.database().ref('Users/'+userName.replaceAll('_', ' '));
-
       const comp = uname.child('HTE')
       comp.on('value', (snapshot) => {
           setCompany(snapshot.val());
@@ -177,7 +178,12 @@ function CompanyProfiles() {
           </div>
       </div>
       <div className='cP-second-section'>
-
+        {isLoggedIn == 'guest' ? '' :
+                <div className='cP-add-company'>
+                <p>Your company ain't listed yet?</p>
+                <button onClick={openModal}>Add/Edit Your Company Description</button>
+              </div>
+        }
         {!isModalOpen ? '' :
            <div className='eP-wrapper'>
            <div className='cP-container'>
@@ -192,21 +198,21 @@ function CompanyProfiles() {
                  <div className='cP-input'>
                    {"Vision"}
                    <textarea placeholder='Write Company Vision here...(Required)'
-                   defaultValue={vision}
+                   defaultValue={ivision}
                    onChange={(e) => setVision(e.target.value)}
                    ></textarea>
                  </div>
                  <div className='cP-input'>
                    {"Mission"}
                    <textarea placeholder='Write Company Mission here...(Required)'
-                   defaultValue={mission}
+                   defaultValue={imission}
                    onChange={(e) => setMission(e.target.value)}
                    ></textarea>
                </div>
                </div>
                <div className='cP-input'>
                  <input type='text' placeholder='Company Website link (if there is)'
-                  defaultValue={webLink}
+                  defaultValue={iwebLink}
                   onChange={(e) => setWebLink(e.target.value)}
                  ></input>
                </div>
@@ -233,12 +239,6 @@ function CompanyProfiles() {
           <Company name={name}/>
         </div>
       ))}
-        {isLoggedIn == 'guest' ? '' :
-          <div className='cP-add-company'>
-          <p>Your company ain't listed yet?</p>
-          <button onClick={openModal}>Add/Edit Your Company Description</button>
-        </div>
-        }
       </div>
       <Footer/>
     </div>
