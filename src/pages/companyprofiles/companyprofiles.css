@@ -131,3 +131,88 @@
     align-items: center;
     padding-bottom: 10vh;
 }
+
+.cP-container{
+    background-color: var(--white);
+    width: 700px;
+    height: auto;
+    border-radius: 16px;
+}
+
+.cP-content{
+    display: flex;
+    justify-content: space-around;
+    margin: 18px 0;
+}
+
+.cP-left-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cP-textarea{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.cP-input{
+    display: flex;
+    flex-direction: column;
+    font: 700 15px 'Arial';
+    gap: 10px;
+}
+.cP-input textarea{
+    height: 8rem;
+    width: 18rem;
+    resize: none;
+    font: 400 14px 'Arial';
+    border: 1.5px solid var(--black);
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.cP-input input[type='text']{
+    height: 30px;
+    width: 18rem;
+    padding: 5px;
+    border: 1.5px solid var(--black);
+    font-size: 14px;
+    border-radius: 8px;
+    color: var(--black);
+}
+
+.cP-right-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cP-company-profile p{
+    font: 700 15px 'Arial';
+    margin-bottom: 1.3rem;
+}
+
+.cP-button{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.cP-button button{
+    background-color: var(--bg_button);
+    color: white;
+    width: 5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.78em;
+    letter-spacing: 0.05em;
+    padding: 0.30rem 0.65rem;
+}
+.cP-button .cP-Cancel{
+    background-color: var(--white);
+    border: 1.5px solid var(--bg_button);
+    color: var(--bg_button);
+}
