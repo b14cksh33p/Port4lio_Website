@@ -4,6 +4,7 @@ import Person1 from '../../../assets/images/login-person1.png';
 import Person2 from '../../../assets/images/login-person2.png';
 import Star from '../../../assets/images/star.png';
 import Arrow from '../../../assets/images/arrow.png';
+import { Link } from 'react-router-dom';
 
 
 function LeftSide() {
@@ -19,7 +20,7 @@ function LeftSide() {
               </div>
 
               <div className='LS-signup-acc'>
-                <div className='LS-p'>Don't have an account? <a href='/signup/primary-information'>Sign up here!</a></div>
+                <div className='LS-p'>Don't have an account? <Link to={'/signup/primary-information'} style={{ textDecoration: 'none' }}>Sign up here!</Link></div>
               </div>
             </div>
           </div>
