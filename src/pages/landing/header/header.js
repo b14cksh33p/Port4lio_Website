@@ -54,7 +54,9 @@ function Header(){
                 <h1>PORT4LIO</h1>
             </div>
             <div className='landing-navigation'>
-                <Link to={home} style={{ textDecoration: 'none' }}>Home</Link>
+            <Link to={home} style={{ textDecoration: 'none' }} onClick={() => window.location.reload()}>
+             Home
+            </Link>
                 <a onClick={handleScrollToAbout}>About</a>
                 <div>
                     {userName == 'guest' ?

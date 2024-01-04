@@ -9,6 +9,7 @@ import Person2 from '../../assets/images/person (2).png';
 import Person3 from '../../assets/images/person (3).png';
 import Person4 from '../../assets/images/person (4).png';
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function Signup() {
@@ -18,6 +19,7 @@ function Signup() {
     const [password, setPassword] = useState('')
     const [cPassword, setCPassword] = useState('')
     const userName = email.replace('@gmail.com', '');
+    const navigate = useNavigate();
 
     const submit = async (e) =>{
       e.preventDefault();
@@ -32,7 +34,8 @@ function Signup() {
             alert("Account Created Successfully");
             localStorage.setItem('username', userName)
             localStorage.setItem('uname', name)
-            window.location.href = '/signup/personal-information/'+userName;
+            navigate('/signup/personal-information/' + userName);
+            window.location.reload();
             username.set({
               name: name
             })
@@ -121,7 +124,7 @@ function Signup() {
               <button id='next' type='submit'>Create Account</button> {/* Temporary Sign Up Button for Email and Password creation to database*/}
             </div>
             <div className='sU-login'>
-              <p>Already have an account? <a href='/port4lio-website/login'>Log in</a></p>
+              <p>Already have an account? <Link to={'/login'} style={{ textDecoration: 'none' }}>Log in</Link></p>
             </div>
           </form>
         </div>

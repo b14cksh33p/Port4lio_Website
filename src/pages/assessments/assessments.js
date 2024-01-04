@@ -16,6 +16,7 @@ function Assessments() {
   const saveProfile = (name) =>{
     localStorage.setItem('profile', name.replaceAll(' ', '_'))
       studentProfile(name);
+      window.location.reload();
   }
 
   const studentProfile = (name) => {
@@ -24,7 +25,6 @@ function Assessments() {
 
   const [childrenArray, setChildrenArray] = useState([]);
   useEffect(() => {
-    // Get all children from Firebase when the component mounts
     const fetchData = async () => {
       try {
         const dataRef = firebase.database().ref('UserNames');
@@ -81,7 +81,7 @@ function Assessments() {
         <tr key={index} >
           <td>{key}</td>
         <td style={{paddingLeft:'28px'}}>{value}</td>
-        <td style={{width:'256px'}}><a href=''><button id='view-details' onClick={()=>saveProfile(key.replaceAll(',',''))}>View Details</button></a></td>
+        <td style={{width:'256px'}}><button id='view-details' onClick={()=>saveProfile(key.replaceAll(',',''))}>View Details</button></td>
         </tr>
       ))}
       </tbody>
