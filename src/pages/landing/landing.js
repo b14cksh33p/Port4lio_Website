@@ -7,10 +7,9 @@ import Image3 from '../../assets/images/landing_main3.svg'
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-
 function Landing() {
-
   const userName = localStorage.getItem('username');
+  console.log('userName:', userName);
   const home = '/home/'+userName;
   const navigate = useNavigate();
 
