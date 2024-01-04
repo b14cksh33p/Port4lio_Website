@@ -121,7 +121,7 @@ function Signup() {
               <button id='next' type='submit'>Create Account</button> {/* Temporary Sign Up Button for Email and Password creation to database*/}
             </div>
             <div className='sU-login'>
-              <p>Already have an account? <a href='/login'>Log in</a></p>
+              <p>Already have an account? <a href='/port4lio-website/login'>Log in</a></p>
             </div>
           </form>
         </div>

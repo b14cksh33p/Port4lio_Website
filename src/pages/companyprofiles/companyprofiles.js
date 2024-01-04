@@ -3,20 +3,59 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../header/header.js';
 import Footer from '../../pages/footer/footer.js';
 import FileContainer from '../studentportfolio/file-container/file-container.js';
-import { useNavigate } from 'react-router-dom';
+import { ref, getDownloadURL } from 'firebase/storage';
 import {  useState, useEffect } from 'react';
+import firebase from '../../firebaseConfig.js';
+import { fileDb } from '../../firebaseConfig';
+import Student from '../../assets/images/blank-profile.png';
 
-function Company({image, name, description, vision, mission}){
-    
+const userName = localStorage.getItem('username');
+
+function Company({name}){
+  const [vision, setVision] = useState('Company Vision')
+  const [mission, setMission] = useState('Company Mission')
+  const [webLink, setWebLink] = useState(null)
+  const [image, setImage] = useState(Student)
+
+
+  useEffect(() => {
+      const uname = firebase.database().ref('Companies/'+name);
+      const viss = uname.child('Vision')
+      viss.on('value', (snapshot) => {
+          setVision(snapshot.val())
+        });
+
+      const miss = uname.child('Mission')
+      miss.on('value', (snapshot) => {
+          setMission(snapshot.val())
+        });
+
+      const wl = uname.child('WebLink')
+      wl.on('value', (snapshot) => {
+          setWebLink(snapshot.val())
+        });
+        
+    })
+
+    const fileRef = ref(fileDb, `Companies/${name} - Company Display Picture`);
+    getDownloadURL(fileRef)
+    .then((url) => {
+        setImage(url);
+    })
+    .catch((error) => {
+        console.error('Error retrieving download URL:', error);
+    });
+
+  
+
     return(
         <div className='company'>
-            <div className='company-image'>
-                <img>{image}</img>
-            </div>
+            <a href={webLink} target='blank'><div className='company-image'>
+                <img src={image} id='company-pic'/>
+            </div></a>
             <div className='company-description'>
                 <h3><b>{name}</b></h3>
-                <p>{description}</p>
-                
+
                 <h4>Our Vision</h4>
                 <p>{vision}</p>
 
@@ -27,9 +66,55 @@ function Company({image, name, description, vision, mission}){
     );
 }
 
+
 function CompanyProfiles() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState('guest');
+  const [company, setCompany] = useState('Company');
+  const [vision, setVision] = useState('');
+  const [mission, setMission] = useState('');
+  const [webLink, setWebLink] = useState('')
+  const [isDisable, setIsDisable] = useState(true);
+
+  useEffect(() => {
+    const uname = firebase.database().ref('Companies/'+company.replaceAll('.', ''));
+    const viss = uname.child('Vision')
+    viss.on('value', (snapshot) => {
+      setVision(snapshot.val())
+      });
+  
+    const miss = uname.child('Mission')
+    miss.on('value', (snapshot) => {
+        setMission(snapshot.val())
+      });
+  
+    const wl = uname.child('WebLink')
+    wl.on('value', (snapshot) => {
+        setWebLink(snapshot.val())
+      });
+      
+  })
+
+
+
+  useEffect(() => {
+    if(userName){
+      setIsLoggedIn(userName)
+
+      const uname = firebase.database().ref('Users/'+userName.replaceAll('_', ' '));
+
+      const comp = uname.child('HTE')
+      comp.on('value', (snapshot) => {
+          setCompany(snapshot.val());
+        });
+      
+        if(vision != '' && mission != ''){
+          setIsDisable(false)
+        }else{
+          setIsDisable(true)
+        }
+    }})
   
   const openModal = () => {
     setIsModalOpen(true);
@@ -38,7 +123,39 @@ function CompanyProfiles() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const handleUpdate = () => {
+    const comp = firebase.database().ref('Companies/'+company.replaceAll('.', ''));
+    comp.update({
+      Vision: vision,
+      Mission: mission,
+      WebLink: webLink,
+      Name: company,
+    });
+    closeModal()
 
+  }
+
+  const [childrenArray, setChildrenArray] = useState([]);
+  useEffect(() => {
+    // Get all children from Firebase when the component mounts
+    const fetchData = async () => {
+      try {
+        const dataRef = firebase.database().ref('Companies');
+        const snapshot = await dataRef.once('value');
+        const data = snapshot.val();
+        if (data) {
+          const dataArray = Object.keys(data).map(key => (key));
+          setChildrenArray(dataArray);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();;
+  }, []);
+  
+
+  
     return (
       <div className='wrapper-cP'>
       <Header/>
@@ -60,74 +177,68 @@ function CompanyProfiles() {
           </div>
       </div>
       <div className='cP-second-section'>
-        <div className='cP-add-company'>
-          <p>Your company ain't listed yet?</p>
-          <button onClick={openModal}>Add Your Company Description</button>
-        </div>
-        
+
         {!isModalOpen ? '' :
-        <div className='eP-wrapper'>
-          <div className='cP-container'>
-          
-          <div className='eP-header'>
-            Company Profile
-          </div>
-
-          <div className='cP-content'>
-            <div className='cP-left-content'>
-              <div className='cP-textarea'>
-                <div className='cP-input'>
-                  {"Vision"}
-                  <textarea placeholder='Write Company Vision here...'></textarea>
-                </div>
-                <div className='cP-input'>
-                  {"Mission"}
-                  <textarea placeholder='Write Company Mission here...'></textarea>
-              </div>
-              </div>
-              <div className='cP-input'>
-                <input type='text' placeholder='Company Website link (if there is)'></input>
-              </div>
-            </div>
-            
-            <div className='cP-right-content'>
-              <div className='cP-company-profile'>
-                <p>Company Display Picture</p>
-                <FileContainer highlightedText='Company Display Picture'></FileContainer>
-              </div>
-              <div className='cP-button'>
-                <button className='cP-Cancel' onClick={closeModal}>Close</button>
-                <button onClick={openModal}>Update</button>
-              </div>
-            </div>
-            
-          </div>
-
-        </div>
-      </div>
+           <div className='eP-wrapper'>
+           <div className='cP-container'>
+           
+           <div className='eP-header'>
+             Company Profile ({company})
+           </div>
+       
+           <div className='cP-content'>
+             <div className='cP-left-content'>
+               <div className='cP-textarea'>
+                 <div className='cP-input'>
+                   {"Vision"}
+                   <textarea placeholder='Write Company Vision here...(Required)'
+                   defaultValue={vision}
+                   onChange={(e) => setVision(e.target.value)}
+                   ></textarea>
+                 </div>
+                 <div className='cP-input'>
+                   {"Mission"}
+                   <textarea placeholder='Write Company Mission here...(Required)'
+                   defaultValue={mission}
+                   onChange={(e) => setMission(e.target.value)}
+                   ></textarea>
+               </div>
+               </div>
+               <div className='cP-input'>
+                 <input type='text' placeholder='Company Website link (if there is)'
+                  defaultValue={webLink}
+                  onChange={(e) => setWebLink(e.target.value)}
+                 ></input>
+               </div>
+             </div>
+             
+             <div className='cP-right-content'>
+               <div className='cP-company-profile'>
+                 <p>Company Display Picture</p>
+                 <FileContainer highlightedText='Company Display Picture' isCompany={company.replaceAll('.','')}></FileContainer>
+               </div>
+               <div className='cP-button'>
+                 <button className='cP-Cancel' onClick={closeModal}>Close</button>
+                 <button onClick={handleUpdate} disabled={isDisable}>Update</button>
+               </div>
+             </div>
+             
+           </div>
+       
+         </div>
+       </div>
         }
-
-        <Company name={'Company 1'} 
-                description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'}
-                vision={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
-                mission={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
-        <Company name={'Company 2'} 
-                description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'}
-                vision={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
-                mission={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
-        <Company name={'Company 3'} 
-                description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'}
-                vision={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
-                mission={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
-        <Company name={'Company 4'} 
-                description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'}
-                vision={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
-                mission={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
-        <Company name={'Company 5'} 
-                description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'}
-                vision={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
-                mission={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
-        
+        {childrenArray.map((name, index) => (
+        <div key={index}>
+          <Company name={name}/>
+        </div>
+      ))}
+        {isLoggedIn == 'guest' ? '' :
+          <div className='cP-add-company'>
+          <p>Your company ain't listed yet?</p>
+          <button onClick={openModal}>Add/Edit Your Company Description</button>
+        </div>
+        }
       </div>
       <Footer/>
     </div>

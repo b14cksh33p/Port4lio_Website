@@ -100,11 +100,15 @@
     padding-bottom: 128px;
 }
 .company-image{
-    padding: 16px;
-    width: 480px;
     height: 480px;
-    background-color: var(--image_bg);
-    border-radius: 25px;
+    width: 480px;
+    max-width: 480px;
+    background-color: var(--image_bg2);
+    border-radius:2.8em;
+    padding: 0.88em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .company-description h3{
@@ -215,4 +219,10 @@
     background-color: var(--white);
     border: 1.5px solid var(--bg_button);
     color: var(--bg_button);
+}
+#company-pic{
+    position: relative;
+    width: 100% !important;
+    border: 0.4em solid var(--image_bg);
+    border-radius: 10%;
 }

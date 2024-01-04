@@ -9,7 +9,8 @@ import firebase from '../../../firebaseConfig.js';
 
 
 
-const FileContainer = ({ highlightedText }) => {
+const FileContainer = ({ highlightedText, isCompany}) => {
+  const name = localStorage.getItem('profile');
     const fileInputRef = useRef(null);
     const imgRef = useRef(null);
     const imgRefhover = useRef(null);
@@ -19,10 +20,23 @@ const FileContainer = ({ highlightedText }) => {
     const [isDisable, setIsDisable] = useState(true);
     const [isUploaded, setIsUploaded] = useState(false);
     const [docUrl, setDocUrl] = useState(null);
-    const name = localStorage.getItem('profile');
+    const [fileLink, setFileLink] = useState(`students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${highlightedText}`);
+    
+    useEffect(() => {
+      if(isCompany != null){
+        setFileLink(`Companies/${isCompany} - ${highlightedText}`);
+      }
+      });
+    
+    useEffect(() => {
+      if(docUrl != null) {
+        setIsUploaded(true);
+      };
+      });
+    
+    const fileRef = ref(fileDb, fileLink);
 
-    const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${highlightedText}`);
-    getDownloadURL(fileRef, { mode: 'no-cors' })
+    getDownloadURL(fileRef)
     .then((url) => {
         setDocUrl(url);
     })
@@ -30,12 +44,6 @@ const FileContainer = ({ highlightedText }) => {
         console.error('Error retrieving download URL:', error);
     });
     
-    
-    useEffect(() => {
-      if(docUrl != null) {
-        setIsUploaded(true);
-      };
-      });
 
 
     //Open File function
@@ -59,9 +67,6 @@ const FileContainer = ({ highlightedText }) => {
         if(!fileUpload) return;
         setIsDisable(true);
         try{
-            const userID = localStorage.getItem('User').replaceAll(',','');
-            const fileRef = ref(fileDb, `students_files/${userID}/${userID} - ${highlightedText.replaceAll('.','')}`);
-  
           uploadBytes(fileRef, fileUpload).then((snapshot) => {
               getDownloadURL(snapshot.ref).then((url) => {
                   console.log(url);

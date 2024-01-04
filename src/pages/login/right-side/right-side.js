@@ -48,7 +48,7 @@ function RightSide() {
                     localStorage.setItem('User', snapshot.val());     
                   });
                 alert("Login Successfully");
-                window.location.href = '/home/'+ userName;
+                window.location.href = '/port4lio-website/home/'+ userName;
             }
         }
         catch (error){

@@ -7,7 +7,7 @@ function LoginNavigation() {
         <div className='LN-navigation-holder'>
             <nav className='LN-navbar'>
                 <ul className='LN-ul'>
-                    <li className='LN-ul-li'><a href='/'>{'< Back'}</a></li>
+                    <li className='LN-ul-li'><a href='/port4lio-website'>{'< Back'}</a></li>
                     <div className='LN-button-login'>
                         <a href=''>Log In</a>
                     </div>
