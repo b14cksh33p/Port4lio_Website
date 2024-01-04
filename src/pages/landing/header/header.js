@@ -1,7 +1,7 @@
 import './header.css'
 import React, { useState, useEffect } from 'react';
 import Icon from '../../../assets/images/icon.svg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import firebase from '../../../firebaseConfig.js';
 import { Helmet } from 'react-helmet';
 function Header(){
@@ -29,7 +29,7 @@ function Header(){
     
     
     const navigate = useNavigate();
-    const home = '/port4lio-website/home/'+userName;
+    const home = '/home/'+userName;
 
     const handleLogout = () => {
         firebase.auth().signOut()
@@ -54,7 +54,7 @@ function Header(){
                 <h1>PORT4LIO</h1>
             </div>
             <div className='landing-navigation'>
-                <a href={home} style={{textDecoration:'none'}}>Home</a>
+                <Link to={home} style={{ textDecoration: 'none' }}>Home</Link>
                 <a onClick={handleScrollToAbout}>About</a>
                 <div>
                     {userName == 'guest' ?

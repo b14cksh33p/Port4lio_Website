@@ -47,17 +47,17 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup/primary-information" element={<SignupPage />} />
-        <Route path={signUpPI} element={<SUPersonal />} />
-        <Route path="/signup/done" element={<DonePage />} />
+          <Route path={signUpPI} element={<SUPersonal />} />
+          <Route path="/signup/done" element={<DonePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path={sPortfolio} element={<StudentPortfolioPage />} />
-        <Route path={sProfile} element={<StudentProfilePage />} />
+          <Route path={sProfile} element={<StudentProfilePage />} />
         <Route path={home} element={<HomePage />} />
         <Route path={wReports} element={<WeeklyReportsPage />} />
-        <Route path={wReport} element={<WeeklyReport />} />
+          <Route path={wReport} element={<WeeklyReport />} />
         <Route path={cProfiles} element={<CompanyProfilesPage />} />
         <Route path={assessments} element={<AssessmentsPage />} />
-        <Route path={sAssessment} element={<StudentAssessmentPage />} />
+         <Route path={sAssessment} element={<StudentAssessmentPage />} />
       </Routes>
     </div>
   );
