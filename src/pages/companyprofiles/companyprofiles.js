@@ -2,7 +2,9 @@ import './companyprofiles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../header/header.js';
 import Footer from '../../pages/footer/footer.js';
+import FileContainer from '../studentportfolio/file-container/file-container.js';
 import { useNavigate } from 'react-router-dom';
+import {  useState, useEffect } from 'react';
 
 function Company({image, name, description, vision, mission}){
     
@@ -27,6 +29,16 @@ function Company({image, name, description, vision, mission}){
 
 function CompanyProfiles() {
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
     return (
       <div className='wrapper-cP'>
       <Header/>
@@ -50,8 +62,51 @@ function CompanyProfiles() {
       <div className='cP-second-section'>
         <div className='cP-add-company'>
           <p>Your company ain't listed yet?</p>
-          <button>Add Your Company Description</button>
+          <button onClick={openModal}>Add Your Company Description</button>
         </div>
+        
+        {!isModalOpen ? '' :
+        <div className='eP-wrapper'>
+          <div className='cP-container'>
+          
+          <div className='eP-header'>
+            Company Profile
+          </div>
+
+          <div className='cP-content'>
+            <div className='cP-left-content'>
+              <div className='cP-textarea'>
+                <div className='cP-input'>
+                  {"Vision"}
+                  <textarea placeholder='Write Company Vision here...'></textarea>
+                </div>
+                <div className='cP-input'>
+                  {"Mission"}
+                  <textarea placeholder='Write Company Mission here...'></textarea>
+              </div>
+              </div>
+              <div className='cP-input'>
+                <input type='text' placeholder='Company Website link (if there is)'></input>
+              </div>
+            </div>
+            
+            <div className='cP-right-content'>
+              <div className='cP-company-profile'>
+                <p>Company Display Picture</p>
+                <FileContainer highlightedText='Company Display Picture'></FileContainer>
+              </div>
+              <div className='cP-button'>
+                <button className='cP-Cancel' onClick={closeModal}>Close</button>
+                <button onClick={openModal}>Update</button>
+              </div>
+            </div>
+            
+          </div>
+
+        </div>
+      </div>
+        }
+
         <Company name={'Company 1'} 
                 description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'}
                 vision={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
