@@ -36,6 +36,7 @@ function WeeklyReports() {
     localStorage.setItem('user', name)
     localStorage.setItem('profile', Name.replaceAll(' ', '_'))
       studentProfile(Name);
+      window.location.reload();
   }
   
   const studentProfile = (name) => {
@@ -45,7 +46,6 @@ function WeeklyReports() {
 
   const [childrenArray, setChildrenArray] = useState([]);
   useEffect(() => {
-    // Get all children from Firebase when the component mounts
     const fetchData = async () => {
       try {
         const dataRef = firebase.database().ref('UserNames');
@@ -84,17 +84,15 @@ function WeeklyReports() {
       </div>
       <div className='wR-second-section'>
       <div className="grid-container">
-      {childrenArray.map((name, index) => (
-        <div key={index} className="grid-item" onClick={()=>saveProfile(name)}>
-          <a href=''>
-            <div className='grid-image' >
-              <ProfilePicture uname={name} />
+          {childrenArray.map((name, index) => (
+            <div key={index} className="grid-item" onClick={() => saveProfile(name)}>
+              <div className='grid-image'>
+                <ProfilePicture uname={name} />
+              </div>
+              <p className='grid-text'>{name}</p>
             </div>
-          </a>
-            <p className='grid-text'>{name}</p>
-        </div>
-      ))}
-    </div>
+          ))}
+      </div>
       </div>
       <Footer/>
     </div>
