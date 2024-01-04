@@ -2,7 +2,7 @@ import './studentportfolio.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../header/header.js';
 import Footer from '../../pages/footer/footer.js';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import firebase from '../../firebaseConfig.js';
 import { fileDb } from '../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
@@ -88,15 +88,17 @@ function StudentPortfolio() {
       </div>
       <div className='sP-second-section'>
       <div className="grid-container">
-      {childrenArray.map((name, index) => (
-        <div key={index} className="grid-item" onClick={() => saveProfile(name)}>
-        <div className='grid-image'>
-          <ProfilePicture uname={name} />
-        </div>
-        <p className='grid-text'>{name}</p>
+          {childrenArray.map((name, index) => (
+            <div key={index} className="grid-item" onClick={() => saveProfile(name)}>
+              <a>
+              <div className='grid-image'>
+                <ProfilePicture uname={name} />
+              </div>
+              </a>
+              <p className='grid-text'>{name}</p>
+            </div>
+          ))}
       </div>
-      ))}
-    </div>
       </div>
       <Footer/>
     </div>

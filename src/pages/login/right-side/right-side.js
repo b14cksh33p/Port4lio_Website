@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function RightSide() {
   const [emailLogin, setEmail] = useState('');
   const [passwordLogin, setPassword] = useState('');
-  const navigate = useNavigate(); // Move useNavigate hook to the top level
+  const navigate = useNavigate();
 
   const AuthCheckComponent = () => {
     const [user, setUser] = useState(null);
@@ -53,16 +53,19 @@ function RightSide() {
         });
 
         alert('Login Successfully');
-        navigate('/home/' + userName); // Use the navigate function here
+        navigate('/home/' + userName);
+        window.location.reload();
       }
     } catch (error) {
-      alert(`Authentication failed: ${error}`);
+      alert(`Authentication failed: ${error.message}`);
     }
   };
+ 
+
 
   return (
     <div className='RS-container'>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={submit}>
         <div className='RS-input-container'>
           <input
             type='email'
@@ -73,7 +76,7 @@ function RightSide() {
             value={emailLogin}
             onChange={(e) => setEmail(e.target.value)}
             required
-          ></input>
+          />
           <input
             type='password'
             className='RS-password'
@@ -83,9 +86,9 @@ function RightSide() {
             value={passwordLogin}
             onChange={(e) => setPassword(e.target.value)}
             required
-          ></input>
+          />
         </div>
-        <input type='submit' className='RS-submit' value='Sign In' onClick={submit} />
+        <input type='submit' className='RS-submit' value='Sign In' />
       </form>
     </div>
   );
