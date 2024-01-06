@@ -190,6 +190,7 @@ function StudentProfile() {
                     <UploadedDocs fileName={'Week 10'}/>
                     <UploadedDocs fileName={'Week 11'}/>
                     <UploadedDocs fileName={'Week 12'}/>
+                    
                 </div> 
                 :         
                 <div className='sPr-documents'>

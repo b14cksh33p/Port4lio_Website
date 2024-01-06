@@ -11,24 +11,34 @@
     --font: #682c0e;
     --bg_button: #c24914;
     --image_bg: #dac0a3;
-    --image_bg2: #eadbc8; 
+    --image_bg2: #eadbc8;
+    --white: #fff; 
 
     overflow-x: hidden;
 }
 
-.wrapper-sAs{
+.wrapper-sPr{
+    position:relative;
     display: block;
     justify-content: center;
-    width: 100px !important;
-    max-width: 100px !important;
-    
+    width: 100%;
+}
+.sAs-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    height: 800px;
+    overflow: hidden; 
 }
 .rectangle{
     width: 800px;
     max-width: 800px;
-    height: 150vh;
     position: absolute;
     border-radius:50px;
+   
 }
 .first{
     background-color: var(--primary);
@@ -52,37 +62,56 @@
     z-index: 1;
 }
 .sAs-first-section{
-    height: 100vh;
+    display: flex;
+    min-height: 100vh !important;
 
+}
+.last {
+    width: 800px;
+    max-width: 800px;
+    height: 150vh;
+    position: absolute;
+    border-radius:50px;
+    
 }
 .sAs-content{
     position: relative;
+    z-index: 6;
     display: flex;
-    width: 100vw;
-    padding-top: 240px;
-    margin-left: 80px;
-    gap: 32px;
+    width: 100%;
     align-items: center;
-
+    padding-top: 12em;
+    margin-left: 2em;
+    margin-bottom: 2.3em;
+    width: 150%;
+    gap: 2em;
+    align-items: center !important;
 }
 .sAs-content-image{
     width: 400px;
-    height: 400px;
+    max-width: 400px;
     background-color: var(--image_bg2);
-    border-radius:40px;
+    border-radius:2.8em;
+    padding: 0.88em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #profile-pic{
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 100% !important;
+    border: 0.4em solid var(--image_bg);
+    border-radius: 10%;
 }
 .sAs-content-text{
-    margin-bottom: 40px;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .sAs-content-text h3{
     font-weight: 700;
-    font-size: 40px;
+    font-size: 2em !important;
     color: var(--bg_button);
 }
 .sAs-content-text p{
@@ -94,31 +123,42 @@
 
 .sAs-second-section{
     position: relative;
-    height: auto;
-    width: 100vw;
-    z-index: 99;
+    overflow: hidden;
+    width: 100%;
+    z-index: 5;
     background-color: white;
-    padding-bottom: 128px;
-    padding-top: 64px;
-    padding-left: 104px;
-    padding-right: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    min-height: 40vh;
 }
 .sAs-documents{
-    background-color: var(--image_bg2);
-    width: 1200px;
-    height: 600px;
-    margin-top:80px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border-radius:25px;
 }
-
-/*Header*/
+.wrapper-sPr button{
+    margin-top: 0.32em;
+    background-color: var(--bg_button);
+    color: white;
+    font-size: 1.04rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.48em;
+    letter-spacing: 0.05em;
+    padding-left: 0.72em;
+    padding-top: 0.63em;
+    padding-right: 0.72em;
+    padding-bottom: 0.63em;
+}
+.wrapper-sPr .eP-Cancel{
+    background-color: var(--white);
+    border: 1.5px solid var(--bg_button);
+    color: var(--bg_button);
+}
 .sAs-header{
     position: absolute;
     display: flex;
@@ -133,29 +173,32 @@
 
 }
 .sAs-header h1{
-    font-size: 40px;
+    font-size: 36px !important;
     font-weight: 700;
     color: var(--font);
 
 }
+.sAs-row{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    gap: 50px;
+}
 .sAs-title{
     display: flex;
     align-items: center;
-    gap: 12px;
-
+    gap: 0.4em;
 }
 .sAs-title img{
-    width: 36px;
-    margin-bottom: 16px;
+    width: 13% !important;
+    margin-bottom: 1em;
 }
 .sAs-back p{
     font-family: Arial, Helvetica, sans-serif;
     color: #000000;
-    font-size: 20px;
+    font-size: 1.04em;
     font-weight: 700;
-    width: 80px;
-    margin-top: 12px;
-    transform:translateX(-20px);
+    transform:translateX(0px) !important;
 }
 .sAs-back p:hover{
     cursor: pointer;

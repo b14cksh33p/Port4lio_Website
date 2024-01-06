@@ -9,24 +9,6 @@
     --silver: #C1B7B3;
 }
 
-.sU-back{
-    position: absolute;
-    margin-right: 760px;
-    transform: translateY(16px);
-}
-.sU-back p{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #000000;
-    font-size: 20px;
-    font-weight: 700;
-    width: 80px;
-    margin-top: 12px;
-    transform:translateX(-20px);
-}
-.sU-back p:hover{
-    cursor: pointer;
-    color: #605757;
-}
 
 /* personalInfo.css */
 

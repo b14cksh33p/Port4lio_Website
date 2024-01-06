@@ -77,9 +77,6 @@ function PersonalInfo() {
           </div>
         <div className='container main'>
           <form className='sU-pI-container' onSubmit={(e)=>e.preventDefault()}>
-            <div className='sU-back'>
-                <p onClick={()=>navigate(-1)}>{'< Back'}</p>
-            </div>
             <div className='pI-head'>
               <h3>Input Personal Information</h3>
             </div>

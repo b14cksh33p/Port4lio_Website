@@ -20,14 +20,14 @@
     width: 100%;   
 }
 .wR-first-section{
-    height: 100vh;
+    min-height: 10vh !important;
 }
 .wR-text{
     position:absolute;
     width: 54%;
     max-width: 1000px;
     z-index: 5;
-    margin-top: 20em;
+    margin-top: 16em;
     margin-left: 4em;
 }
 .wR-text h1{
@@ -41,14 +41,14 @@
     color: var(--gray)
 }
 .wR-second-section{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    z-index: 99;
-    background-color: white;
-    margin-top: 30em;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 99;
+  background-color: white;
+  margin-top: 48em;
+  height: 100vh;
 
 }
 .grid-container {

@@ -178,12 +178,7 @@ function CompanyProfiles() {
           </div>
       </div>
       <div className='cP-second-section'>
-        {isLoggedIn == 'guest' ? '' :
-                <div className='cP-add-company'>
-                <p>Your company ain't listed yet?</p>
-                <button onClick={openModal}>Add/Edit Your Company Description</button>
-              </div>
-        }
+
         {!isModalOpen ? '' :
            <div className='eP-wrapper'>
            <div className='cP-container'>
@@ -239,6 +234,12 @@ function CompanyProfiles() {
           <Company name={name}/>
         </div>
       ))}
+        {isLoggedIn == 'guest' ? '' :
+          <div className='cP-add-company'>
+          <p>Your company ain't listed yet?</p>
+          <button onClick={openModal}>Add/Edit Your Company Description</button>
+        </div>
+        }
       </div>
       <Footer/>
     </div>

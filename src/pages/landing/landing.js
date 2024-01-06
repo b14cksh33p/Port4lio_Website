@@ -9,7 +9,6 @@ import { Helmet } from 'react-helmet';
 
 function Landing() {
   const userName = localStorage.getItem('username');
-  console.log('userName:', userName);
   const home = '/home/'+userName;
   const navigate = useNavigate();
 

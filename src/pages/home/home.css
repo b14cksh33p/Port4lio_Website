@@ -16,11 +16,11 @@
 .wrapper-home{
     display: block;
     justify-content: center;
-    width: 100%; 
+    width: 100%;
+
 }
 .first-section{
-    height: 100vh;
-    
+    min-height: 8vh !important;
 }
 .home-text-container{
     display: flex;
@@ -31,8 +31,8 @@
     width: 54%;
     max-width: 1000px;
     z-index: 5;
-    margin-top: 20em;
-    margin-right: 40em;
+    margin-top: 16em;
+    margin-right: 32em;
 }
 .home-text h1{
     font-size: 5rem;
@@ -59,6 +59,7 @@
     z-index: 99;
     background-color: white;
     margin-top: 48rem;
+    padding-top: 16vh;
 }
 .home-image{
     max-width: 1000px;
@@ -101,9 +102,9 @@
 }
 .home-ojt-text2{
     display: flex;
-    
     flex-direction: column;
     justify-content: center;
+    text-align: center;
 }
 
 .second-section h4{
@@ -119,10 +120,7 @@
    color: var(--gray);
 }
 
-
-
 .home-ojt-adviser p{
     color: var(--gray);
     font-size: 18px;
-
 }
