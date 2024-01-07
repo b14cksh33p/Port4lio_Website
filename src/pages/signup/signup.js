@@ -20,6 +20,7 @@ function Signup() {
     const [cPassword, setCPassword] = useState('')
     const userName = email.replace('@gmail.com', '');
     const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const submit = async (e) =>{
       e.preventDefault();
@@ -57,6 +58,14 @@ function Signup() {
 
     }
 
+    const openModal = () => {
+      setIsModalOpen(true);
+    };
+  
+    const closeModal = () => {
+      setIsModalOpen(false);
+    };
+
 
     return (
       <div className='sU-wrapper'>
@@ -69,7 +78,7 @@ function Signup() {
               <img id='p2' alt='banner' src={Person4}/>
               <img id='p3' alt='banner' src={Person3}/>
               <img id='p4' alt='banner' src={Person2}/>
-          </div>
+        </div>
         <div className='container main'>
           <form className='sU-pI-container' onSubmit={submit}>
             <div className='pI-head'>
@@ -117,7 +126,7 @@ function Signup() {
               </div>
               <div className='sU-terms'>
                 <input type='checkbox' required id='terms'></input>
-                <p> I agree to the <a href=''>terms & policy</a></p>
+                <p> I agree to the <span onClick={openModal}>terms & policy</span></p>
               </div>
             </div>
             <div className='button-next'>
@@ -127,6 +136,76 @@ function Signup() {
               <p>Already have an account? <Link to={'/login'} style={{ textDecoration: 'none' }}>Log in</Link></p>
             </div>
           </form>
+          {!isModalOpen ? '' :
+          <div className='eP-wrapper'>
+          <div className='TP-container'>
+            <div className='eP-header'>
+              Terms & Conditions and Privacy Notice
+            </div>
+
+            <div className='TP-content'>
+              <div className='TP-important'>
+                <div><b>Important.  </b>In order to continue, you must read the Terms & Conditions and Privacy Notice by scrolling to the bottom.</div>
+              </div>
+              <div className='TP-navigation'>
+                <div className='TP-navigation-text'>Navigate to:</div>
+                <div className='TP-navigation-link'>i. <span>Terms & Conditions</span></div>
+                <div className='TP-navigation-bottom'>ii. <span>Privacy Policy</span></div>        
+              </div>
+
+              <div className='TP-body'>
+                <b>Terms and Conditions</b>
+                <br></br>
+                <br></br>
+                Welcome to Port4lio! By using our platform, you agree to the following terms:
+                <br></br>
+                <br></br>
+                <b>Account Eligibility:</b> Port4lio accounts are exclusively available to students enrolled in sections 2-4 of the Computer Engineering program at Polytechnic University of the Philippines. Individuals not meeting this criterion are not permitted to create accounts.
+                <br></br>
+                <b>Account Registration:</b> To access Port4lio, eligible users must create an account providing accurate and current information. Users are responsible for maintaining the confidentiality of their account credentials.
+                <br></br>
+                <b>Content Guidelines:</b> Users are solely responsible for the content they upload. Port4lio reserves the right to remove any content that violates guidelines or is deemed inappropriate.
+                <br></br>
+                <b>Intellectual Property:</b> Users retain ownership of their content. By uploading to Port4lio, users grant the platform a non-exclusive, worldwide license to use, modify, and distribute the content.   
+                <br></br>
+                <b>Data Security:</b> Port4lio employs industry-standard security measures to protect user data. However, users are encouraged to safeguard their accounts and report any unauthorized access.
+                <br></br>
+                <b>Usage Policy:</b> Users agree not to misuse or disrupt Port4lio's services. Any violation of this policy may result in account termination.
+                <br></br>
+                <b>Termination:</b> Port4lio reserves the right to terminate accounts in cases of policy violations or at the user's request.
+                <br></br>
+                <b>Disclaimers:</b> Port4lio provides services "as is" and disclaims any warranties or liabilities arising from the use of the platform.
+                <br></br>
+                <br></br>
+
+                <b>Privacy Policy</b>
+                <br></br>
+                <br></br>
+                We take your privacy seriously. Here's how we handle your information:
+                <br></br>
+                <br></br>
+                <b>Account Eligibility and Information Collection:</b> Port4lio accounts are restricted to students in sections 2-4 of the Computer Engineering program at Polytechnic University of the Philippines. Personal information collected during account registration, including name and email, is used solely for platform use and verification of eligibility.
+                <br></br>
+                <b>Use of Information:</b> Collected information is used for account management, communication, and platform improvement purposes only.
+                <br></br>
+                <b>Data Security Measures:</b> Port4lio implements robust security measures to protect user data from unauthorized access, alteration, or disclosure.
+                <br></br>
+                <b>Third-Party Disclosure:</b> Personal information is not shared with third parties unless required for platform functionality or legal compliance.
+                <br></br>
+                <b>User Rights:</b> Users have the right to access, correct, or delete their personal data by contacting Port4lio's support team.
+                <br></br>
+                <b>Cookies and Tracking:</b> Port4lio may use cookies for site functionality and analytics. Users can manage cookie preferences in their browser settings.
+                <br></br>
+                <b>Data Retention:</b> User data is retained as long as necessary for platform use and deleted upon account closure.
+              </div>
+              
+              <div className='cP-button'>
+                <button onClick={closeModal}>Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+          }
         </div>
     </div>
     );

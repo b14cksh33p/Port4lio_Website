@@ -13,7 +13,8 @@
     --bg_button: #c24914;
     --image_bg: #dac0a3;
     --image_bg2: #eadbc8; 
-
+    --important: #daeeff;
+    --fontcolorIMP: #1883e1;
     overflow-x: hidden;
 }
 
@@ -164,6 +165,57 @@
     font-size: 13px;
     padding-bottom: 8px;
 }
-.sU-terms a{
+.sU-terms span{
     color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.TP-container{
+    background-color: var(--white);
+    width: auto;
+    height: auto;
+    border-radius: 16px;
+}
+.TP-content{
+    padding: 15px;
+}
+.TP-important{
+    font: 400 12px 'Arial';
+    width: auto;
+    padding: 15px;
+    background-color: var(--important);
+    color: var(--fontcolorIMP);
+    border: 1.2px solid var(--fontcolorIMP);
+    margin-bottom: 1rem;
+}
+.TP-navigation{
+    font: 400 12px 'Arial';
+    height: auto;
+    width: auto;
+    padding: 15px;
+    border: 1.2px solid var(--gray);
+    margin-bottom: 1rem;
+}
+.TP-navigation-text, .TP-navigation-link{
+    margin-bottom: 5px;
+}
+
+.TP-navigation-link span{
+    color: var(--fontcolorIMP);
+    cursor: pointer;
+}
+.TP-navigation-bottom span{
+    color: var(--fontcolorIMP);
+    cursor: pointer;
+}
+
+.TP-body{
+    width: 650px;
+    height: 200px;
+    padding: 15px;
+    border: 1.2px solid var(--gray);
+    font: 400 12px 'Arial';
+    overflow-y: scroll;
+    margin-bottom: 1rem;
 }
