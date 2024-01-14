@@ -14,7 +14,7 @@ import DowloadIcon from '../../../assets/images/download.png'
 import DocumentIcon from '../../../assets/images/document.png'
 
 const name = localStorage.getItem('profile');
-
+const admin = localStorage.getItem('username');
 
 function Header() {
     const navigate = useNavigate()
@@ -159,7 +159,7 @@ function StudentAssessment() {
       </div>
       <div className='sAs-second-section'>
       <div className='sAs-button'>
-        {UserName == name || 'admin' ? <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Upload NR' : 'Done'}</button> 
+        {UserName == name || admin == 'admin' ? <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Upload NR' : 'Done'}</button> 
         :
         ''
         }

@@ -15,7 +15,7 @@ import 'firebase/database'
 import PDFViewer from './pdfViewer/PDFViewer.js';
 
 
-
+const admin = localStorage.getItem('username');
 const name = localStorage.getItem('profile');
 const user = localStorage.getItem('User');
 var UserName = '';
@@ -106,7 +106,7 @@ function Profile({pic, name, sNumber, company, ojtHours}){
         <p>CYS: BSCpE 3-4</p>
         <p>HTE: {company}</p>
         <p>OJT Hours: {ojtHours}</p>
-        <div>{UserName == (name.replaceAll(',','')).replaceAll(' ','_') || 'admin' ? 
+        <div>{UserName == (name.replaceAll(',','')).replaceAll(' ','_') || admin == 'admin' ? 
         <button onClick={openModal}>Edit Info</button>
         : 
         ''
@@ -258,7 +258,7 @@ function StudentProfile() {
                 </div>
             </div>
             <div className='sPr-second-section'>
-                {UserName == name || 'admin' ?
+                {UserName == name || admin == 'admin' ?
                     <div className='sPr-documents'>
                     {editDocs==false ?
                     <div>

@@ -13,7 +13,7 @@ import { fileDb } from '../../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
 import 'firebase/database'
 
-
+const admin = localStorage.getItem('username')
 const name = localStorage.getItem('profile');
 const user = localStorage.getItem('User');
 var UserName = '';
@@ -175,7 +175,7 @@ function WeeklyReport() {
                 </div>
             </div>
             <div className='sPr-second-section'>
-                {UserName == name || 'admin' ?
+                {UserName == name ||admin == 'admin' ?
                 <div className='sPr-documents'>
                 {editDocs==false ?
                 <div>
