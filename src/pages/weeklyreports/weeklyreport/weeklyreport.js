@@ -106,7 +106,7 @@ function UploadedDocs({fileName}){
     );
 }
 
-function StudentProfile() {
+function WeeklyReport() {
 
     const [fullName, setFullName] = useState('LN, FN MN');
     const [studentNo, setStudentNo] = useState('2021-00000-MN-0');
@@ -190,7 +190,6 @@ function StudentProfile() {
                     <UploadedDocs fileName={'Week 10'}/>
                     <UploadedDocs fileName={'Week 11'}/>
                     <UploadedDocs fileName={'Week 12'}/>
-                    
                 </div> 
                 :         
                 <div className='sPr-documents'>
@@ -244,5 +243,5 @@ function StudentProfile() {
     );
   }
   
-  export default StudentProfile;
+  export default WeeklyReport;
   

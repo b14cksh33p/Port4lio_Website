@@ -24,7 +24,7 @@ function App() {
       if (authUser) {
         setUserName(localStorage.getItem('username'));
       } else {
-        // Handle the case when the user is not authenticated
+        setUserName('guest');
       }
     });
     setProfile(localStorage.getItem('profile'));
