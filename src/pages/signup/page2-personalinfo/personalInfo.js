@@ -49,8 +49,8 @@ function PersonalInfo() {
           HTEAddress: cAddress,
           OJTHours: ojtHours,
         });
-      localStorage.setItem('username','');
-      localStorage.setItem('uname','');
+      localStorage.clearItem('username');
+      localStorage.clearItem('uname');
       toggleModal();
       navigate('/signup/done')
     };

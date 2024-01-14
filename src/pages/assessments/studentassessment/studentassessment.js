@@ -159,9 +159,10 @@ function StudentAssessment() {
       </div>
       <div className='sAs-second-section'>
       <div className='sAs-button'>
-        {UserName != name ? '' :
-         <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Upload NR' : 'Done'}</button>
-      }
+        {UserName == name || 'admin' ? <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Upload NR' : 'Done'}</button> 
+        :
+        ''
+        }
        
         </div>
         {!editDocs ?

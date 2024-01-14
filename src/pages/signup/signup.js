@@ -22,9 +22,43 @@ function Signup() {
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const verify = () => {
+      const lname = name.replaceAll(' ', '')
+      const lastName = lname.replaceAll(',', ' ').split(' ');
+      const databaseRef = firebase.database().ref('CoE24Students/');
+      databaseRef.once('value')
+        .then(snapshot => {
+          const data = snapshot.val();
+
+          // Check if the string exists in the database
+          if (data && Object.values(data).includes(lastName[0])) {
+            const dbRef = firebase.database().ref('userData/');
+              dbRef.once('value')
+                .then(snapshot => {
+                  const data = snapshot.val();
+                  // Check if the string exists in the database
+                  if (data && Object.values(data).includes(name.replaceAll(',', ''))) {
+                    alert('Name already in used.');
+                  } else {
+                    submit();
+                  }
+                })
+                .catch(error => {
+                  console.error('Error reading from the database:', error);
+                });
+          } else {
+            alert('Name cannot be found in BSCOE 2-4 students roster.');
+          }
+        })
+        .catch(error => {
+          console.error('Error reading from the database:', error);
+        });
+
+    }
+
     const submit = async (e) =>{
-      e.preventDefault();
       if(cPassword === password) {
+        
         try{
           const username = firebase.database().ref('Users/'+userName);
           const uname = firebase.database().ref('UserNames/'+name);
@@ -80,7 +114,7 @@ function Signup() {
               <img id='p4' alt='banner' src={Person2}/>
         </div>
         <div className='container main'>
-          <form className='sU-pI-container' onSubmit={submit}>
+          <form className='sU-pI-container' onSubmit={verify}>
             <div className='pI-head'>
               <h3>Create an Account</h3>
             </div>

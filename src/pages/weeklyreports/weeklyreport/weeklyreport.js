@@ -175,8 +175,9 @@ function WeeklyReport() {
                 </div>
             </div>
             <div className='sPr-second-section'>
-
-                {UserName != name ?
+                {UserName == name || 'admin' ?
+                <div className='sPr-documents'>
+                {editDocs==false ?
                 <div>
                     <UploadedDocs fileName={'Week 1'}/>
                     <UploadedDocs fileName={'Week 2'}/>
@@ -191,52 +192,50 @@ function WeeklyReport() {
                     <UploadedDocs fileName={'Week 11'}/>
                     <UploadedDocs fileName={'Week 12'}/>
                 </div> 
-                :         
-                <div className='sPr-documents'>
-                    {editDocs==false ?
-                    <div>
-                        <UploadedDocs fileName={'Week 1'}/>
-                        <UploadedDocs fileName={'Week 2'}/>
-                        <UploadedDocs fileName={'Week 3'}/>
-                        <UploadedDocs fileName={'Week 4'}/>
-                        <UploadedDocs fileName={'Week 5'}/>
-                        <UploadedDocs fileName={'Week 6'}/>
-                        <UploadedDocs fileName={'Week 7'}/>
-                        <UploadedDocs fileName={'Week 8'}/>
-                        <UploadedDocs fileName={'Week 9'}/>
-                        <UploadedDocs fileName={'Week 10'}/>
-                        <UploadedDocs fileName={'Week 11'}/>
-                        <UploadedDocs fileName={'Week 12'}/>
-                    </div> 
-                    :
-                    <div>
-                    <div className='sPr-row'>
-                        <FileContainer highlightedText='Week 1' />
-                        <FileContainer highlightedText='Week 2'/>
-                        <FileContainer highlightedText='Week 3' />
-                        <FileContainer highlightedText='Week 4'/>
-                    </div>
-                    <div className='sPr-row'>
-                        <FileContainer highlightedText='Week 5' />
-                        <FileContainer highlightedText='Week 6'/>
-                        <FileContainer highlightedText='Week 7' />
-                        <FileContainer highlightedText='Week 8'/>
-                    </div>
-                    <div className='sPr-row'>
-                        <FileContainer highlightedText='Week 9'/>
-                        <FileContainer highlightedText='Week 10' />
-                        <FileContainer highlightedText='Week 11'/>
-                        <FileContainer highlightedText='Week 12' />
-                    </div>
-                    </div>
-                    }
-                    <div>              
-                    </div>
-                    <div className='sPr-edit-docs'>
-                        <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Upload Weekly Reports' : 'Done'}</button>
-                    </div>
-                </div> }
-            
+                :
+                <div>
+                <div className='sPr-row'>
+                    <FileContainer highlightedText='Week 1' />
+                    <FileContainer highlightedText='Week 2'/>
+                    <FileContainer highlightedText='Week 3' />
+                    <FileContainer highlightedText='Week 4'/>
+                </div>
+                <div className='sPr-row'>
+                    <FileContainer highlightedText='Week 5' />
+                    <FileContainer highlightedText='Week 6'/>
+                    <FileContainer highlightedText='Week 7' />
+                    <FileContainer highlightedText='Week 8'/>
+                </div>
+                <div className='sPr-row'>
+                    <FileContainer highlightedText='Week 9'/>
+                    <FileContainer highlightedText='Week 10' />
+                    <FileContainer highlightedText='Week 11'/>
+                    <FileContainer highlightedText='Week 12' />
+                </div>
+                </div>
+                }
+                <div>              
+                </div>
+                <div className='sPr-edit-docs'>
+                    <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Upload Weekly Reports' : 'Done'}</button>
+                </div>
+            </div> 
+                :
+                <div>
+                <UploadedDocs fileName={'Week 1'}/>
+                <UploadedDocs fileName={'Week 2'}/>
+                <UploadedDocs fileName={'Week 3'}/>
+                <UploadedDocs fileName={'Week 4'}/>
+                <UploadedDocs fileName={'Week 5'}/>
+                <UploadedDocs fileName={'Week 6'}/>
+                <UploadedDocs fileName={'Week 7'}/>
+                <UploadedDocs fileName={'Week 8'}/>
+                <UploadedDocs fileName={'Week 9'}/>
+                <UploadedDocs fileName={'Week 10'}/>
+                <UploadedDocs fileName={'Week 11'}/>
+                <UploadedDocs fileName={'Week 12'}/>
+            </div>          
+            }
             </div>
             <Footer/>
         </div>

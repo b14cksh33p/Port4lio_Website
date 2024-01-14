@@ -106,10 +106,10 @@ function Profile({pic, name, sNumber, company, ojtHours}){
         <p>CYS: BSCpE 3-4</p>
         <p>HTE: {company}</p>
         <p>OJT Hours: {ojtHours}</p>
-        <div>{UserName != (name.replaceAll(',','')).replaceAll(' ','_') ? 
-        ''
-        : 
+        <div>{UserName == (name.replaceAll(',','')).replaceAll(' ','_') || 'admin' ? 
         <button onClick={openModal}>Edit Info</button>
+        : 
+        ''
         }
         </div>
     </div>
@@ -258,23 +258,8 @@ function StudentProfile() {
                 </div>
             </div>
             <div className='sPr-second-section'>
-
-                {UserName != name ?
-                <div>
-                    <UploadedDocs fileName={'Memorandum of Agreement'}/>
-                    <UploadedDocs fileName={'Waiver'}/>
-                    <UploadedDocs fileName={'HTE Evaluation'}/>
-                    <UploadedDocs fileName={'Performance Evaluation'}/>
-                    <UploadedDocs fileName={'Letter of Endorsement'}/>
-                    <UploadedDocs fileName={'Letter of Intent'}/>
-                    <UploadedDocs fileName={'Daily Time Report'}/>
-                    <UploadedDocs fileName={'Consent Form'}/>
-                    <UploadedDocs fileName={'Medical Certificate'}/>
-                    <UploadedDocs fileName={'Adviser Evaluation'}/>
-                    <UploadedDocs fileName={'Completion Certificate'}/>
-                </div> 
-                :         
-                <div className='sPr-documents'>
+                {UserName == name || 'admin' ?
+                    <div className='sPr-documents'>
                     {editDocs==false ?
                     <div>
                         <UploadedDocs fileName={'Memorandum of Agreement'}/>
@@ -316,8 +301,22 @@ function StudentProfile() {
                     <div className='sPr-edit-docs'>
                         <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Edit/Upload Documents' : 'Done'}</button>
                     </div>
-                </div> }
-            
+                </div> 
+                :   
+                <div>
+                <UploadedDocs fileName={'Memorandum of Agreement'}/>
+                <UploadedDocs fileName={'Waiver'}/>
+                <UploadedDocs fileName={'HTE Evaluation'}/>
+                <UploadedDocs fileName={'Performance Evaluation'}/>
+                <UploadedDocs fileName={'Letter of Endorsement'}/>
+                <UploadedDocs fileName={'Letter of Intent'}/>
+                <UploadedDocs fileName={'Daily Time Report'}/>
+                <UploadedDocs fileName={'Consent Form'}/>
+                <UploadedDocs fileName={'Medical Certificate'}/>
+                <UploadedDocs fileName={'Adviser Evaluation'}/>
+                <UploadedDocs fileName={'Completion Certificate'}/>
+                 </div>       
+                }
             </div>
             <Footer/>
         </div>
