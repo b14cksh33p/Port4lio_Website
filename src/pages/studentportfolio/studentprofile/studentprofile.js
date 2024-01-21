@@ -263,36 +263,37 @@ function StudentProfile() {
                     {editDocs==false ?
                     <div>
                         <UploadedDocs fileName={'Memorandum of Agreement'}/>
-                        <UploadedDocs fileName={'Waiver'}/>
-                        <UploadedDocs fileName={'HTE Evaluation'}/>
-                        <UploadedDocs fileName={'Performance Evaluation'}/>
                         <UploadedDocs fileName={'Letter of Endorsement'}/>
                         <UploadedDocs fileName={'Letter of Intent'}/>
-                        <UploadedDocs fileName={'Daily Time Report'}/>
-                        <UploadedDocs fileName={'Consent Form'}/>
+                        <UploadedDocs fileName={'Waiver'}/>
                         <UploadedDocs fileName={'Medical Certificate'}/>
+                        <UploadedDocs fileName={'Consent Form'}/>
+                        <UploadedDocs fileName={'Letter of Acceptance'}/>
+                        <UploadedDocs fileName={'HTE Evaluation'}/>
+                        <UploadedDocs fileName={'Performance Evaluation'}/>
                         <UploadedDocs fileName={'Adviser Evaluation'}/>
                         <UploadedDocs fileName={'Completion Certificate'}/>
+                        <UploadedDocs fileName={'Daily Time Report'}/>
                     </div> 
                     :
                     <div>
                     <div className='sPr-row'>
                         <FileContainer highlightedText='Memorandum of Agreement' />
-                        <FileContainer highlightedText='Waiver'/>
-                        <FileContainer highlightedText='HTE Evaluation' />
-                        <FileContainer highlightedText='Performance Evaluation'/>
-                    </div>
-                    <div className='sPr-row'>
-                        <FileContainer highlightedText='Company Display Picture' />
                         <FileContainer highlightedText='Letter of Endorsement'/>
                         <FileContainer highlightedText='Letter of Intent' />
-                        <FileContainer highlightedText='Daily Time Report'/>
+                        <FileContainer highlightedText='Waiver'/>
                     </div>
                     <div className='sPr-row'>
-                        <FileContainer highlightedText='Consent Form'/>
                         <FileContainer highlightedText='Medical Certificate' />
+                        <FileContainer highlightedText='Consent Form'/>
+                        <FileContainer highlightedText='Letter of Acceptance'/>
+                        <FileContainer highlightedText='HTE Evaluation' />          
+                    </div>
+                    <div className='sPr-row'>
+                        <FileContainer highlightedText='Performance Evaluation'/>
                         <FileContainer highlightedText='Adviser Evaluation'/>
                         <FileContainer highlightedText='Completion Certificate' />
+                        <FileContainer highlightedText='Daily Time Report'/>
                     </div>
                     </div>
                     }

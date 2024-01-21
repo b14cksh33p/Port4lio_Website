@@ -70,7 +70,8 @@ const FileContainer = ({ highlightedText, isCompany}) => {
           uploadBytes(fileRef, fileUpload).then((snapshot) => {
               getDownloadURL(snapshot.ref).then((url) => {
                   console.log(url);
-                  alert("File successfully uploaded.")
+                  setFileUpload(true);
+                  //Modal here for Successful uploading of file
                 });
               });
         } catch (error){
@@ -99,13 +100,13 @@ const FileContainer = ({ highlightedText, isCompany}) => {
               imgRefhover.current.style.display = 'none';
             }
         } else if (selectedFile.type === 'application/pdf') {
-          imgRef.current.src = UploadDoneIcon;
+
           containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
         } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-          imgRef.current.src = UploadDoneIcon;
+
           containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
         } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
-          imgRef.current.src = UploadDoneIcon;
+
           containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
         } else {
           containerRef.current.innerHTML = `<p>Preview not available for this file type.</p>`;

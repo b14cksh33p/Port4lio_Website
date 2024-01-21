@@ -24,9 +24,9 @@ function Footer(){
                     </div>
                 <div className='contacts'>
                     <h4>Contacts</h4>
-                        <p>Address: aaaaaaaaaaaaaa</p>
-                        <p>Email: aaaaa@gmail.com</p>
-                        <p>Phone Number: +000 0000 0000</p>
+                        <p>Address: Anonas cor. Pureza Sts. Sta. Mesa, Manila, Philippines 01008 </p>
+                        <p>Email: BSCpE24@gmail.com</p>
+                        <p>Phone Number: +093 3461 1668</p>
                 </div>
             </div>
             <div className='footer-logos'>

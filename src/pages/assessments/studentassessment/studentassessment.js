@@ -167,9 +167,7 @@ function StudentAssessment() {
         </div>
         {!editDocs ?
         <div>
-
           <UploadedDocs fileName={'Narrative Report'} Company={company}/>
-
         </div> 
         :
             <div className='sAs-documents'>
