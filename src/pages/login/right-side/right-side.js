@@ -8,6 +8,8 @@ function RightSide() {
   const [passwordLogin, setPassword] = useState('');
   const navigate = useNavigate();
 
+
+
   const AuthCheckComponent = () => {
     const [user, setUser] = useState(null);
 
@@ -50,11 +52,15 @@ function RightSide() {
 
         currentUser.on('value', (snapshot) => {
           localStorage.setItem('User', snapshot.val());
+          const delayTimeout = setTimeout(() => {
+            window.location.reload();
+          }, 10);
         });
 
-        
         navigate('/home/' + userName);
-        window.location.reload();
+        
+
+        
       }
     } catch (error) {
       const errorMessageDiv = document.querySelector('.RS-error-message');

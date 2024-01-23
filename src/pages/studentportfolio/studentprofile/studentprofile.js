@@ -12,7 +12,7 @@ import firebase from '../../../firebaseConfig.js';
 import { fileDb } from '../../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
 import 'firebase/database'
-import PDFViewer from './pdfViewer/PDFViewer.js';
+
 
 
 const admin = localStorage.getItem('username');
@@ -232,6 +232,7 @@ function StudentProfile() {
         setOjtHours(snapshot.val());
     });
     });
+    console.log(user)
 
     
     return (
