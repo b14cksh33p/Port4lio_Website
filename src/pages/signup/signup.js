@@ -30,19 +30,19 @@ function Signup() {
       databaseRef.once('value')
         .then(snapshot => {
           const data = snapshot.val();
-
           // Check if the string exists in the database
           if (data && Object.values(data).includes(lastName[0])) {
-            const dbRef = firebase.database().ref('userData/');
+            const dbRef = firebase.database().ref('SignedUp/');
               dbRef.once('value')
                 .then(snapshot => {
                   const data = snapshot.val();
                   // Check if the string exists in the database
-                  if (data && Object.values(data).includes(name.replaceAll(',', ''))) {
+                  if (data && Object.values(data).includes(lastName[0])) {
                     const errorMessageDiv = document.querySelector('.SU-error-message');
                     errorMessageDiv.style.display = 'block';
-                    errorMessageDiv.innerHTML = 'Account already exists';
+                    errorMessageDiv.innerHTML = 'Student Already Signed Up';
                   } else {
+                    localStorage.setItem('lname', lastName[0]);
                     submit();
                   }
                 })
@@ -53,6 +53,7 @@ function Signup() {
             const errorMessageDiv = document.querySelector('.SU-error-message');
             errorMessageDiv.style.display = 'block';
             errorMessageDiv.innerHTML = 'Name cannot be found in BSCOE 2-4 students roster.';
+            console.log(data);
           }
         })
         .catch(error => {

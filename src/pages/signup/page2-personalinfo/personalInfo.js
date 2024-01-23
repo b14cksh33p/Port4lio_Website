@@ -18,7 +18,9 @@ function PersonalInfo() {
   const navigate = useNavigate()
   const userName = localStorage.getItem('username');
   const uName = localStorage.getItem('uname');
+  const lName = localStorage.getItem('lname');
   const username = firebase.database().ref('Users/'+userName);
+  const sRoster = firebase.database().ref('SignedUp/');
   const udata = firebase.database().ref('UserData/'+uName.replaceAll(',',''));
   const uname = firebase.database().ref('UserNames/'+uName);
   const [modalOpen, setModalOpen] = useState(false);
@@ -37,6 +39,9 @@ function PersonalInfo() {
       uname.set(
         studentNo
       )
+      sRoster.update({
+        StudentNo: lName,
+      });
       username.update({
           StudentNo: studentNo,
           HTE: hte,
