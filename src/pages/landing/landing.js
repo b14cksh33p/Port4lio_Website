@@ -26,7 +26,7 @@ function Landing() {
                   <h4>BS in Computer Engineering 3-4</h4>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam  voluptates sed beatae?</p>
                 </div>
-                <div className='content-image'>
+                <div className='content-image p1'>
                   <img src={Image2} alt='banner'/>
                 </div>
               </div>
@@ -56,15 +56,15 @@ function Landing() {
             <div className='landing-about' id='target-section'>
                 <h3 style={{paddingBottom:'40px'}}>ABOUT:</h3>
                 <h4 style={{paddingBottom:'32px'}}>On-The-Job-Training(OJT)</h4>
-                <p style={{paddingBottom:'24px'}}>is a practical approach to acquiring new competencies and skills needed for a job in a real, or close to a real, working environment.</p>
-                <p style={{paddingBottom:'40px'}}>It is often used to learn how to use particular tools or equipment in a live-work practice, simulated, or training environment.</p>
+                <p style={{width: "720px", paddingBottom:'24px'}}>is a practical approach to acquiring new competencies and skills needed for a job in a real, or close to a real, working environment.</p>
+                <p style={{width: "720px",paddingBottom:'40px'}}>It is often used to learn how to use particular tools or equipment in a live-work practice, simulated, or training environment.</p>
                 <h4>On-The-Job-Training Adviser</h4>
                 <div className='about-adviser'>
                     <div className='adviser-image'>
 
                     </div>
                     <div className='adviser-description'>
-                      <p style={{paddingBottom:'40px'}}><b>Ma'am Angela Israel</b></p>
+                      <p><b>Ma'am Angela Israel</b></p>
                       <p>Adviser, BSCpE 3-4</p>
                       <p>CMPE 30213 On-The-Job-Training</p>
                       <p>(OJT 1)</p>
