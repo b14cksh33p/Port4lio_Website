@@ -25,6 +25,7 @@ function Header() {
 
   const [userName, setUserName] = useState('guest');
   const [profile, setProfile] = useState('guest');
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     // Add an observer to watch for changes in the authentication state
@@ -57,7 +58,6 @@ function Header() {
   const handleLogout = () => {
     firebase.auth().signOut()
       .then(() => {
-        alert('User signed out successfully.');
         localStorage.clear();
         localStorage.setItem('username', '');
         navigate('/login')
@@ -67,6 +67,12 @@ function Header() {
       });
   };
 
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
+  const handleCancel = () => {
+    toggleModal();
+  };
   return (
         <div className='header'>
             <div className='title-header'>
@@ -105,9 +111,21 @@ function Header() {
                 <button onClick={()=>navigate('/login')}>Log In</button>
              </div> :
               <div className='button-log' id='logout'>
-                <button onClick={handleLogout}>Log Out</button>
+                <button onClick={toggleModal}>Log Out</button>
             </div>
               }
+            
+            {modalOpen && (
+              <div className='modal'>
+              <div className='modal-content'>
+                <p>Are you sure you want to log out?</p>
+                <div className='modal-buttons'>
+                  <button onClick={handleLogout} className='pI-modal-submit'>Logout</button>
+                  <button onClick={handleCancel} className='pI-modal-cancel'>Cancel</button>
+                </div>
+              </div>
+            </div>
+            )}
             </div>
 
          </div>
