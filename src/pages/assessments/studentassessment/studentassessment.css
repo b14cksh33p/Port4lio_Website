@@ -233,7 +233,8 @@
     background: linear-gradient(145deg, #d3c5b4, #faead6);
     box-shadow:  12px 12px 24px #b7ab9c,
              -12px -12px 24px #fffff4; 
-    text-align: center; 
+    text-align: center;
+    transition: transform 0.3s ease; 
 }
 .Ud-NR-text{
     margin-bottom: 1rem;

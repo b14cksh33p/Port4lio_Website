@@ -32,7 +32,11 @@ function Company({name}){
 
       const wl = uname.child('WebLink')
       wl.on('value', (snapshot) => {
+        if(snapshot.val() === ''){
+
+        }else{
           setWebLink(snapshot.val())
+        }
         });
         
     })

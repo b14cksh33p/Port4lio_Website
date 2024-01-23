@@ -128,7 +128,6 @@
     z-index: 5;
     background-color: white;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 3em;
@@ -203,6 +202,14 @@
 .sPr-back p:hover{
     cursor: pointer;
     color: #605757;
+}
+.sPr-container{
+    padding-bottom: 4vh;
+}
+.sPr-container h1{
+    font-weight: 800;
+    color: var(--image_bg2);
+    -webkit-text-stroke: 1px var(--image_bg);
 }
 .Ud-container {
     padding: 1em 1.2em;

@@ -78,9 +78,13 @@
     border: 0.2vw solid var(--image_bg);
     border-radius: 10%;
   }
+  .grid-item{
+    transition: transform 0.3s ease;
+  }
   .grid-item:hover{
-    filter: brightness(0.9);
+    filter: brightness(1) !important;
     cursor: pointer;
+    transform: translateY(-15px);
   }
   .grid-text{
     display: flex;

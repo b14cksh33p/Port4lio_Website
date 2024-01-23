@@ -65,10 +65,10 @@ function Profile({pic, name, sNumber, company, ojtHours}){
     </div>
         <div className='sPr-content-text'>
             <h3>{name}</h3>
-            <p>Student No.: {sNumber}</p>
-            <p>CYS: BSCpE 3-4</p>
-            <p>HTE: {company}</p>
-            <p>OJT Hours: {ojtHours}</p>
+            <p>Student Number: {sNumber}</p>
+            <p>Course & Section: BSCpE 3-4</p>
+            <p>Company Name: {company}</p>
+            <p>Rendered Hours: {ojtHours}</p>
         </div>
     </div>
 );
@@ -175,6 +175,9 @@ function WeeklyReport() {
                 </div>
             </div>
             <div className='sPr-second-section'>
+            <div className='sPr-container'>
+                <h1>Weekly Reports</h1>
+            </div>
                 {UserName == name ||admin == 'admin' ?
                 <div className='sPr-documents'>
                 {editDocs==false ?

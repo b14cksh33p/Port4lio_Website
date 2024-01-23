@@ -102,10 +102,10 @@ function Profile({pic, name, sNumber, company, ojtHours}){
     </div>
     <div className='sPr-content-text'>
         <h3>{name}</h3>
-        <p>Student No.: {sNumber}</p>
-        <p>CYS: BSCpE 3-4</p>
-        <p>HTE: {company}</p>
-        <p>OJT Hours: {ojtHours}</p>
+        <p>Student Number: {sNumber}</p>
+        <p>Course & Section: BSCpE 3-4</p>
+        <p>Company Name: {company}</p>
+        <p>Rendered Hours: {ojtHours}</p>
         <div>{UserName == (name.replaceAll(',','')).replaceAll(' ','_') || admin == 'admin' ? 
         <button onClick={openModal}>Edit Info</button>
         : 
@@ -258,6 +258,9 @@ function StudentProfile() {
                 </div>
             </div>
             <div className='sPr-second-section'>
+            <div className='sPr-container'>
+                <h1>Internship Requirements</h1>
+            </div>
                 {UserName == name || admin == 'admin' ?
                     <div className='sPr-documents'>
                     {editDocs==false ?
@@ -266,12 +269,12 @@ function StudentProfile() {
                         <UploadedDocs fileName={'Letter of Endorsement'}/>
                         <UploadedDocs fileName={'Letter of Intent'}/>
                         <UploadedDocs fileName={'Waiver'}/>
+                        <UploadedDocs fileName={'Internship Agreement'}/>
                         <UploadedDocs fileName={'Medical Certificate'}/>
                         <UploadedDocs fileName={'Consent Form'}/>
                         <UploadedDocs fileName={'Letter of Acceptance'}/>
                         <UploadedDocs fileName={'HTE Evaluation'}/>
                         <UploadedDocs fileName={'Performance Evaluation'}/>
-                        <UploadedDocs fileName={'Adviser Evaluation'}/>
                         <UploadedDocs fileName={'Completion Certificate'}/>
                         <UploadedDocs fileName={'Daily Time Report'}/>
                     </div> 
@@ -284,14 +287,14 @@ function StudentProfile() {
                         <FileContainer highlightedText='Waiver'/>
                     </div>
                     <div className='sPr-row'>
+                        <FileContainer highlightedText='Internship Agreement'/>
                         <FileContainer highlightedText='Medical Certificate' />
                         <FileContainer highlightedText='Consent Form'/>
                         <FileContainer highlightedText='Letter of Acceptance'/>
-                        <FileContainer highlightedText='HTE Evaluation' />          
                     </div>
                     <div className='sPr-row'>
                         <FileContainer highlightedText='Performance Evaluation'/>
-                        <FileContainer highlightedText='Adviser Evaluation'/>
+                        <FileContainer highlightedText='HTE Evaluation' /> 
                         <FileContainer highlightedText='Completion Certificate' />
                         <FileContainer highlightedText='Daily Time Report'/>
                     </div>

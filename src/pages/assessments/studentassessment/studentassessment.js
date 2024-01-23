@@ -46,10 +46,10 @@ function Profile({pic, name, sNumber, company, ojtHours}){
     </div>
     <div className='sAs-content-text'>
         <h3>{name}</h3>
-        <p>Student No.: {sNumber}</p>
-        <p>CYS: BSCpE 3-4</p>
-        <p>HTE: {company}</p>
-        <p>OJT Hours: {ojtHours}</p>
+        <p>Student Number: {sNumber}</p>
+        <p>Course & Section: BSCpE 3-4</p>
+        <p>Company Name: {company}</p>
+        <p>Rendered Hours: {ojtHours}</p>
     </div>
     </div>
 );
@@ -75,7 +75,7 @@ function UploadedDocs({fileName, Company}){
        :
        <a className='Ud-text' href={docUrl} target='_blank'>
        <div className='Ud-NR-container'>
-          <div className='Ud-NR-text'>{fileName}</div>
+          <div className='Ud-NR-text'>{''}</div>
           <img className='Ud-NR-img' src={DocumentIcon} width='150px' height='150px'></img>
           <span className='Ud-NR-span'>This file contains my assessment and overall experience in {Company}.</span>
        </div>
@@ -158,13 +158,10 @@ function StudentAssessment() {
           </div>
       </div>
       <div className='sAs-second-section'>
-      <div className='sAs-button'>
-        {UserName == name || admin == 'admin' ? <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Upload NR' : 'Done'}</button> 
-        :
-        ''
-        }
-       
-        </div>
+
+        <div className='sPr-container'>
+                <h1>Narrative Report</h1>
+            </div>
         {!editDocs ?
         <div>
           <UploadedDocs fileName={'Narrative Report'} Company={company}/>
@@ -174,9 +171,13 @@ function StudentAssessment() {
               <FileContainer highlightedText='Narrative Report'/>
           </div>
         }
-
+        <div className='sAs-button'>
+          {UserName == name || admin == 'admin' ? <button onClick={()=>setEditDocs(!editDocs)}>{editDocs==false ? 'Upload NR' : 'Done'}</button> 
+          :
+          ''
+          }
+        </div>
       </div>
-      
       <Footer/>
     </div>
     );

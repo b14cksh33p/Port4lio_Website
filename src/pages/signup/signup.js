@@ -41,7 +41,7 @@ function Signup() {
                   if (data && Object.values(data).includes(name.replaceAll(',', ''))) {
                     const errorMessageDiv = document.querySelector('.SU-error-message');
                     errorMessageDiv.style.display = 'block';
-                    errorMessageDiv.innerHTML = 'Name already in used.';
+                    errorMessageDiv.innerHTML = 'Account already exists';
                   } else {
                     submit();
                   }

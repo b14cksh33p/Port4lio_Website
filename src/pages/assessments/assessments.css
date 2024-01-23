@@ -76,22 +76,21 @@
 
 .aS-second-section{
     position: relative;
+    min-height: 80vh;
     height: auto;
     width: 100vw;
     z-index: 99;
     background-color: white;
-    padding-bottom: 64px;
-    padding-top: 148px;
     padding-left: 104px;
     padding-right: 80px;
 }
 .border{
-    position: relative;
-    transform: translateX(-50vw);
     height: 160px;
     width: 200vw;
+    margin-top: 12vh;
     border: none !important;
     background-color: var(--image_bg);
+    margin-bottom: 100vh !important;
 }
 .aS-table-container{
     display: flex;
@@ -99,7 +98,7 @@
     align-items: center;
     margin-right: 8vw;
     margin-left: 12vw;
-
+    padding: 24vh 0 12vh 0;
 }
 .aS-table {
     width: 100vw;

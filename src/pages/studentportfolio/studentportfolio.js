@@ -86,6 +86,7 @@ function StudentPortfolio() {
           </div>
       </div>
       <div className='sP-second-section'>
+
       <div className="grid-container">
           {childrenArray.map((name, index) => (
             <div key={index} className="grid-item" onClick={() => saveProfile(name)}>

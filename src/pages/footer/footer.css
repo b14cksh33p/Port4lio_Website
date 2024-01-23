@@ -16,7 +16,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0;
     padding: 0;
     background-color: var(--primary);
     color: #8ACAE6;
