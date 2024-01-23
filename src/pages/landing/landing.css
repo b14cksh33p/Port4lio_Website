@@ -21,8 +21,7 @@
 .body{
     width: 72%;
     max-width: 1200px;
-    margin-top: 8em;
-    
+    margin-top: 150px;
 }
 .landing-main{
     display: flex;
@@ -32,12 +31,7 @@
 .main-content{
     display: flex;
     max-width: 1000px; 
-    padding-left: 4em;
-    padding-right: 4em;
-    margin-left: 2.72em;
-}
-.main-content img{
-    margin-bottom: 8em;
+    margin-bottom: 250px;
 }
 .s1{
     gap: 6.4em; 
@@ -51,13 +45,18 @@
 .content-text h4{
     font-size: 2.2rem;
     font-weight: 700;
-    line-height: 2.76rem;
+    line-height: 3.2rem;
+    width: 300px;
+}
+.s3 h4{
+    width: 400px;
 }
 .content-text p{
     margin-top: 0.88em;
     font-size: 1.04rem;
     font-weight: 400;
     color: var(--gray);
+    width: 400px
 }
 .content-text button{
     background-color: var(--bg_button);
@@ -76,32 +75,225 @@
 .landing-about{
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 .landing-about h3{
-    font-size: 2.88rem;
+    font-size: 4rem;
     font-weight: 700;
     color: var(--bg_button);
 }
 .landing-about h4{
-    font-size: 1.88rem;
+    font-size: 2rem;
     font-weight: 700;
 }
 .landing-about p{
-
+    max-width: 1200px;
     font-size: 1.04rem;
     font-weight: 400;
     color: var(--gray);
 }
+
 .about-adviser{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 56px;
+    margin-bottom: 180px;
 }
 .adviser-image{
-    margin: 4em;
+    margin-right: 24px;   
     width: 320px;
     height: 320px;
     background-color: var(--image_bg);
-    border-radius: 1em;
+    border-radius: 0.3em;
+}
+@media screen and (max-width: 480px) {
+    .body{
+        margin-top: 60px;
+    }
+    .main-content{
+        max-width: 250px;
+        margin-bottom: 60px;
+    }
+    .content-text h4{
+        font-size: 0.8rem;
+        width: 100px;
+        line-height: 1.36rem;
+    }
+    .content-text p{
+        font-size: 0.6rem;
+        width: 100px
+    }
+    .s1{
+        gap: 0.6em; 
+    }
+    .s2{
+        gap: 1.2em;
+        line-height: 0.8rem;
+    }
+    .s3{
+        gap: 0.2em;
+        
+    }
+    .s1 img{
+        width: 128px;
+    }
+   .s2 img{
+        width: 136px;
+    }
+   .s3 img{
+        width: 136px;
+    }
+    .s3 h4{
+        width: 136px;
+    }
+    .content-text button{
+        font-size: 0.6rem;
+        border-radius: 1.2em;
+        padding-right: 2em;
+        padding-left: 2em;
+    }
+    .landing-about h3{
+        font-size: 2rem;
+    }
+    .landing-about h4{
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .landing-about p{
+        max-width: 200px;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: var(--gray);
+    }
+    .about-adviser{
+        margin-top: 16px;
+        margin-bottom: 100px;
+    }
+    .adviser-description{
+        max-width: 100px;
+    }
+    .adviser-description p{
+        font-size: 0.6rem;
+        line-height: 0.96rem;
+    }
+    .adviser-image{
+        width: 100px;
+        height: 100px;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .body{
+        margin-top: 100px;
+    }
+    .main-content{
+        max-width: 400px;
+        margin-bottom: 100px;
+    }
+    .content-text h4{
+        font-size: 1.4rem;
+        width: 200px;
+        line-height: 1.88rem;
+    }
+    .content-text p{
+        font-size: 0.8rem;
+        width: 220px
+    }
+    .s1{
+        gap: 0.1em; 
+    }
+    .s2{
+        gap: 1.2em;
+    }
+    .s3{
+        gap: 0.2em;
+    }
+    .s1 img{
+        width: 196px;
+    }
+   .s2 img{
+        width: 200px;
+    }
+   .s3 img{
+        width: 200px;
+    }
+    .s3 h4{
+        width: 200px;
+    }
+    .content-text button{
+        font-size: 0.8rem;
+        margin-top: 0.80em;
+        border-radius: 1.6em;
+        padding-right: 5em;
+        padding-left: 5em;
+    }
+    .landing-about h3{
+        font-size: 2.6rem;
+    }
+    .landing-about h4{
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+    .landing-about p{
+        max-width: 400px;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: var(--gray);
+    }
+    .adviser-description{
+        max-width: 180px;
+    }
+    .adviser-image{
+        width: 180px;
+        height: 180px;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .main-content{
+        max-width: 600px;
+        margin-bottom: 150px;
+    }
+    .content-text h4{
+        font-size: 2rem;
+    }
+    .content-text p{
+        width: 372px
+    }
+    .s1{
+        gap: 0.8em; 
+    }
+    .s2{
+        gap: 2em;
+    }
+    .s3{
+        gap: 0.2em;
+    }
+    .s1 img{
+        width: 250px;
+    }
+   .s2 img{
+        width: 350px;
+    }
+   .s3 img{
+        width: 325px;
+    }
+    .s3 h4{
+        width: 280px;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .main-content{
+         max-width: 800px;
+         margin-bottom: 150px;
+    }
+    .s1{
+        gap: 2em; 
+    }
+    .s2 img{
+        width: 450px;
+    }
+    .s3 img{
+        width: 450px;
+    }
 }
