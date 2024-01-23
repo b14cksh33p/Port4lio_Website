@@ -6,6 +6,9 @@
     --white: #FFFFFF;
     --input-box: #EAF0F7;
     --gray: #8E959B;
+    --pale-red: #fedce0;
+    --red: #e40415;
+
 }
 
 .RS-container{
@@ -51,4 +54,16 @@
 
 .RS-submit:hover{
     background-color: var(--primary-dark);
+}
+
+.RS-error-message{
+    font: 400 12px 'Arial';
+    width: 300px;
+    height: auto;
+    padding: 15px;
+    background-color: var(--pale-red);
+    color: var(--red);
+    border: 1.2px solid var(--red);
+    margin-bottom: 1rem;
+    display: none;
 }

@@ -52,12 +52,14 @@ function RightSide() {
           localStorage.setItem('User', snapshot.val());
         });
 
-        alert('Login Successfully');
+        
         navigate('/home/' + userName);
         window.location.reload();
       }
     } catch (error) {
-      alert(`Authentication failed: ${error.message}`);
+      const errorMessageDiv = document.querySelector('.RS-error-message');
+      errorMessageDiv.style.display = 'block';
+      errorMessageDiv.innerHTML = `Incorrect username or password. ${error.message}`;   
     }
   };
  
@@ -65,7 +67,10 @@ function RightSide() {
 
   return (
     <div className='RS-container'>
-      <form onSubmit={submit}>
+      <form onSubmit={submit} className='RS-form'>
+        <div className='RS-error-message'>
+          <div>Incorrect username or password.</div>
+        </div>
         <div className='RS-input-container'>
           <input
             type='email'
