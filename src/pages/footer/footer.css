@@ -26,13 +26,12 @@
 .company-logo{
     display: flex;
     align-items: center;
-    margin-left: 4em;
-    gap: 0.4em;
+    margin-left: 2em;
+    gap: 0.2em;
 }
 .logo img{
-    max-width: 1000px;
     width: 40px;
-    margin-bottom: 0.8em;
+    margin-bottom: 8px;
 }
 .title{
     color: var(--font);
@@ -58,7 +57,7 @@
     display: flex;
     justify-content: space-between;
     gap: 1.5em;
-    margin-right: 4em;
+    margin-right: 2em;
     margin-top: 1em;
     margin-bottom: 1em;
 }
@@ -66,3 +65,24 @@
     width: 158px;
     max-width: 1000px;
 }
+
+@media screen and (max-width: 480px) {
+    .text-content{
+        display: none;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .text-content{
+        display: none;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .text-content{
+        display: none;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+   
+}
+  
+

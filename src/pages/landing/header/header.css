@@ -26,11 +26,11 @@ body, html{
 .landing-title{
     display: flex;
     align-items: center;
-    gap: 0.4em;
+    gap: 0.2em;
     margin-left: 4em;
 }
 .landing-title img{
-    width: 16%;
+    width: 40px;
     margin-top: 0.8em;
     margin-bottom: 0.8em;
 }
