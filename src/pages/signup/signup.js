@@ -22,6 +22,7 @@ function Signup() {
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+
     const verify = () => {
       const lname = name.replaceAll(' ', '')
       const lastName = lname.replaceAll(',', ' ').split(' ');
@@ -38,7 +39,9 @@ function Signup() {
                   const data = snapshot.val();
                   // Check if the string exists in the database
                   if (data && Object.values(data).includes(name.replaceAll(',', ''))) {
-                    alert('Name already in used.');
+                    const errorMessageDiv = document.querySelector('.SU-error-message');
+                    errorMessageDiv.style.display = 'block';
+                    errorMessageDiv.innerHTML = 'Name already in used.';
                   } else {
                     submit();
                   }
@@ -47,7 +50,9 @@ function Signup() {
                   console.error('Error reading from the database:', error);
                 });
           } else {
-            alert('Name cannot be found in BSCOE 2-4 students roster.');
+            const errorMessageDiv = document.querySelector('.SU-error-message');
+            errorMessageDiv.style.display = 'block';
+            errorMessageDiv.innerHTML = 'Name cannot be found in BSCOE 2-4 students roster.';
           }
         })
         .catch(error => {
@@ -66,28 +71,36 @@ function Signup() {
           const user =  await firebase.auth().createUserWithEmailAndPassword(email, password)
           if (user)
           {
-            alert("Account Created Successfully");
-            localStorage.setItem('username', userName)
-            localStorage.setItem('uname', name)
-            navigate('/signup/personal-information/' + userName);
-            window.location.reload();
-            username.set({
-              name: name
-            })
-            uname.set(
-              'name'
-            )
-            udata.set({
-              name: name
-            })
+            const validMessageDiv = document.querySelector('.SU-valid-message');
+            validMessageDiv.style.display = 'block';
+            validMessageDiv.innerHTML = 'Account Created Successfully';
+
+            setTimeout(() => {
+              localStorage.setItem('username', userName);
+              localStorage.setItem('uname', name);
+              navigate('/signup/personal-information/' + userName);
+              window.location.reload();
+              username.set({
+                name: name,
+              });
+              uname.set('name');
+              udata.set({
+                name: name,
+              });
+            }, 2000);
+            
             
           }
         }
         catch (error){
-          alert(error)
+          const errorMessageDiv = document.querySelector('.SU-error-message');
+          errorMessageDiv.style.display = 'block';
+          errorMessageDiv.innerHTML = `${error.message}`;
         }
       }else{
-        alert('password does not match')
+        const errorMessageDiv = document.querySelector('.SU-error-message');
+        errorMessageDiv.style.display = 'block';
+        errorMessageDiv.innerHTML = 'Password does not match';
       }
 
     }
@@ -120,6 +133,13 @@ function Signup() {
             </div>
             <div className='pI-navigation'>
               <Navigation/>
+            </div>
+            
+            <div className='SU-valid-message'>
+                <div>Account Created Successfully.</div>
+            </div>
+            <div className='SU-error-message'>
+                <div></div>
             </div>
             <div className='pI-infos'>
               <div className='pI-info'>
