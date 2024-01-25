@@ -15,7 +15,7 @@
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     width: 100vw;
     gap: 60px;
     margin-top: 32px;
@@ -25,7 +25,7 @@
 .title-header{
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-left: 48px;
     gap: 1px;
 }
 .title-header img{
@@ -65,6 +65,7 @@
     padding-top: 0.32em;
     padding-right: 1.2em;
     padding-bottom: 0.32em;
+    margin-right: 48px;
 }
 button:hover{
     filter: brightness(0.9);
@@ -75,7 +76,6 @@ button:hover{
 @media screen and (max-width: 480px) {
     .header{
         gap: 6px;
-        margin-left: 4px; 
         margin-top: 16px;
     }
     .navigation{
@@ -94,7 +94,6 @@ button:hover{
     .button-log button{
         width: 40px;
         font-size: 0.40rem;
-        margin-right: 8px;
         margin-bottom: 12px;
         padding-bottom: 3px;
     }
@@ -145,6 +144,6 @@ button:hover{
         gap: 40px;
     }
     .navigation{
-        gap: 40px;
+        gap: 32px;
     }
 }

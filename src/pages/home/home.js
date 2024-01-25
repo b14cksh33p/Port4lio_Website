@@ -42,14 +42,13 @@ function Home() {
           <div className='ojt-adviser'>
             <div className='row2'>
               <h4>On-The-Job-Training-Adviser</h4>
-              <div className='img'></div>
             </div>
             <div className='row3'>
               
               <div className='adviser-container'>
                 <div className='image'></div>
                 <div className='home-ojt-text2'>
-                  <p style={{paddingBottom:'32px'}}><b style={{color:'#c24914'}}>Ma'am Angela Israel</b></p>
+                  <p><b style={{color:'#c24914'}}>Ma'am Angela Israel</b></p>
                   <p>Adviser, BSCpE 3-4</p>
                   <p>CMPE 30213 On-The-Job-Training</p>
                   <p>(OJT 1)</p>
