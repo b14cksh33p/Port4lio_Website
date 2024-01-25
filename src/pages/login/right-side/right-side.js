@@ -8,8 +8,6 @@ function RightSide() {
   const [passwordLogin, setPassword] = useState('');
   const navigate = useNavigate();
 
-
-
   const AuthCheckComponent = () => {
     const [user, setUser] = useState(null);
 
@@ -68,8 +66,6 @@ function RightSide() {
       errorMessageDiv.innerHTML = `Incorrect username or password. ${error.message}`;   
     }
   };
- 
-
 
   return (
     <div className='RS-container'>
@@ -100,6 +96,9 @@ function RightSide() {
           />
         </div>
         <input type='submit' className='RS-submit' value='Sign In' />
+        <div className='RS-fPassword'>
+          <p>Forgot Password?</p>
+        </div>
       </form>
     </div>
   );

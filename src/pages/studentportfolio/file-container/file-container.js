@@ -100,7 +100,6 @@ const FileContainer = ({ highlightedText, isCompany}) => {
               imgRefhover.current.style.display = 'none';
             }
         } else if (selectedFile.type === 'application/pdf') {
-
           containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
         } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
 

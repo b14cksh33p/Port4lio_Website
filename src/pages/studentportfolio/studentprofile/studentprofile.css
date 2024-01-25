@@ -311,3 +311,23 @@
     display: flex;
     gap: 30px;
 }
+.Ud-big-container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.Ud-delete{
+    padding: 1em 1.2em;
+    width: 4vw;
+    height: 3.52em;
+    background-color: var(--image_bg2);
+    border-radius: 0.8em;
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Ud-delete:hover{
+    filter: brightness(0.9);
+    cursor: pointer;
+}

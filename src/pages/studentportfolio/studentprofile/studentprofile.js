@@ -4,6 +4,7 @@ import Icon from '../../../assets/images/icon.png';
 import Footer from '../../footer/footer.js';
 import Student from '../../../assets/images/blank-profile.png';
 import ViewIcon from '../../../assets/images/view.png'
+import DeleteIcon from '../../../assets/images/delete.png'
 import DowloadIcon from '../../../assets/images/download.png'
 import { useNavigate } from 'react-router-dom';
 import {  useState, useEffect } from 'react';
@@ -161,7 +162,7 @@ function UploadedDocs({fileName}){
     const [docUrl, setDocUrl] = useState(null);
     
     const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${fileName}`);
-    getDownloadURL(fileRef, { mode: 'no-cors' })
+    getDownloadURL(fileRef)
     .then((url) => {
         setDocUrl(url);
     })
@@ -169,21 +170,33 @@ function UploadedDocs({fileName}){
         console.error('Error retrieving download URL:', error);
     });
 
+    const handleDelete = async () => {
+
+    };
+
 
     return(
         <>
         {docUrl == null ?
          '' 
          :
-         <a className='Ud-text' href={docUrl} target='_blank'>
-         <div className='Ud-container'>
+         <div className='Ud-big-container'>
+            <a className='Ud-text' href={docUrl} target='_blank'>
+            <div className='Ud-container'>
             <div className='Ud-text'>{fileName}</div>
             <div className='Ud-icons'>
                 <img src={ViewIcon} width='18px' height='18px' className='Ud-view'></img>
                 <img src={DowloadIcon} width='18px' height='16px' className='Ud-download'></img>
             </div>
+            </div>
+            </a>
+            {UserName == name || admin == 'admin' ?
+            <div className='Ud-delete' on onClick={handleDelete}>
+            <img src={DeleteIcon} width='18px' height='18px' className='Ud-view'></img>
+            </div>
+            : ''
+            }
          </div>
-         </a>
          }
         </>
     );

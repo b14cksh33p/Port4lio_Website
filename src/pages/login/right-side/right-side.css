@@ -67,3 +67,14 @@
     margin-bottom: 1rem;
     display: none;
 }
+.RS-fPassword{
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #8E959B;
+}
+.RS-fPassword:hover{
+    color: var(--primary-light);
+    cursor: pointer;
+}
