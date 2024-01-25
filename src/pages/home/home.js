@@ -1,6 +1,7 @@
 import './home.css'
 import Header from '../header/header.js';
 import Footer from '../../pages/footer/footer.js';
+import Background from '../../assets/images/background.svg';
 
 
 function Home() {
@@ -17,13 +18,8 @@ function Home() {
             </p>
           </div>
           </div>
-            <div className=' home-background'>
-                <div className='rectangle first'>
-                </div>
-                <div className='rectangle second'>
-                </div>
-                <div className='rectangle third'>
-                </div>
+            <div className='home-background'>
+              <img src={Background} alt='Background'/>
             </div>
         </div>
 

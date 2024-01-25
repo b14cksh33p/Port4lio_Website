@@ -11,13 +11,23 @@
     --bg_button: #c24914;
     --image_bg: #dac0a3;
 
-    overflow-x: hidden;
+    
 }
 .wrapper-home{
     display: block;
     justify-content: center;
+    width:100%;
+    overflow-x: hidden;
+    background-color: white;
+}
+.first-section{
+    display: flex;
+    overflow-x: hidden;
+    justify-content: space-between;
     width: 100%;
-
+}
+.home-background img{
+    height: 100vh;
 }
 .home-text-container{
     display: flex;
@@ -38,11 +48,7 @@
     font-weight: 400;
     color: var(--gray)
 }
-.rectangle{
-    width: 800px;
-    position: absolute;
-    border-radius:50px;
-}
+
 .second-section{
     position: relative;
     display: flex;
@@ -52,8 +58,7 @@
     width: 100%;
     z-index: 99;
     background-color: white;
-    padding-top: 100px;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 .home-image{
     width: 500px;
@@ -89,7 +94,7 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    margin-bottom: 80px;
+    margin-bottom: 104px;
     gap:145px
 }
 .adviser-container{
@@ -126,6 +131,10 @@
     font-size: 18px;
 }
 @media screen and (max-width: 480px) {
+    .home-background img{
+        height: 300px;
+        margin-left: -15%;
+    }
     .home-text{
         width: 250px;
         margin-left: 20px;
@@ -139,15 +148,7 @@
         margin-top: 1em;
         font-size: 0.6rem;
         font-weight: 400;
-        color: var(--gray)
-    }
-    .home-background{
-        width: 10px;
-        overflow: hidden;
-    }
-    .rectangle{
-        width: 600px !important;
-        height: 600px !important;
+        color: var(--gray);
     }
     .row0{
         gap: 16px;
@@ -160,7 +161,8 @@
         margin-right: 0px;
     }
     .row3{
-        margin-bottom: 20px;
+        margin-bottom: 48px;
+        overflow-y: hidden;
         gap:1px
     }
     .second-section{
@@ -184,8 +186,6 @@
         font-size: 0.48rem;
     }
     .adviser-container{
-        display: flex;
-        align-items: center;
         gap: 1px;
     }
     .image{
@@ -203,9 +203,42 @@
     
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-   
+    .home-background img{
+        margin-left: -20%;
+    }
+    .home-text{
+        width: 500px;
+    }
+    .home-text h1{
+        font-size: 3rem;
+        font-weight: 700;
+    }
+    .home-text p{
+        margin-top: 0.5em;
+        font-size: 1.36rem;
+        font-weight: 400;
+        color: var(--gray)
+    }
 }
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
-
+    .home-background img{
+        margin-left: -30%;
+    }
+    .home-text{
+        margin-top: 200px;
+    }
+    .home-image{
+        width: 400px;
+        height: 320px;
+    }
+    .home-ojt p{
+        width: 500px;
+    }
+    .row2 h4{
+        margin-right: 440px;
+    }
+    .row3{
+        gap:40px
+    }
 }
   

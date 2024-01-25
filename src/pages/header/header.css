@@ -15,8 +15,8 @@
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 100vw;
+    justify-content: space-between;
+    width: 100%;
     gap: 60px;
     margin-top: 32px;
     color: #8ACAE6;
@@ -25,8 +25,8 @@
 .title-header{
     display: flex;
     align-items: center;
-    margin-left: 48px;
     gap: 1px;
+    margin-left: 80px;
 }
 .title-header img{
     margin-bottom: 16px;
@@ -65,7 +65,7 @@
     padding-top: 0.32em;
     padding-right: 1.2em;
     padding-bottom: 0.32em;
-    margin-right: 48px;
+    margin-right: 120px;
 }
 button:hover{
     filter: brightness(0.9);
@@ -75,14 +75,17 @@ button:hover{
 }
 @media screen and (max-width: 480px) {
     .header{
-        gap: 6px;
+        gap: 8px;
         margin-top: 16px;
     }
     .navigation{
-        gap: 8px;
+        gap: 3px;
         font-size: 0.40rem;
-        max-width: 178px;
         text-align: center;
+        width: 250px;
+    }
+    .title-header{
+        margin-left: 10px;
     }
     .title-header img{
         width: 16px;
@@ -95,13 +98,14 @@ button:hover{
         width: 40px;
         font-size: 0.40rem;
         margin-bottom: 12px;
-        padding-bottom: 3px;
+        padding-bottom: 3px; 
+        margin-right: 12px;
     }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
     .header{
         gap: 12px;
-        margin-left: 2px; 
+
     }
     .navigation{
         gap: 14px;
@@ -118,7 +122,7 @@ button:hover{
     .button-log button{
         width: 58px;
         font-size: 0.64rem;
-        margin-right: 8px;
+    
     }
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -133,7 +137,7 @@ button:hover{
         width: 32px;
     }
     .header h1{
-        font-size: 1.2rem;;
+        font-size: 1rem;;
     }
     .button-log button{
         font-size: 0.72rem;
