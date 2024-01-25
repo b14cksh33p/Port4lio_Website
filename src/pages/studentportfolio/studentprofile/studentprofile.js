@@ -11,7 +11,7 @@ import {  useState, useEffect } from 'react';
 import FileContainer from '../file-container/file-container.js'
 import firebase from '../../../firebaseConfig.js';
 import { fileDb } from '../../../firebaseConfig';
-import { ref, getDownloadURL } from 'firebase/storage';
+import { ref,uploadBytes, deleteObject, getDownloadURL } from 'firebase/storage';
 import 'firebase/database'
 
 
@@ -160,6 +160,7 @@ function Profile({pic, name, sNumber, company, ojtHours}){
 
 function UploadedDocs({fileName}){
     const [docUrl, setDocUrl] = useState(null);
+    const [reload, setReload] = useState(true);
     
     const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${fileName}`);
     getDownloadURL(fileRef)
@@ -170,8 +171,11 @@ function UploadedDocs({fileName}){
         console.error('Error retrieving download URL:', error);
     });
 
-    const handleDelete = async () => {
-
+    const handleDelete = () => {
+        deleteObject(fileRef);
+        const delayTimeout = setTimeout(() => {
+            window.location.reload();
+          }, 10);
     };
 
 

@@ -4,13 +4,14 @@ import Icon from '../../../assets/images/icon.png';
 import Footer from '../../footer/footer.js';
 import Student from '../../../assets/images/blank-profile.png';
 import ViewIcon from '../../../assets/images/view.png'
+import DeleteIcon from '../../../assets/images/delete.png'
 import DowloadIcon from '../../../assets/images/download.png'
 import { useNavigate } from 'react-router-dom';
 import {  useState, useEffect } from 'react';
 import FileContainer from '../../studentportfolio/file-container/file-container.js';
 import firebase from '../../../firebaseConfig.js';
 import { fileDb } from '../../../firebaseConfig';
-import { ref, getDownloadURL } from 'firebase/storage';
+import { ref, getDownloadURL, deleteObject } from 'firebase/storage';
 import 'firebase/database'
 
 const admin = localStorage.getItem('username')
@@ -85,6 +86,12 @@ function UploadedDocs({fileName}){
     .catch((error) => {
         console.error('Error retrieving download URL:', error);
     });
+    const handleDelete = () => {
+        deleteObject(fileRef);
+        const delayTimeout = setTimeout(() => {
+            window.location.reload();
+          }, 10);
+    };
 
 
     return(
@@ -92,15 +99,23 @@ function UploadedDocs({fileName}){
         {docUrl == null ?
          '' 
          :
-         <a className='Ud-text' href={docUrl} target='_blank'>
-         <div className='Ud-container'>
-            <div className='Ud-text'>Weekly Report - {fileName}</div>
+         <div className='Ud-big-container'>
+            <a className='Ud-text' href={docUrl} target='_blank'>
+            <div className='Ud-container'>
+            <div className='Ud-text'>{fileName}</div>
             <div className='Ud-icons'>
                 <img src={ViewIcon} width='18px' height='18px' className='Ud-view'></img>
                 <img src={DowloadIcon} width='18px' height='16px' className='Ud-download'></img>
             </div>
+            </div>
+            </a>
+            {UserName == name || admin == 'admin' ?
+            <div className='Ud-delete' on onClick={handleDelete}>
+            <img src={DeleteIcon} width='18px' height='18px' className='Ud-view'></img>
+            </div>
+            : ''
+            }
          </div>
-         </a>
          }
         </>
     );
