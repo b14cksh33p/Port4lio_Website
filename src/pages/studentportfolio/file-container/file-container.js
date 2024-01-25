@@ -19,6 +19,7 @@ const FileContainer = ({ highlightedText, isCompany}) => {
     const [isDragging, setIsDragging] = useState(false);
     const [isDisable, setIsDisable] = useState(true);
     const [isUploaded, setIsUploaded] = useState(false);
+    const [isSelected, setIsSelected] = useState(false);
     const [docUrl, setDocUrl] = useState(null);
     const [fileLink, setFileLink] = useState(`students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${highlightedText}`);
     
@@ -57,6 +58,7 @@ const FileContainer = ({ highlightedText, isCompany}) => {
       setFileUpload(selectedFile);
   
       if (selectedFile) {
+        setIsSelected(true);
         handleFilePreview(selectedFile);
         setIsDisable(false);
       }
@@ -71,6 +73,8 @@ const FileContainer = ({ highlightedText, isCompany}) => {
               getDownloadURL(snapshot.ref).then((url) => {
                   console.log(url);
                   setFileUpload(true);
+                  setIsSelected(false);
+                  handleFilePreview(null);
                   //Modal here for Successful uploading of file
                 });
               });
@@ -81,37 +85,41 @@ const FileContainer = ({ highlightedText, isCompany}) => {
     
     //File preview function
     const handleFilePreview = (selectedFile) => {
-      const reader = new FileReader();
+        if(selectedFile != null){
+          const reader = new FileReader();
       
-      reader.onload = (e) => {
-        const result = e.target.result;
-        
-        if (selectedFile.type.startsWith('image/') || selectedFile.type.startsWith('text/')) {
-          const previewElement = document.createElement(
-            selectedFile.type.startsWith('image/') ? 'img' : 'div'
-            );
-            previewElement.src = result;
-            previewElement.style.maxWidth = '100%';
-            previewElement.style.maxHeight = '180px'
-            containerRef.current.innerHTML = '';
-            containerRef.current.appendChild(previewElement);
-            if (selectedFile.type.startsWith('image/')) {
-              imgRef.current.src = UploadDoneIcon;
-              imgRefhover.current.style.display = 'none';
-            }
-        } else if (selectedFile.type === 'application/pdf') {
-          containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
-        } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-
-          containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
-        } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
-
-          containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
-        } else {
-          containerRef.current.innerHTML = `<p>Preview not available for this file type.</p>`;
+          reader.onload = (e) => {
+            const result = e.target.result;
+          if (selectedFile.type.startsWith('image/') || selectedFile.type.startsWith('text/')) {
+            const previewElement = document.createElement(
+              selectedFile.type.startsWith('image/') ? 'img' : 'div'
+              );
+              previewElement.src = result;
+              previewElement.style.maxWidth = '100%';
+              previewElement.style.maxHeight = '180px'
+              containerRef.current.innerHTML = '';
+              containerRef.current.appendChild(previewElement);
+              if (selectedFile.type.startsWith('image/')) {
+                imgRef.current.src = UploadDoneIcon;
+                imgRefhover.current.style.display = 'none';
+              }
+          } else if (selectedFile.type === 'application/pdf') {
+            containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
+          } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+  
+            containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
+          } else if (selectedFile.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+  
+            containerRef.current.innerHTML = `<a href="${result}" download="${selectedFile.name}">Download ${selectedFile.name}</a>`;
+          } else {
+            containerRef.current.innerHTML = `<p>Preview not available for this file type.</p>`;
+          }
+        };
+        reader.readAsDataURL(selectedFile);
         }
-      };
-      reader.readAsDataURL(selectedFile);
+        else{
+          containerRef.current.innerHTML = `<p>Drag and Drop <span className='text-highlighted'>${ highlightedText }</span> here or</p>`;
+        }
     };
 
     //Drag and Drop function
@@ -163,7 +171,7 @@ const FileContainer = ({ highlightedText, isCompany}) => {
 
   return (
     <div className={`FC-container ${isDragging ? 'dragging' : ''}`}>
-      <div className='FC-hover'>
+      <div className='FC-hover' style={{ display: `${isSelected ? 'block' : ''}`}}>
       <img
       ref={imgRefhover}
       src={UploadIcon}
@@ -187,7 +195,7 @@ const FileContainer = ({ highlightedText, isCompany}) => {
       </div>
       </div>
 
-      <div className='FC-front'>
+      <div className='FC-front' style={{ display: `${isSelected ? 'none' : ''}`}}>
         <img
           ref={imgRef}
           src={isUploaded? UploadDoneIcon : UploadIcon}
