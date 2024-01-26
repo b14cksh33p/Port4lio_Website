@@ -15,50 +15,61 @@
     overflow-x: hidden;
 }
 .wrapper-wR{
-    display: block;
-    justify-content: center;
-    width: 100%;   
+  display: block;
+  justify-content: center;
+  width:100%;
+  overflow-x: hidden;
+  background-color: white;  
 }
-.wR-first-section{
-    min-height: 10vh !important;
+.first-section{
+  display: flex;
+  overflow-x: hidden;
+  justify-content: space-between;
+  width: 100%;
+}
+.background img{
+  height: 100vh;
+}
+.container{
+  display: flex;
+  width: 100%;
 }
 .wR-text{
-    position:absolute;
-    width: 54%;
-    max-width: 1000px;
-    z-index: 5;
-    margin-top: 16em;
-    margin-left: 4em;
+  width: 800px;
+  margin-left: 88px;
+  margin-top: 240px;
+  z-index: 5;
 }
 .wR-text h1{
-    font-size: 5rem;
-    font-weight: 700;
+  font-size: 5rem;
+  font-weight: 700;
 }
 .wR-text p{
-    margin-top: 1em;
-    font-size: 1.72rem;
-    font-weight: 400;
-    color: var(--gray)
+  margin-top: 1em;
+  font-size: 1.72rem;
+  font-weight: 400;
+  color: var(--gray)
 }
 .wR-second-section{
   position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 100%;
   z-index: 99;
   background-color: white;
-  margin-top: 48em;
-  height: 100vh;
-
+  min-height: 450px;
 }
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); 
-    justify-content: center;
-    gap: 2em; 
-    row-gap: 2em;
-    padding-top: 4em;
-    padding-bottom: 3em;
+  display: grid;
+  position: absolute;
+  grid-template-columns: repeat(6, 1fr); 
+  justify-content: center;
+  gap: 2em;  
+  row-gap: -80px !important;
+  padding-top: 4em !important;
+  padding-bottom: 0!important;
 }
   .grid-image {
     width: 200px;
@@ -89,3 +100,29 @@
     font-size: 0.80rem;
     font-weight: 600;
   }
+  @media screen and (max-width: 480px) {
+    .background img{
+      height: 300px;
+      margin-left: -15%;
+    }
+    .wR-text{
+      width: 250px;
+      margin-left: 20px;
+      margin-top: 80px;
+    }
+    .wR-text h1{
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .wR-text p{
+      margin-top: 1em;
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: var(--gray);
+    }
+    .wR-second-section{
+      width: 100vw;
+      padding-top: 32px;
+      margin-top: 32px;
+    }
+    }

@@ -76,6 +76,10 @@ body, html{
     display: flex;
     gap: 1.6em;
 }
+.landing-navigation button{
+    display: flex;
+    gap: 1.6em;
+}
 @media screen and (max-width: 480px) {
     .landing-title{
         margin-left: 0.8em;

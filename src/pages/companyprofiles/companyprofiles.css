@@ -18,75 +18,50 @@
 .wrapper-cP{
     display: block;
     justify-content: center;
-    width: 100px !important;
-    max-width: 100px !important;
-    
-}
-.rectangle{
-    width: 800px;
-    max-width: 800px;
-    height: 150vh;
-    position: absolute;
-    border-radius:50px;
-}
-.first{
-    background-color: var(--primary);
-    transform: rotate(-40deg);
-    margin-left: 86vw;
-    top: -28%;
-    z-index: 3;
-}
-.second{
-    background-color: var(--image_bg2);
-    transform: rotate(-40deg);
-    margin-left: 82vw;
-    top: 4%;
-    z-index: 2;
-}
-.third{
-    background-color: var(--image_bg);
-    transform: rotate(-40deg);
-    margin-left: 77vw;
-    top: 36%;
-    z-index: 1;
-}
-.cP-first-section{
+    width:100%;
+    overflow-x: hidden;
+    background-color: white;  
+  }
+  .first-section{
+    display: flex;
+    overflow-x: hidden;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .background img{
     height: 100vh;
-}
-.cP-text{
-    position:absolute;
-    width: 54%;
-    max-width: 1000px;
+  }
+  .container{
+    display: flex;
+    width: 100%;
+  }
+  .cP-text{
+    width: 800px;
+    margin-left: 88px;
+    margin-top: 240px;
     z-index: 5;
-    margin-top: 16em;
-    margin-left: 4em;
-}
-.cP-text h1{
+  }
+  .cP-text h1{
     font-size: 5rem;
     font-weight: 700;
-    width: 900px;
-}
-.cP-text p{
-    margin-top: 32px;
-    font-size: 28px;
+  }
+  .cP-text p{
+    margin-top: 1em;
+    font-size: 1.72rem;
     font-weight: 400;
-    width: 840px;
     color: var(--gray)
-}
-
-.cP-second-section{
+  }
+  .cP-second-section{
     position: relative;
-    height: auto;
-    width: 100vw;
-    z-index: 99;
-    background-color: white;
-    padding-top: 160px;
-    padding-left: 104px;
-    padding-right: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    justify-content: center;
+    width: 100%;
+    z-index: 99;
+    background-color: white;
+    min-height: 450px;
+  }
 .border{
     position: absolute;
     transform: translateX(-50vw);
@@ -245,4 +220,30 @@
 .company-image:hover{
     transform:scale(1.03);
     cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+    .background img{
+      height: 300px;
+      margin-left: -15%;
+    }
+    .cP-text{
+      width: 250px;
+      margin-left: 20px;
+      margin-top: 80px;
+    }
+    .cP-text h1{
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .cP-text p{
+      margin-top: 1em;
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: var(--gray);
+    }
+    .second-section{
+      width: 100vw;
+      padding-top: 32px;
+      margin-top: 32px;
+    }
 }

@@ -8,7 +8,7 @@ import { fileDb } from '../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
 import { useState, useEffect } from 'react';
 import Student from '../../assets/images/blank-profile.png';
-
+import Background from '../../assets/images/background.svg';
 
 function ProfilePicture({uname}){
   const [pPicUrl, setPPicUrl] = useState(Student);
@@ -67,7 +67,8 @@ function StudentPortfolio() {
     return (
       <div className='wrapper-sP'>
       <Header/>
-      <div className='sP-first-section'>
+      <div className='first-section'>
+        <div className='container'>
         <div className='sP-text'>
           <h1>Welcome to the <span style={{color:'#c24914'}}>STUDENT PORT4LIO</span></h1>
           <p>This part contains links to individual students where you may
@@ -76,13 +77,9 @@ function StudentPortfolio() {
               page containing the documents and photos.
           </p>
         </div>
-          <div className=' sP-background'>
-              <div className='rectangle first'>
-              </div>
-              <div className='rectangle second'>
-              </div>
-              <div className='rectangle third'>
-              </div>
+        </div>
+          <div className='background'>
+            <img src={Background} alt='Background'/>
           </div>
       </div>
       <div className='sP-second-section'>

@@ -82,7 +82,7 @@ button:hover{
         gap: 3px;
         font-size: 0.40rem;
         text-align: center;
-        width: 250px;
+        width: 200px;
     }
     .title-header{
         margin-left: 10px;
@@ -95,7 +95,7 @@ button:hover{
         font-size: 0.72rem;;
     }
     .button-log button{
-        width: 40px;
+        width: 42px;
         font-size: 0.40rem;
         margin-bottom: 12px;
         padding-bottom: 3px; 

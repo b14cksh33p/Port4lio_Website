@@ -5,7 +5,7 @@ import Footer from '../../pages/footer/footer.js';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import firebase from '../../firebaseConfig.js';
-
+import Background from '../../assets/images/background.svg';
 
 function Assessments() {
 
@@ -46,7 +46,8 @@ function Assessments() {
     return (
       <div className='wrapper-aS'>
       <Header/>
-      <div className='aS-first-section'>
+      <div className='first-section'>
+        <div className='container'>
         <div className='aS-text'>
           <h1>Welcome to the <span style={{color:'#c24914'}}>ASSESSMENTS</span></h1>
           <p>In this part, each student answered questions that asks about
@@ -55,13 +56,9 @@ function Assessments() {
             experiences.
             </p>
         </div>
-          <div className=' aS-background'>
-              <div className='rectangle first'>
-              </div>
-              <div className='rectangle second'>
-              </div>
-              <div className='rectangle third'>
-              </div>
+        </div>
+          <div className='background'>
+            <img src={Background} alt='Background'/>
           </div>
       </div>
       <div className='aS-second-section'>

@@ -14,75 +14,52 @@
 
     overflow-x: hidden;
 }
-
 .wrapper-aS{
     display: block;
     justify-content: center;
-    width: 100px !important;
-    max-width: 100px !important;
-    
+    width:100%;
+    overflow-x: hidden;
+    background-color: white;  
 }
-.rectangle{
-    width: 800px;
-    max-width: 800px;
-    height: 150vh;
-    position: absolute;
-    border-radius:50px;
+.first-section{
+    display: flex;
+    overflow-x: hidden;
+    justify-content: space-between;
+    width: 100%;
 }
-.first{
-    background-color: var(--primary);
-    transform: rotate(-40deg);
-    margin-left: 86vw;
-    top: -28%;
-    z-index: 3;
-}
-.second{
-    background-color: var(--image_bg2);
-    transform: rotate(-40deg);
-    margin-left: 82vw;
-    top: 4%;
-    z-index: 2;
-}
-.third{
-    background-color: var(--image_bg);
-    transform: rotate(-40deg);
-    margin-left: 77vw;
-    top: 36%;
-    z-index: 1;
-}
-.aS-first-section{
+.background img{
     height: 100vh;
 }
+.container{
+    display: flex;
+    width: 100%;
+}
 .aS-text{
-    position:absolute;
-    width: 54%;
-    max-width: 1000px;
+    width: 800px;
+    margin-left: 88px;
+    margin-top: 240px;
     z-index: 5;
-    margin-top: 16em;
-    margin-left: 4em;
 }
 .aS-text h1{
     font-size: 5rem;
     font-weight: 700;
-    width: 900px;
 }
 .aS-text p{
-    margin-top: 32px;
-    font-size: 28px;
+    margin-top: 1em;
+    font-size: 1.72rem;
     font-weight: 400;
-    width: 840px;
     color: var(--gray)
 }
-
 .aS-second-section{
     position: relative;
-    min-height: 80vh;
-    height: auto;
-    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     z-index: 99;
     background-color: white;
-    padding-left: 104px;
-    padding-right: 80px;
+    min-height: 450px;
 }
 .border{
     height: 160px;
@@ -130,4 +107,30 @@ font-family: Arial, Helvetica, sans-serif;
     border-radius: 8px;
     color: white;
     font-size: 16px;
+}
+@media screen and (max-width: 480px) {
+.background img{
+    height: 300px;
+    margin-left: -15%;
+}
+.aS-text{
+    width: 250px;
+    margin-left: 20px;
+    margin-top: 80px;
+}
+.aS-text h1{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.aS-text p{
+    margin-top: 1em;
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: var(--gray);
+}
+.aS-second-section{
+    width: 100vw;
+    padding-top: 32px;
+    margin-top: 32px;
+}
 }

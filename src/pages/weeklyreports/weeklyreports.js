@@ -8,6 +8,7 @@ import { fileDb } from '../../firebaseConfig';
 import { ref, getDownloadURL } from 'firebase/storage';
 import { useState, useEffect } from 'react';
 import Student from '../../assets/images/blank-profile.png';
+import Background from '../../assets/images/background.svg';
 
 function ProfilePicture({uname}){
   const [pPicUrl, setPPicUrl] = useState(Student);
@@ -65,7 +66,8 @@ function WeeklyReports() {
     return (
       <div className='wrapper-wR'>
       <Header/>
-      <div className='wR-first-section'>
+      <div className='first-section'>
+        <div className='container'>
         <div className='wR-text'>
           <h1>Welcome to the <span style={{color:'#c24914'}}>WEEKLY REPORTS</span></h1>
           <p>This part shows sections of the google drive folders which includes
@@ -73,13 +75,9 @@ function WeeklyReports() {
             Reports from Week 1 to Week 6.
           </p>
         </div>
-          <div className=' wR-background'>
-              <div className='rectangle first'>
-              </div>
-              <div className='rectangle second'>
-              </div>
-              <div className='rectangle third'>
-              </div>
+        </div>
+          <div className='background'>
+            <img src={Background} alt='Background'/>
           </div>
       </div>
       <div className='wR-second-section'>

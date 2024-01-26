@@ -18,7 +18,7 @@ function Home() {
             </p>
           </div>
           </div>
-            <div className='home-background'>
+            <div className='background'>
               <img src={Background} alt='Background'/>
             </div>
         </div>

@@ -8,7 +8,7 @@ import {  useState, useEffect } from 'react';
 import firebase from '../../firebaseConfig.js';
 import { fileDb } from '../../firebaseConfig';
 import Student from '../../assets/images/blank-profile.png';
-
+import Background from '../../assets/images/background.svg';
 const userName = localStorage.getItem('username');
 
 function Company({name}){
@@ -164,7 +164,8 @@ function CompanyProfiles() {
     return (
       <div className='wrapper-cP'>
       <Header/>
-      <div className='cP-first-section'>
+      <div className='first-section'>
+        <div className='container'>
         <div className='cP-text'>
           <h1>Welcome to the <span style={{color:'#c24914'}}>COMPANY PROFILES</span></h1>
           <p>This part includes everything related to the Companies that each
@@ -172,13 +173,9 @@ function CompanyProfiles() {
             platforms.
           </p>
         </div>
-          <div className=' cP-background'>
-              <div className='rectangle first'>
-              </div>
-              <div className='rectangle second'>
-              </div>
-              <div className='rectangle third'>
-              </div>
+        </div>
+          <div className='background'>
+            <img src={Background} alt='Background'/>
           </div>
       </div>
       <div className='cP-second-section'>

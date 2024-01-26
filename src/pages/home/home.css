@@ -10,8 +10,6 @@
     --font: #682c0e;
     --bg_button: #c24914;
     --image_bg: #dac0a3;
-
-    
 }
 .wrapper-home{
     display: block;
@@ -26,7 +24,7 @@
     justify-content: space-between;
     width: 100%;
 }
-.home-background img{
+.background img{
     height: 100vh;
 }
 .home-text-container{
@@ -131,7 +129,7 @@
     font-size: 18px;
 }
 @media screen and (max-width: 480px) {
-    .home-background img{
+    .background img{
         height: 300px;
         margin-left: -15%;
     }
@@ -203,7 +201,7 @@
     
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-    .home-background img{
+    .background img{
         margin-left: -20%;
     }
     .home-text{
@@ -221,7 +219,7 @@
     }
 }
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
-    .home-background img{
+    .background img{
         margin-left: -30%;
     }
     .home-text{
