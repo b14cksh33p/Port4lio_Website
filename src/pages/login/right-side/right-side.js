@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import firebase from '../../../firebaseConfig.js';
 import { useNavigate } from 'react-router-dom';
 
-function RightSide() {
+function RightSide({toggleLoginModal}) {
   const [emailLogin, setEmail] = useState('');
   const [passwordLogin, setPassword] = useState('');
   const navigate = useNavigate();
@@ -96,7 +96,7 @@ function RightSide() {
           />
         </div>
         <input type='submit' className='RS-submit' value='Sign In' />
-        <div className='RS-fPassword'>
+        <div className='RS-fPassword' onClick={toggleLoginModal}>
           <p>Forgot Password?</p>
         </div>
       </form>
