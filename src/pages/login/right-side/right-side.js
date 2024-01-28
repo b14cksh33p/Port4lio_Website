@@ -24,18 +24,6 @@ function RightSide({toggleLoginModal}) {
 
   AuthCheckComponent();
 
-  const handleLogin = () => {
-    if (emailLogin && passwordLogin && emailLogin.includes('@')) {
-      alert('Login Successful!');
-      setEmail('');
-      setPassword('');
-    } else {
-      alert('Login not Successful');
-      setEmail('');
-      setPassword('');
-    }
-  };
-
   const submit = async (e) => {
     e.preventDefault();
     try {
@@ -58,7 +46,6 @@ function RightSide({toggleLoginModal}) {
         navigate('/home/' + userName);
         
 
-        
       }
     } catch (error) {
       const errorMessageDiv = document.querySelector('.RS-error-message');
