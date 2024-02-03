@@ -325,3 +325,13 @@
     filter: brightness(0.9);
     cursor: pointer;
 }
+
+.modal{
+    background-color: transparent;
+}
+
+.modal-buttons .pI-modal-cancel{
+    background-color: var(--white);
+    border: 1.5px solid var(--bg_button);
+    color: var(--bg_button);
+}
