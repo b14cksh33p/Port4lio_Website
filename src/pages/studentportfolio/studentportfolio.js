@@ -82,7 +82,7 @@ function StudentPortfolio() {
             <img src={Background} alt='Background'/>
           </div>
       </div>
-      <div className='sP-second-section'>
+      <div className='main-second-section'>
 
       <div className="grid-container">
           {childrenArray.map((name, index) => (

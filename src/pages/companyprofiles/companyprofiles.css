@@ -60,7 +60,6 @@
     width: 100%;
     z-index: 99;
     background-color: white;
-    min-height: 450px;
   }
 .border{
     position: absolute;
@@ -222,28 +221,57 @@
     cursor: pointer;
 }
 @media screen and (max-width: 480px) {
-    .background img{
-      height: 300px;
-      margin-left: -15%;
-    }
-    .cP-text{
-      width: 250px;
-      margin-left: 20px;
-      margin-top: 80px;
-    }
-    .cP-text h1{
-      font-size: 1.6rem;
-      font-weight: 700;
-    }
-    .cP-text p{
-      margin-top: 1em;
-      font-size: 0.6rem;
-      font-weight: 400;
-      color: var(--gray);
-    }
-    .second-section{
-      width: 100vw;
-      padding-top: 32px;
-      margin-top: 32px;
-    }
+.background img{
+  height: 300px;
+  margin-left: -15%;
+}
+.cP-text{
+  width: 250px;
+  margin-left: 20px;
+  margin-top: 80px;
+}
+.cP-text h1{
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.cP-text p{
+  margin-top: 1em;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--gray);
+}
+.second-section{
+  width: 100vw;
+  padding-top: 32px;
+  margin-top: 32px;
+}
+.company{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 2px;
+  width: 90vw;
+}
+.company-image{
+  height: 120px;
+  width: 120px;
+  border-radius:12px;
+  padding: 8px;
+}
+.company-description p{
+  font-size: 8px;
+  padding: 0;
+  width:145px;
+}
+.company-description h3{
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0;
+}
+.company-description h4{
+  padding-top: 16px;
+  font-size: 12px;
+  padding: 0;
+}
+    
 }

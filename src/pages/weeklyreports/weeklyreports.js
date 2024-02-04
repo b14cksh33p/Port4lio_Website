@@ -80,7 +80,7 @@ function WeeklyReports() {
             <img src={Background} alt='Background'/>
           </div>
       </div>
-      <div className='wR-second-section'>
+      <div className='main-second-section'>
       <div className="grid-container">
           {childrenArray.map((name, index) => (
             <div key={index} className="grid-item" onClick={() => saveProfile(name)}>
