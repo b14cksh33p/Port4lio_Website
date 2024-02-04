@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/port4lio-website/static/css/main.4d48ff82.css",
-    "main.js": "/port4lio-website/static/js/main.26b10ce7.js",
+    "main.js": "/port4lio-website/static/js/main.63162049.js",
     "static/js/787.798002b3.chunk.js": "/port4lio-website/static/js/787.798002b3.chunk.js",
     "static/media/person (4).png": "/port4lio-website/static/media/person (4).404a4c9cd6eec19ec5da.png",
     "static/media/person (1).png": "/port4lio-website/static/media/person (1).dc5a769ffd9e3beb5d0d.png",
@@ -23,11 +23,11 @@
     "index.html": "/port4lio-website/index.html",
     "static/media/background.svg": "/port4lio-website/static/media/background.d225cfda3bf14c3628f7f674d9794307.svg",
     "main.4d48ff82.css.map": "/port4lio-website/static/css/main.4d48ff82.css.map",
-    "main.26b10ce7.js.map": "/port4lio-website/static/js/main.26b10ce7.js.map",
+    "main.63162049.js.map": "/port4lio-website/static/js/main.63162049.js.map",
     "787.798002b3.chunk.js.map": "/port4lio-website/static/js/787.798002b3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4d48ff82.css",
-    "static/js/main.26b10ce7.js"
+    "static/js/main.63162049.js"
   ]
 }
