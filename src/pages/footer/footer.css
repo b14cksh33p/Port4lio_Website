@@ -20,7 +20,7 @@
     background-color: var(--primary);
     color: #8ACAE6;
     gap: 2em;
-    z-index: 50;
+    z-index: 2;
 }
 .company-logo{
     display: flex;

@@ -75,7 +75,7 @@
 }
 .sPr-content{
     position: relative;
-    z-index: 6;
+    z-index: 2;
     display: flex;
     width: 100%;
     align-items: start;

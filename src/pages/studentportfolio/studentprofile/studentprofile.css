@@ -58,6 +58,7 @@
 .sPr-first-section{
     display: flex;
     min-height: 100vh !important;
+    z-index: 2 !important;
 
 }
 .last {
@@ -70,7 +71,7 @@
 }
 .sPr-content{
     position: relative;
-    z-index: 6;
+    z-index: 2;
     display: flex;
     width: 100%;
     align-items: center;
@@ -119,7 +120,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    z-index: 5;
+    z-index: 3 !important;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -243,7 +244,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000000;
+    z-index: 8;
 }
 
 .eP-container{
@@ -327,11 +328,16 @@
 }
 
 .modal{
-    background-color: transparent;
+    display: fixed;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .modal-buttons .pI-modal-cancel{
     background-color: var(--white);
     border: 1.5px solid var(--bg_button);
     color: var(--bg_button);
+}
+.modal-content{
+    background-color: white;
 }

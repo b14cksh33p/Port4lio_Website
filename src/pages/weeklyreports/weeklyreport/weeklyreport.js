@@ -77,21 +77,31 @@ function Profile({pic, name, sNumber, company, ojtHours}){
 
 function UploadedDocs({fileName}){
     const [docUrl, setDocUrl] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
+
     
     const fileRef = ref(fileDb, `students_files/${name.replaceAll('_', ' ')}/${name.replaceAll('_', ' ')} - ${fileName}`);
-    getDownloadURL(fileRef, { mode: 'no-cors' })
+    getDownloadURL(fileRef)
     .then((url) => {
         setDocUrl(url);
     })
     .catch((error) => {
         console.error('Error retrieving download URL:', error);
     });
+
     const handleDelete = () => {
         deleteObject(fileRef);
         const delayTimeout = setTimeout(() => {
             window.location.reload();
           }, 10);
     };
+
+    const toggleModal = () => {
+        setModalOpen(!modalOpen);
+      };
+      const handleCancel = () => {
+        toggleModal();
+      };
 
 
     return(
@@ -110,11 +120,22 @@ function UploadedDocs({fileName}){
             </div>
             </a>
             {UserName == name || admin == 'admin' ?
-            <div className='Ud-delete' on onClick={handleDelete}>
+            <div className='Ud-delete' on onClick={toggleModal}>
             <img src={DeleteIcon} width='18px' height='18px' className='Ud-view'></img>
             </div>
             : ''
             }
+            {modalOpen && (
+              <div className='modal'>
+              <div className='modal-content'>
+                <p>Are you sure you want to delete this file?</p>
+                <div className='modal-buttons'>
+                  <button onClick={handleDelete} className='pI-modal-submit'>Delete</button>
+                  <button onClick={handleCancel} className='pI-modal-cancel'>Cancel</button>
+                </div>
+              </div>
+            </div>
+            )}
          </div>
          }
         </>

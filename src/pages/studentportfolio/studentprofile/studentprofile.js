@@ -97,7 +97,7 @@ function Profile({pic, name, sNumber, company, ojtHours}){
       
 
     return(
-    <div className='sPr-content'>
+    <div className='sPr-content' style={isModalOpen ? {zIndex:'10'} : {zIndex:'2'}}>
     <div className='sPr-content-image'>
         {pic}
     </div>
@@ -160,7 +160,6 @@ function Profile({pic, name, sNumber, company, ojtHours}){
 
 function UploadedDocs({fileName}){
     const [docUrl, setDocUrl] = useState(null);
-    const [reload, setReload] = useState(true);
     const [modalOpen, setModalOpen] = useState(false);
 
     
