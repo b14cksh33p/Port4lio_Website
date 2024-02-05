@@ -9,7 +9,7 @@ function LoginNavigation() {
                 <ul className='LN-ul'>
                     <li className='LN-ul-li'><Link to={'/'} style={{ textDecoration: 'none' }}>{'< Back'}</Link></li>
                     <div className='LN-button-login'>
-                        <a href=''>Log In</a>
+                        <a style={{color:'white'}}>Log In</a>
                     </div>
                     <div className='LN-button-signup' >
                         <Link to={'/signup/primary-information'} style={{ textDecoration: 'none' }}>Sign Up</Link>

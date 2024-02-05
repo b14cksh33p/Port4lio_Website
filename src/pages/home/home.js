@@ -45,7 +45,7 @@ function Home() {
                 <div className='image'></div>
                 <div className='home-ojt-text2'>
                   <p><b style={{color:'#c24914'}}>Ma'am Angela Israel</b></p>
-                  <p>Adviser, BSCpE 3-4</p>
+                  <p>Adviser, BSCpE 2-4</p>
                   <p>CMPE 30213 On-The-Job-Training</p>
                   <p>(OJT 1)</p>
                 </div>

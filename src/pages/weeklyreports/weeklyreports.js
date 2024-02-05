@@ -72,7 +72,7 @@ function WeeklyReports() {
           <h1>Welcome to the <span style={{color:'#c24914'}}>WEEKLY REPORTS</span></h1>
           <p>This part shows sections of the google drive folders which includes
             the pdf files of each student containing their Weekly Progress
-            Reports from Week 1 to Week 6.
+            Reports from week 1 up to their last week of internship.
           </p>
         </div>
         </div>

@@ -23,8 +23,11 @@ function Landing() {
             <div className='landing-main'>
               <div className='main-content s1'>
                 <div className='content-text right' id='content1-title'>
-                  <h4>BS in Computer Engineering 3-4</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam  voluptates sed beatae?</p>
+                  <h4>BS in Computer Engineering 2-4</h4>
+                  <p>Computer engineering combines electrical engineering and computer science to design, develop, and maintain hardware and software systems.
+                  It encompasses everything from microprocessors to computer networks and software applications.
+                  
+                  </p>
                 </div>
                 <div className='content-image p1'>
                   <img src={Image2} alt='banner'/>
@@ -65,7 +68,7 @@ function Landing() {
                     </div>
                     <div className='adviser-description'>
                       <p><b>Ma'am Angela Israel</b></p>
-                      <p>Adviser, BSCpE 3-4</p>
+                      <p>Adviser, BSCpE 2-4</p>
                       <p>CMPE 30213 On-The-Job-Training</p>
                       <p>(OJT 1)</p>
                     </div>

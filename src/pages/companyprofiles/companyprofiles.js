@@ -168,9 +168,9 @@ function CompanyProfiles() {
         <div className='container'>
         <div className='cP-text'>
           <h1>Welcome to the <span style={{color:'#c24914'}}>COMPANY PROFILES</span></h1>
-          <p>This part includes everything related to the Companies that each
-            student applied to. This also includes Companies and Webinar
-            platforms.
+          <p>This part includes the companies where BSCpE 2-4 interns applied to. This page provides
+            brief description of the companies. Just click their logo to get redirected in their company
+            website, if provided.
           </p>
         </div>
         </div>
