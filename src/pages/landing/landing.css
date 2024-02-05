@@ -102,10 +102,9 @@
     margin-top: 56px;
     margin-bottom: 180px;
 }
-.adviser-image{
+.adviser-image img{
     margin-right: 24px;   
-    width: 320px;
-    height: 320px;
+    width: 200px;
     background-color: var(--image_bg);
     border-radius: 0.3em;
 }

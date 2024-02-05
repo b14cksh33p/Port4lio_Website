@@ -4,6 +4,7 @@ import Footer from '../../pages/footer/footer.js';
 import Image1 from '../../assets/images/landing_main1.svg'
 import Image2 from '../../assets/images/landing_main2.svg'
 import Image3 from '../../assets/images/landing_main3.svg'
+import Adviser from '../../assets/images/adviser.jpg'
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
@@ -64,7 +65,7 @@ function Landing() {
                 <h4>On-The-Job-Training Adviser</h4>
                 <div className='about-adviser'>
                     <div className='adviser-image'>
-
+                    <img src={Adviser} alt='adviser'/>
                     </div>
                     <div className='adviser-description'>
                       <p><b>Ma'am Angela Israel</b></p>
