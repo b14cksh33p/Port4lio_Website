@@ -12,6 +12,7 @@ import FileContainer from '../file-container/file-container.js'
 import firebase from '../../../firebaseConfig.js';
 import { fileDb } from '../../../firebaseConfig';
 import { ref,uploadBytes, deleteObject, getDownloadURL } from 'firebase/storage';
+import Background from '../../../assets/images/background.svg';
 import 'firebase/database'
 
 
@@ -284,13 +285,8 @@ function StudentProfile() {
                 />
                 </div>
                 <div className='container'>
-                <div className=' sPr-background'>
-                    <div className='rectangle first'>
-                    </div>
-                    <div className='rectangle second'>
-                    </div>
-                    <div className='last third'>
-                    </div>
+                <div className='background sport'>
+                    <img src={Background} alt='Background'/>
                 </div>
                 </div>
             </div>

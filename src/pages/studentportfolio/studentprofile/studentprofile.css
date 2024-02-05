@@ -23,51 +23,8 @@
     justify-content: center;
     width: 100%;
 }
-.sPr-background{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    height: 800px;
-    overflow: hidden; 
-}
-
-.first{
-    background-color: var(--primary);
-    transform: rotate(-40deg);
-    margin-left: 86vw;
-    top: -28%;
-    z-index: 3;
-}
-.second{
-    background-color: var(--image_bg2);
-    transform: rotate(-40deg);
-    margin-left: 82vw;
-    top: 4%;
-    z-index: 2;
-}
-.third{
-    background-color: var(--image_bg);
-    transform: rotate(-40deg);
-    margin-left: 77vw;
-    top: 36%;
-    z-index: 1;
-}
-.sPr-first-section{
-    display: flex;
-    min-height: 100vh !important;
-    z-index: 2 !important;
-
-}
-.last {
-    width: 800px;
-    max-width: 800px;
-    height: 150vh;
-    position: absolute;
-    border-radius:50px;
-    
+.sport img{
+    margin-left: 250px;
 }
 .sPr-content{
     position: relative;
