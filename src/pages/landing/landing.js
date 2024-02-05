@@ -17,23 +17,24 @@ import Person2 from '../../assets/images/Calangian.png'
 import Person3 from '../../assets/images/Dalangin.png'
 import Person4 from '../../assets/images/DE GUZMAN.png'
 import Person5 from '../../assets/images/Dela Cruz.jpg'
-import Person6 from '../../assets/images/Fabro.jpg'
-import Person7 from '../../assets/images/Galicia.jpg'
-import Person8 from '../../assets/images/Gordora.jpg'
-import Person9 from '../../assets/images/Lambino.jpg'
-import Person10 from '../../assets/images/Llena.jpg'
+import Person6 from '../../assets/images/Erosa.jpg'
+import Person7 from '../../assets/images/Fabro.jpg'
+import Person8 from '../../assets/images/Galicia.jpg'
+import Person9 from '../../assets/images/Gordora.jpg'
+import Person10 from '../../assets/images/Lambino.jpg'
+import Person11 from '../../assets/images/Llena.jpg'
 
-import Person11 from '../../assets/images/Madelo.jpg'
-import Person12 from '../../assets/images/Mallari.jpg'
-import Person13 from '../../assets/images/Margallo.jpg'
-import Person14 from '../../assets/images/Narceda.jpg'
-import Person15 from '../../assets/images/Orozco.jpg'
-import Person16 from '../../assets/images/Palmes.jpg'
-import Person17 from '../../assets/images/Panuga.jpg'
-import Person18 from '../../assets/images/Quiñones.jpg'
-import Person19 from '../../assets/images/Raymundo.jpg'
-import Person20 from '../../assets/images/Santos.jpg'
-import Person21 from '../../assets/images/Trinidad.jpg'
+import Person12 from '../../assets/images/Madelo.jpg'
+import Person13 from '../../assets/images/Mallari.jpg'
+import Person14 from '../../assets/images/Margallo.jpg'
+import Person15 from '../../assets/images/Narceda.jpg'
+import Person16 from '../../assets/images/Orozco.jpg'
+import Person17 from '../../assets/images/Palmes.jpg'
+import Person18 from '../../assets/images/Panuga.jpg'
+import Person19 from '../../assets/images/Quiñones.jpg'
+import Person20 from '../../assets/images/Raymundo.jpg'
+import Person21 from '../../assets/images/Santos.jpg'
+import Person22 from '../../assets/images/Trinidad.jpg'
 
 function Landing() {
   const userName = localStorage.getItem('username');
@@ -245,6 +246,9 @@ function Landing() {
                   </div>
                   <div className='LP-box'>
                     <img src={Person21} style={{ width: '100%', height: '100%', objectFit: 'cover' }} ></img>
+                  </div>
+                  <div className='LP-box'>
+                    <img src={Person22} style={{ width: '100%', height: '100%', objectFit: 'cover' }} ></img>
                   </div>
                   </Slider>
                 </div>
