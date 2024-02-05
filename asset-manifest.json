@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/port4lio-website/static/css/main.8beea42a.css",
-    "main.js": "/port4lio-website/static/js/main.c7b056d6.js",
+    "main.css": "/port4lio-website/static/css/main.25cf2278.css",
+    "main.js": "/port4lio-website/static/js/main.49b9d072.js",
     "static/js/787.798002b3.chunk.js": "/port4lio-website/static/js/787.798002b3.chunk.js",
     "static/media/person (4).png": "/port4lio-website/static/media/person (4).404a4c9cd6eec19ec5da.png",
     "static/media/person (1).png": "/port4lio-website/static/media/person (1).dc5a769ffd9e3beb5d0d.png",
@@ -9,6 +9,7 @@
     "static/media/person (2).png": "/port4lio-website/static/media/person (2).9cc89bc632f3330ac1c0.png",
     "static/media/person (3).png": "/port4lio-website/static/media/person (3).b794b0505f938ed2b0ec.png",
     "static/media/landing_main3.svg": "/port4lio-website/static/media/landing_main3.b2b462c76992e82ae1362c7e312b17d0.svg",
+    "static/media/adviser.jpg": "/port4lio-website/static/media/adviser.d63dbdc80de82b81000f.jpg",
     "static/media/landing_main2.svg": "/port4lio-website/static/media/landing_main2.f61ec6d4ac7838a52dde8d695fea13cc.svg",
     "static/media/CE-logo.png": "/port4lio-website/static/media/CE-logo.7db5d5f3a40b743c4599.png",
     "static/media/CPE-logo.png": "/port4lio-website/static/media/CPE-logo.d54df236d7a841cbdff1.png",
@@ -22,12 +23,12 @@
     "static/media/icon.svg": "/port4lio-website/static/media/icon.1e26df605c8b003da73f1d7320936707.svg",
     "index.html": "/port4lio-website/index.html",
     "static/media/background.svg": "/port4lio-website/static/media/background.a9f1b0e6277f15ed3c611b626288d751.svg",
-    "main.8beea42a.css.map": "/port4lio-website/static/css/main.8beea42a.css.map",
-    "main.c7b056d6.js.map": "/port4lio-website/static/js/main.c7b056d6.js.map",
+    "main.25cf2278.css.map": "/port4lio-website/static/css/main.25cf2278.css.map",
+    "main.49b9d072.js.map": "/port4lio-website/static/js/main.49b9d072.js.map",
     "787.798002b3.chunk.js.map": "/port4lio-website/static/js/787.798002b3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8beea42a.css",
-    "static/js/main.c7b056d6.js"
+    "static/css/main.25cf2278.css",
+    "static/js/main.49b9d072.js"
   ]
 }
