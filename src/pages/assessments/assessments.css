@@ -59,7 +59,6 @@
     width: 100%;
     z-index: 99;
     background-color: white;
-    min-height: 450px;
 }
 .border{
     height: 160px;
@@ -71,21 +70,24 @@
 }
 .aS-table-container{
     display: flex;
+    width: 100%;
+    margin-left: 150px;
+    margin-top: 150px;
+    margin-bottom: 120px;
+
     justify-content: center;
-    align-items: center;
-    margin-right: 8vw;
-    margin-left: 12vw;
-    padding: 24vh 0 12vh 0;
+
 }
 .aS-table {
-    width: 100vw;
+    width: 80vw;
     border-collapse: collapse;
-    margin-top: 104px; /* Adjust as needed */
+    justify-content: center;
 }
 
 /* Header row styles */
 .aS-table th {
-padding: 16px;
+padding-left: 18px;
+padding-bottom: 20px;
 text-align: left;
 font-size: 18px;
 font-family: Arial, Helvetica, sans-serif;
@@ -130,7 +132,5 @@ font-family: Arial, Helvetica, sans-serif;
 }
 .aS-second-section{
     width: 100vw;
-    padding-top: 32px;
-    margin-top: 32px;
 }
 }

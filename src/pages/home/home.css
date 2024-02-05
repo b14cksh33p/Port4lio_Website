@@ -100,9 +100,8 @@
     align-items: center;
     gap: 16px;
 }
-.image{
-    height: 225px;
-    width: 225px;
+.image img{
+    width: 150px;
     background-color:var(--image_bg);
 }
 .home-ojt-text2{
@@ -186,7 +185,7 @@
     .adviser-container{
         gap: 1px;
     }
-    .image{
+    .image img{
         height: 66px;
         width: 66px;
         background-color:var(--image_bg);

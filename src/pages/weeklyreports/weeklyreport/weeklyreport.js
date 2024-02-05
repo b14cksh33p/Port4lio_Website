@@ -13,6 +13,7 @@ import firebase from '../../../firebaseConfig.js';
 import { fileDb } from '../../../firebaseConfig';
 import { ref, getDownloadURL, deleteObject } from 'firebase/storage';
 import 'firebase/database'
+import Background from '../../../assets/images/background.svg';
 
 const admin = localStorage.getItem('username')
 const name = localStorage.getItem('profile');
@@ -200,13 +201,8 @@ function WeeklyReport() {
                 />
                 </div>
                 <div className='container'>
-                <div className=' sPr-background'>
-                    <div className='rectangle first'>
-                    </div>
-                    <div className='rectangle second'>
-                    </div>
-                    <div className='last third'>
-                    </div>
+                <div className='background sport'>
+                    <img src={Background} alt='Background'/>
                 </div>
                 </div>
             </div>

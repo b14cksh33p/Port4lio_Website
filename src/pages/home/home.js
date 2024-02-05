@@ -2,7 +2,7 @@ import './home.css'
 import Header from '../header/header.js';
 import Footer from '../../pages/footer/footer.js';
 import Background from '../../assets/images/background.svg';
-
+import Adviser from '../../assets/images/adviser.jpg'
 
 function Home() {
     return (
@@ -42,7 +42,9 @@ function Home() {
             <div className='row3'>
               
               <div className='adviser-container'>
-                <div className='image'></div>
+                <div className='image'>
+                  <img src={Adviser} alt='adviser'/>
+                </div>
                 <div className='home-ojt-text2'>
                   <p><b style={{color:'#c24914'}}>Ma'am Angela Israel</b></p>
                   <p>Adviser, BSCpE 2-4</p>
