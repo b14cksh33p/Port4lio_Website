@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/port4lio-website/static/css/main.2b945e5f.css",
-    "main.js": "/port4lio-website/static/js/main.582c2f6e.js",
+    "main.css": "/port4lio-website/static/css/main.bf509689.css",
+    "main.js": "/port4lio-website/static/js/main.23ec1dc3.js",
     "static/js/787.798002b3.chunk.js": "/port4lio-website/static/js/787.798002b3.chunk.js",
     "static/media/Erosa.jpg": "/port4lio-website/static/media/Erosa.6065d3e4c8925b4052bc.jpg",
     "static/media/person (4).png": "/port4lio-website/static/media/person (4).404a4c9cd6eec19ec5da.png",
@@ -14,6 +14,7 @@
     "static/media/Trinidad.jpg": "/port4lio-website/static/media/Trinidad.95309a292dba019fc1bb.jpg",
     "static/media/Llena.jpg": "/port4lio-website/static/media/Llena.39aa6a5b90131b039547.jpg",
     "static/media/Margallo.jpg": "/port4lio-website/static/media/Margallo.c6e42742ca33c08d67e7.jpg",
+    "static/media/classpic.jpg": "/port4lio-website/static/media/classpic.68c6c602b35450105a1c.jpg",
     "static/media/Santos.jpg": "/port4lio-website/static/media/Santos.5d53d2df4c3b9d863648.jpg",
     "static/media/Raymundo.jpg": "/port4lio-website/static/media/Raymundo.c0662ac09a6615486dee.jpg",
     "static/media/Quiñones.jpg": "/port4lio-website/static/media/Quiñones.e5b5bb6976e930d8ba6b.jpg",
@@ -31,6 +32,7 @@
     "static/media/DE GUZMAN.png": "/port4lio-website/static/media/DE GUZMAN.db004cf63269b3e44721.png",
     "static/media/Palmes.jpg": "/port4lio-website/static/media/Palmes.9e703855f578c3d318a1.jpg",
     "static/media/Abuloc III.png": "/port4lio-website/static/media/Abuloc III.a4fc045bf06e67e1bcef.png",
+    "static/media/cpe2-4.png": "/port4lio-website/static/media/cpe2-4.ff444ad679c34d100705.png",
     "static/media/CPE-logo.png": "/port4lio-website/static/media/CPE-logo.d54df236d7a841cbdff1.png",
     "static/media/Orozco.jpg": "/port4lio-website/static/media/Orozco.37978eb1507e5a010d86.jpg",
     "static/media/upload-done.png": "/port4lio-website/static/media/upload-done.8b732e63998782ea00f4.png",
@@ -49,12 +51,12 @@
     "static/media/slick.woff": "/port4lio-website/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/port4lio-website/index.html",
     "static/media/background.svg": "/port4lio-website/static/media/background.a9f1b0e6277f15ed3c611b626288d751.svg",
-    "main.2b945e5f.css.map": "/port4lio-website/static/css/main.2b945e5f.css.map",
-    "main.582c2f6e.js.map": "/port4lio-website/static/js/main.582c2f6e.js.map",
+    "main.bf509689.css.map": "/port4lio-website/static/css/main.bf509689.css.map",
+    "main.23ec1dc3.js.map": "/port4lio-website/static/js/main.23ec1dc3.js.map",
     "787.798002b3.chunk.js.map": "/port4lio-website/static/js/787.798002b3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2b945e5f.css",
-    "static/js/main.582c2f6e.js"
+    "static/css/main.bf509689.css",
+    "static/js/main.23ec1dc3.js"
   ]
 }
