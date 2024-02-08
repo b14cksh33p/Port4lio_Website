@@ -27,7 +27,7 @@
   overflow-x: hidden;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 200px;
+  margin-bottom: 80px;
 }
 #sport img{
   margin-left: 2000px;
@@ -63,18 +63,18 @@
   width: 100%;
   z-index: 99;
   background-color: white;
-  margin-bottom: 200px;
+  margin-bottom: 80px;
 }
 .grid-container {
-  width: 100%;
+  width: 90%;
   display: grid;
-  position: absolute;
   grid-template-columns: repeat(6, 1fr); 
   justify-content: center;
-  gap: 30px;  
+  gap: 10px;  
   row-gap: -80px;
   padding-bottom: 0;
-  margin-left: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 #sP-profile{
   width: 200px;
