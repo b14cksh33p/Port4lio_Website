@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/port4lio-website/static/css/main.2c511c78.css",
-    "main.js": "/port4lio-website/static/js/main.fe64c0fa.js",
+    "main.js": "/port4lio-website/static/js/main.1c2eaae6.js",
     "static/js/787.798002b3.chunk.js": "/port4lio-website/static/js/787.798002b3.chunk.js",
     "static/media/Erosa.jpg": "/port4lio-website/static/media/Erosa.6065d3e4c8925b4052bc.jpg",
     "static/media/person (4).png": "/port4lio-website/static/media/person (4).404a4c9cd6eec19ec5da.png",
@@ -43,18 +43,18 @@
     "static/media/arrow.png": "/port4lio-website/static/media/arrow.ec802ac763bf6256557e.png",
     "static/media/blank-profile.png": "/port4lio-website/static/media/blank-profile.6dc4b82c86e5a5178bfc.png",
     "static/media/slick.svg": "/port4lio-website/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/icon.svg": "/port4lio-website/static/media/icon.1e26df605c8b003da73f1d7320936707.svg",
+    "static/media/icon.svg": "/port4lio-website/static/media/icon.eaa1bd88c061e1dcad8ceb848ab770ad.svg",
     "static/media/slick.eot": "/port4lio-website/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/port4lio-website/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/port4lio-website/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/port4lio-website/index.html",
-    "static/media/background.svg": "/port4lio-website/static/media/background.a9f1b0e6277f15ed3c611b626288d751.svg",
+    "static/media/background.svg": "/port4lio-website/static/media/background.d225cfda3bf14c3628f7f674d9794307.svg",
     "main.2c511c78.css.map": "/port4lio-website/static/css/main.2c511c78.css.map",
-    "main.fe64c0fa.js.map": "/port4lio-website/static/js/main.fe64c0fa.js.map",
+    "main.1c2eaae6.js.map": "/port4lio-website/static/js/main.1c2eaae6.js.map",
     "787.798002b3.chunk.js.map": "/port4lio-website/static/js/787.798002b3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2c511c78.css",
-    "static/js/main.fe64c0fa.js"
+    "static/js/main.1c2eaae6.js"
   ]
 }
