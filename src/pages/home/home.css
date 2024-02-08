@@ -58,9 +58,8 @@
     background-color: white;
     margin-top: 100px;
 }
-.home-image{
+.home-image img{
     width: 500px;
-    height: 320px;
 }
 .row0{
     display: flex;
@@ -98,7 +97,7 @@
 .adviser-container{
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 88px;
 }
 .image img{
     width: 150px;
