@@ -75,22 +75,19 @@ function Signup() {
             const validMessageDiv = document.querySelector('.SU-valid-message');
             validMessageDiv.style.display = 'block';
             validMessageDiv.innerHTML = 'Account Created Successfully';
-
+            localStorage.setItem('username', userName);
+            localStorage.setItem('uname', name);
+            username.set({
+              name: name,
+            });
+            uname.set('name');
+            udata.set({
+              name: name,
+            });
             setTimeout(() => {
-              localStorage.setItem('username', userName);
-              localStorage.setItem('uname', name);
               navigate('/signup/personal-information/' + userName);
               window.location.reload();
-              username.set({
-                name: name,
-              });
-              uname.set('name');
-              udata.set({
-                name: name,
-              });
-            }, 2000);
-            
-            
+            }, 1000);
           }
         }
         catch (error){

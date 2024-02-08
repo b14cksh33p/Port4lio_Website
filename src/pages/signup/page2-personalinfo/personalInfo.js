@@ -20,14 +20,16 @@ function PersonalInfo() {
   const uName = localStorage.getItem('uname');
   const lName = localStorage.getItem('lname');
   const username = firebase.database().ref('Users/'+userName);
-  const sRoster = firebase.database().ref('SignedUp/' +studentNo);
   const udata = firebase.database().ref('UserData/'+uName.replaceAll(',',''));
   const uname = firebase.database().ref('UserNames/'+uName);
+  
   const [modalOpen, setModalOpen] = useState(false);
   const [studentNo, setStudentNo] = useState('')
   const [hte, setHte] = useState('')
   const [cAddress, setCAddress] = useState('')
   const [ojtHours, setOjtHours] = useState('')
+
+  const sRoster = firebase.database().ref('SignedUp/' +studentNo);
 
 
     const toggleModal = () => {
@@ -54,6 +56,7 @@ function PersonalInfo() {
           HTEAddress: cAddress,
           OJTHours: ojtHours,
         });
+      firebase.auth().signOut()
       localStorage.clear('username');
       localStorage.clear('uname');
       toggleModal();
