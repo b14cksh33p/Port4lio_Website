@@ -1,4 +1,3 @@
-Port4lio
 
 ## Client
 BSCoE 2-4 - The selected client base for our website, Port4lio, primarily consists of Bachelor of Science in Computer Engineering (BSCpE) students in their second to fourth years of study (BSCpE 2-4). Port4lio is meticulously crafted to cater specifically to the unique needs and aspirations of these students, providing a tailored platform for showcasing their academic accomplishments, projects, and experiences as they progress through their computer engineering education and professional development journey.
@@ -8,7 +7,7 @@ It is a dedicated website designed to meet the specific needs of Computer Engine
 
 ## Task Completed
 
-*Front-end prototypes for the following pages of Port4lio Website:
+- Front-end prototypes for the following pages of Port4lio Website:
 	1. Front-end design for all pages:
 		- Landing Page
 		- Home
@@ -21,7 +20,7 @@ It is a dedicated website designed to meet the specific needs of Computer Engine
 	2. Iplementation of Back-end to the front-end.
 	3. Responsiveness for Landing Page (only)
 Note: BlackSheep ought to improve and release the version of the website that is applicable to all devices for the users to enjoy.
-*Back-end Task completed:
+- Back-end Task completed:
 	1. Backend for all pages Guest, Logged In, and Admin:
 		- Signup
 		- Login
