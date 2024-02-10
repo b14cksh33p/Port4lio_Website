@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+Port4lio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Client
+BSCoE 2-4 - The selected client base for our website, Port4lio, primarily consists of Bachelor of Science in Computer Engineering (BSCpE) students in their second to fourth years of study (BSCpE 2-4). Port4lio is meticulously crafted to cater specifically to the unique needs and aspirations of these students, providing a tailored platform for showcasing their academic accomplishments, projects, and experiences as they progress through their computer engineering education and professional development journey.
 
-## Available Scripts
+## Project Description
+It is a dedicated website designed to meet the specific needs of Computer Engineering (CpE) students in their 2nd year OJT - especifically for section 2-4. Tailored to cater to the requirements of portfolio development for their on-the-job training (OJT) endeavors, this platform aims to provide a comprehensive and user-friendly space for CpE students to showcase their academic achievements, projects, and practical experiences. The website will feature customizable templates and tools that allow students to create professional portfolios, highlighting their skills, accomplishments, and contributions during their OJT. Additionally, the platform will offer guidance on structuring OJT documents, incorporating industry best practices, and preparing for professional milestones. With a focus on ease of use and relevance to CpE students' career goals, the CpE Student Port4lio strives to empower individuals in their academic and professional journey by providing a centralized resource for portfolio development and OJT documentation.
 
-In the project directory, you can run:
+## Task Completed
 
-### `npm start`
+*Front-end prototypes for the following pages of Port4lio Website:
+	1. Front-end design for all pages:
+		- Landing Page
+		- Home
+		- Login
+		- Signup
+		- Student Profile and Student Portfolio
+		- Assessment
+		- Company Profile
+		- Weekly Reports
+	2. Iplementation of Back-end to the front-end.
+	3. Responsiveness for Landing Page (only)
+Note: BlackSheep ought to improve and release the version of the website that is applicable to all devices for the users to enjoy.
+*Back-end Task completed:
+	1. Backend for all pages Guest, Logged In, and Admin:
+		- Signup
+		- Login
+		- Landing
+		- Home
+		- Student Portfolion & Student Profile
+		- Weekly Reports
+		- Companies
+		- Assessment
+	2. Firebase database integration.
+	3. Firebase Storage integration for files upload and download.
+	4. User authentication and forgot password functionality.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the project repository from GitHub:	
 
-### `npm test`
+   ```
+   git clone https://github.com/b14cksh33p/Port4lio_Website/tree/database
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Navigate to the project folder:
 
-### `npm run build`
+   ```
+   cd Port4lio_Website
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install project dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the development server:
 
-### `npm run eject`
+   ```
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. Access the website:
+ 
+   ```
+   landing - http://localhost:3000/port4lio-website
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Note: Please create an account to access the contents and pages within the website. For Ms. Khan contact us for Admin account.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Access deployed website
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Follow this link:
 
-## Learn More
+	https://blacksheep-group.github.io/port4lio-website/#/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- HTML
+- CSS
+- JavaScript
+- React JS
+- Firebase
+- Github
 
-### Code Splitting
+## Contributors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Erosa, Marvin James A.
+- Gordora, Xyra Shenne A.
+- Palmes, Roderick B.
+- Santos, Louisa Reighn A.
+- Zabala, Emmanuel Adrianne A.
