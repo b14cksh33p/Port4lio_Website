@@ -1,0 +1,80 @@
+:root{
+    --background: #F9E0AE;
+    --black-text: #000;
+    --primary-dark: #682C0E;
+    --primary-light: #C24914;
+    --white: #FFFFFF;
+    --input-box: #EAF0F7;
+    --gray: #8E959B;
+    --pale-red: #fedce0;
+    --red: #e40415;
+
+}
+
+.RS-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 425px;
+}
+
+.RS-input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.RS-email, .RS-password{
+	border: none;
+	outline: none;
+	border-radius: 15px;
+    width: 300px;
+    height: 45px;
+    background-color: var(--input-box);
+    padding-left: 8px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.RS-submit{
+    margin-top: 55px;
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    border: none;
+	outline: none;
+    color: var(--white);
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background-color: var(--primary-light);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.RS-submit:hover{
+    background-color: var(--primary-dark);
+}
+
+.RS-error-message{
+    font: 400 12px 'Arial';
+    width: 300px;
+    height: auto;
+    padding: 15px;
+    background-color: var(--pale-red);
+    color: var(--red);
+    border: 1.2px solid var(--red);
+    margin-bottom: 1rem;
+    display: none;
+}
+.RS-fPassword{
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #8E959B;
+}
+.RS-fPassword:hover{
+    color: var(--primary-light);
+    cursor: pointer;
+}

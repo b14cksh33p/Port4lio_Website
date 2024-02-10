@@ -1,0 +1,136 @@
+:root{
+    --dark-orange-color:#FB8500;
+    --black:#000000;
+    --sky-blue:#8ACAE6;
+    --orange:#DBAA5A;
+    --gray:#605757;
+    --primary:#f9e0ae; 
+    --gradient-background-color: linear-gradient(107deg, rgba(242, 202, 138, 0.92) 2.72%, rgba(245, 245, 245, 0.06) 94.02%, rgba(217, 217, 217, 0.00) 94.02%);   
+    --gradient-header-color: linear-gradient(to bottom, var(--black), var(--dark-orange-color));
+    --font: #682c0e;
+    --bg_button: #c24914;
+    --image_bg: #dac0a3;
+    --image_bg2: #eadbc8; 
+
+    overflow-x: hidden;
+}
+.wrapper-aS{
+    display: block;
+    justify-content: center;
+    width:100%;
+    overflow-x: hidden;
+    background-color: white;  
+}
+.first-section{
+    display: flex;
+    overflow-x: hidden;
+    justify-content: space-between;
+    width: 100%;
+}
+.background img{
+    height: 100vh;
+}
+.container{
+    display: flex;
+    width: 100%;
+}
+.aS-text{
+    width: 800px;
+    margin-left: 88px;
+    margin-top: 240px;
+    z-index: 5;
+}
+.aS-text h1{
+    font-size: 5rem;
+    font-weight: 700;
+}
+.aS-text p{
+    margin-top: 1em;
+    font-size: 1.72rem;
+    font-weight: 400;
+    color: var(--gray)
+}
+.aS-second-section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 99;
+    background-color: white;
+}
+.border{
+    height: 160px;
+    width: 200vw;
+    margin-top: 12vh;
+    border: none !important;
+    background-color: var(--image_bg);
+    margin-bottom: 100vh !important;
+}
+.aS-table-container{
+    display: flex;
+    width: 100%;
+    margin-left: 150px;
+    margin-top: 150px;
+    margin-bottom: 120px;
+
+    justify-content: center;
+
+}
+.aS-table {
+    width: 80vw;
+    border-collapse: collapse;
+    justify-content: center;
+}
+
+/* Header row styles */
+.aS-table th {
+padding-left: 18px;
+padding-bottom: 20px;
+text-align: left;
+font-size: 18px;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Data row styles */
+.aS-table td {
+padding: 20px;
+font-size: 18px;
+font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#view-details{
+    padding: 4px 20px;
+    transform: translateX(-3vw);
+    border: none;
+    background-color: var(--bg_button);
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+}
+@media screen and (max-width: 480px) {
+.background img{
+    height: 300px;
+    margin-left: -15%;
+}
+.aS-text{
+    width: 250px;
+    margin-left: 20px;
+    margin-top: 80px;
+}
+.aS-text h1{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.aS-text p{
+    margin-top: 1em;
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: var(--gray);
+}
+.aS-second-section{
+    width: 100vw;
+}
+}

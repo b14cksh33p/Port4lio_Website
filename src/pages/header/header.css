@@ -1,0 +1,153 @@
+:root{
+    --dark-orange-color:#FB8500;
+    --black:#000000;
+    --sky-blue:#8ACAE6;
+    --orange:#DBAA5A;
+    --gray:#605757;
+    --primary:#f9e0ae; 
+    --gradient-background-color: linear-gradient(107deg, rgba(242, 202, 138, 0.92) 2.72%, rgba(245, 245, 245, 0.06) 94.02%, rgba(217, 217, 217, 0.00) 94.02%);   
+    --gradient-header-color: linear-gradient(to bottom, var(--black), var(--dark-orange-color));
+    --font: #682c0e;
+    --bg_button: #c24914;
+   
+}
+.header{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 60px;
+    margin-top: 32px;
+    color: #8ACAE6;
+    z-index: 10;
+}
+.title-header{
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    margin-left: 80px;
+}
+.title-header img{
+    margin-bottom: 16px;
+    width:40px;
+}
+.header h1{
+    font-size: 1.76rem;
+    font-weight: 700;
+    color: var(--font);
+}
+.navigation{
+    display: flex;
+    font-size: 0.88rem;
+    gap: 60px;
+}
+.navigation button:hover{
+    filter: brightness(0.9);
+}
+.navigation a{
+    transition-duration: 30ms;
+}
+.navigation a:hover{
+    cursor: pointer;
+    transform:scale(1.05)
+}
+
+.button-log button{
+    background-color: var(--bg_button);
+    color: white;
+    font-size: 0.88rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.48em;
+    letter-spacing: 0.05em;
+    padding-left: 1.2em;
+    padding-top: 0.32em;
+    padding-right: 1.2em;
+    padding-bottom: 0.32em;
+    margin-right: 120px;
+}
+button:hover{
+    filter: brightness(0.9);
+}
+.header img:hover{
+    cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+    .header{
+        gap: 8px;
+        margin-top: 16px;
+    }
+    .navigation{
+        gap: 3px;
+        font-size: 0.40rem;
+        text-align: center;
+        width: 200px;
+    }
+    .title-header{
+        margin-left: 10px;
+    }
+    .title-header img{
+        width: 16px;
+        margin-top: 4px;
+    }
+    .header h1{
+        font-size: 0.72rem;;
+    }
+    .button-log button{
+        width: 42px;
+        font-size: 0.40rem;
+        margin-bottom: 12px;
+        padding-bottom: 3px; 
+        margin-right: 12px;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .header{
+        gap: 12px;
+
+    }
+    .navigation{
+        gap: 14px;
+        font-size: 0.64rem;
+        max-width: 320px;
+        text-align: center;
+    }
+    .title-header img{
+        width: 26px;
+    }
+    .header h1{
+        font-size: 1.04rem;;
+    }
+    .button-log button{
+        width: 58px;
+        font-size: 0.64rem;
+    
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .header{
+        gap: 20px;
+    }
+    .navigation{
+        gap: 20px;
+        font-size: 0.72rem;
+    }
+    .title-header img{
+        width: 32px;
+    }
+    .header h1{
+        font-size: 1rem;;
+    }
+    .button-log button{
+        font-size: 0.72rem;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .header{
+        gap: 40px;
+    }
+    .navigation{
+        gap: 32px;
+    }
+}

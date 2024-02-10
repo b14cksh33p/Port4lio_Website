@@ -1,0 +1,333 @@
+:root{
+    --dark-orange-color:#FB8500;
+    --black:#000000;
+    --sky-blue:#8ACAE6;
+    --orange:#DBAA5A;
+    --gray:#605757;
+    --primary:#f9e0ae; 
+    --gradient-background-color: linear-gradient(107deg, rgba(242, 202, 138, 0.92) 2.72%, rgba(245, 245, 245, 0.06) 94.02%, rgba(217, 217, 217, 0.00) 94.02%);   
+    --gradient-header-color: linear-gradient(to bottom, var(--black), var(--dark-orange-color));
+    --font: #682c0e;
+    --bg_button: #c24914;
+    --image_bg: #dac0a3;
+   
+}
+.wrapper-landing{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+}
+.body{
+    width: 72%;
+    max-width: 1200px;
+    margin-top: 150px;
+}
+.landing-main{
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+.main-content{
+    display: flex;
+    max-width: 1000px; 
+    margin-bottom: 180px;
+}
+.s1{
+    gap: 6.4em; 
+}
+.s2{
+    gap: 3.2em;
+}
+.s3{
+    gap: 2.2em;
+}
+.content-text h4{
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 3.2rem;
+    width: 300px;
+}
+.s3 h4{
+    width: 400px;
+}
+.content-text p{
+    margin-top: 0.88em;
+    font-size: 1.04rem;
+    font-weight: 400;
+    color: var(--gray);
+    width: 400px
+}
+.content-text button{
+    background-color: var(--bg_button);
+    color: white;
+    font-size: 0.96rem;
+    font-weight: 700;
+    border: none;
+    margin-top: 0.80em;
+    border-radius: 1.6em;
+    letter-spacing: 0.05em;
+    padding: 0.72em 5.72em;
+}
+.content-text button:hover{
+    filter: brightness(0.9);
+}
+.landing-about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.landing-about h3{
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--bg_button);
+}
+.landing-about h4{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.landing-about p{
+    max-width: 1200px;
+    font-size: 1.04rem;
+    font-weight: 400;
+    color: var(--gray);
+}
+
+.about-adviser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 56px;
+    margin-bottom: 180px;
+}
+.adviser-image img{
+    margin-right: 24px;   
+    width: 200px;
+    background-color: var(--image_bg);
+    border-radius: 0.3em;
+}
+
+/*CAROUSEL*/
+
+.LP-carousel{
+    width: 100%;
+    height: 400px;
+}
+.LP-box{
+    background-color: var(--orange);
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+.slick-slide div{
+    margin: 0 1rem 0 0;
+}
+.slick-dots li.slick-active button:before{
+    color: var(--bg_button) !important;
+}
+.slick-dots li:not(.slick-active) button:before {
+    color: var(--gray) !important;
+}
+.slick-dots li:not(.slick-active):hover button:before {
+    color: var(--bg_button) !important;
+}
+.slick-dots li button:before{
+    color: #fff !important;
+    font-size: 0.75rem !important;
+    top: 1.5rem !important;
+}
+.rotate-180 {
+    transform: rotate(180deg) !important;
+  }
+
+@media screen and (max-width: 480px) {
+    .body{
+        margin-top: 60px;
+    }
+    .main-content{
+        max-width: 250px;
+        margin-bottom: 60px;
+    }
+    .content-text h4{
+        font-size: 0.8rem;
+        width: 100px;
+        line-height: 1.36rem;
+    }
+    .content-text p{
+        font-size: 0.6rem;
+        width: 100px
+    }
+    .s1{
+        gap: 0.6em; 
+    }
+    .s2{
+        gap: 1.2em;
+        line-height: 0.8rem;
+    }
+    .s3{
+        gap: 0.2em;
+        
+    }
+    .s1 img{
+        width: 128px;
+    }
+   .s2 img{
+        width: 136px;
+    }
+   .s3 img{
+        width: 136px;
+    }
+    .s3 h4{
+        width: 136px;
+    }
+    .content-text button{
+        font-size: 0.6rem;
+        border-radius: 1.2em;
+        padding-right: 2em;
+        padding-left: 2em;
+    }
+    .landing-about h3{
+        font-size: 2rem;
+    }
+    .landing-about h4{
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .landing-about p{
+        max-width: 200px;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: var(--gray);
+    }
+    .about-adviser{
+        margin-top: 16px;
+        margin-bottom: 100px;
+    }
+    .adviser-description{
+        max-width: 100px;
+    }
+    .adviser-description p{
+        font-size: 0.6rem;
+        line-height: 0.96rem;
+    }
+    .adviser-image{
+        width: 100px;
+        height: 100px;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .body{
+        margin-top: 100px;
+    }
+    .main-content{
+        max-width: 400px;
+        margin-bottom: 100px;
+    }
+    .content-text h4{
+        font-size: 1.4rem;
+        width: 200px;
+        line-height: 1.88rem;
+    }
+    .content-text p{
+        font-size: 0.8rem;
+        width: 220px
+    }
+    .s1{
+        gap: 0.1em; 
+    }
+    .s2{
+        gap: 1.2em;
+    }
+    .s3{
+        gap: 0.2em;
+    }
+    .s1 img{
+        width: 196px;
+    }
+   .s2 img{
+        width: 200px;
+    }
+   .s3 img{
+        width: 200px;
+    }
+    .s3 h4{
+        width: 200px;
+    }
+    .content-text button{
+        font-size: 0.8rem;
+        margin-top: 0.80em;
+        border-radius: 1.6em;
+        padding-right: 5em;
+        padding-left: 5em;
+    }
+    .landing-about h3{
+        font-size: 2.6rem;
+    }
+    .landing-about h4{
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+    .landing-about p{
+        max-width: 400px;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: var(--gray);
+    }
+    .adviser-description{
+        max-width: 180px;
+    }
+    .adviser-image{
+        width: 180px;
+        height: 180px;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .main-content{
+        max-width: 600px;
+        margin-bottom: 150px;
+    }
+    .content-text h4{
+        font-size: 2rem;
+    }
+    .content-text p{
+        width: 372px
+    }
+    .s1{
+        gap: 0.8em; 
+    }
+    .s2{
+        gap: 2em;
+    }
+    .s3{
+        gap: 0.2em;
+    }
+    .s1 img{
+        width: 250px;
+    }
+   .s2 img{
+        width: 350px;
+    }
+   .s3 img{
+        width: 325px;
+    }
+    .s3 h4{
+        width: 280px;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .main-content{
+         max-width: 800px;
+         margin-bottom: 150px;
+    }
+    .s1{
+        gap: 2em; 
+    }
+    .s2 img{
+        width: 450px;
+    }
+    .s3 img{
+        width: 450px;
+    }
+}
